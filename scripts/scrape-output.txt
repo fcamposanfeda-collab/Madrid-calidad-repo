@@ -1,0 +1,134 @@
+﻿
+========== https://madridcalidad.es/ 200 ==========
+LENGTH: 196837
+TITLE: Servicios de construcci├│n en Madrid | Madrid Calidad Constructiva
+DESCRIPTION: Ofrecemos servicios de construcci├│n de alta calidad en Madrid, con atenci├│n personalizada y procesos claros para garantizar proyectos duraderos y seguros. Conf├¡a en nuestra experiencia para tus necesidades de construcci├│n.
+OG_IMAGE: undefined
+GENERATOR: Hostinger Website Builder
+INTERNAL_LINKS: https://madridcalidad.es/ | /_astro-1779873139733/_..D5QYY8uW.css | /_astro-1779873139733/cookieconsent.CpXrOrr9.css | /_astro-1779873139733/Page.DNU3qLXz.css | / | /como-lo-hacemos | /articulos | /contacto | /terminos-y-condiciones | /politica-de-privacidad | /politica-de-cookies
+IMAGES: https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/TIEPVkHe2s8H0jez/logo-madrid-calidad-WNHOi4ILpZcoMBAY.png | https://images.unsplash.com/photo-1654302861319-849671c254cf?auto=format&amp;fit=crop&amp;w=1920 | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=328,fit=crop/TIEPVkHe2s8H0jez/tramites-Kqo04dOpjT5RhVCW.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=329,fit=crop/TIEPVkHe2s8H0jez/accesibilidad-1R10GdzGIltnWvMh.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=160,fit=crop/TIEPVkHe2s8H0jez/accesibilidad-1R10GdzGIltnWvMh.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=328,fit=crop/TIEPVkHe2s8H0jez/enfoque-eisJGrl8Md6XqHah.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=329,fit=crop/TIEPVkHe2s8H0jez/financiacia3n-ZPICi4tMvkfcHY6H.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=167,fit=crop/TIEPVkHe2s8H0jez/financiacia3n-ZPICi4tMvkfcHY6H.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=331,fit=crop/TIEPVkHe2s8H0jez/soluciones-o8DVwlj84YN7TmpS.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=166,fit=crop/TIEPVkHe2s8H0jez/soluciones-o8DVwlj84YN7TmpS.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=330,fit=crop/TIEPVkHe2s8H0jez/subvenciones-zYl7as0uAXIFT6rP.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=165,fit=crop/TIEPVkHe2s8H0jez/subvenciones-zYl7as0uAXIFT6rP.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/TIEPVkHe2s8H0jez/captura-de-pantalla-2026-02-13-105219-ATAw6anrnyrDFAyH.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=400,fit=crop/TIEPVkHe2s8H0jez/certificados-usYMTg3Xl6XS048w.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=185,fit=crop/TIEPVkHe2s8H0jez/certificados-usYMTg3Xl6XS048w.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=374,fit=crop/TIEPVkHe2s8H0jez/gestion-JdEwqdQihpkxSIb8.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=172,fit=crop/TIEPVkHe2s8H0jez/gestion-JdEwqdQihpkxSIb8.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=378,fit=crop/TIEPVkHe2s8H0jez/rehabilitacia3n-aSDuP3xUDQWWVZTg.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=205,fit=crop/TIEPVkHe2s8H0jez/rehabilitacia3n-aSDuP3xUDQWWVZTg.png | https://images.unsplash.com/photo-1619972898592-5de4b1c68025?auto=format&amp;fit=crop&amp;w=1920
+SCRIPTS: 
+STYLES: /_astro-1779873139733/_..D5QYY8uW.css | /_astro-1779873139733/cookieconsent.CpXrOrr9.css | /_astro-1779873139733/Page.DNU3qLXz.css
+FONTS: 
+H1: MADRID CALIDAD CONSTRUCTIVA // Sobre Nosotros // Servicios
+H3: Creamos un plan de rehabilitaci├│n adaptado a tus necesidades // Cont├íctanos
+H5: EFICIENCIA - CONFORT - SOSTENIBILIDAD // Contacto // SOLUCIONES QUE AHORRAN
+H6: Reformas // Construcci├│n // Asesor├¡a
+NAV_SAMPLE:  -> / | Inicio -> / | Como lo hacemos -> /como-lo-hacemos | Art├¡culos -> /articulos | Contacto -> /contacto |  -> / | Inicio -> / | Como lo hacemos -> /como-lo-hacemos | Art├¡culos -> /articulos | Contacto -> /contacto | Cont├íctanos -> tel:711221761 | Cont├íctanos -> /contacto |  -> https://www.instagram.com/mcc_constructora/ | T├®rminos y condiciones -> /terminos-y-condiciones | Pol├¡tica de privacidad -> /politica-de-privacidad | Pol├¡tica de cookies -> /politica-de-cookies
+FORMS_COUNT: 2
+FORM_0: action=(none) fields=
+FORM_1: action=(none) fields=
+SOCIAL: https://www.instagram.com/mcc_constructora/&quot;]}]]],&quot;mobile&quot;:[0,{&quot;top&quot;:[0,171],&quot;left&quot;:[0,127],&quot;width&quot;:[0,37],&quot;height&quot;:[0,24]}],&quot;desktop&quot;:[0,{&quot;top&quot;:[0,150],&quot;left&quot;:[0,159],&quot;width&quot;:[0,33],&quot;height&quot;:[0,24]}],&quot;settings&quot;:[0,{&quot;styles&quot;:[0,{&quot;icon-size&quot;:[0,&quot;24px&quot;],&quot;icon-color&quot;:[0,&quot;#ffffff&quot;],&quot;icon-spacing&quot;:[0,&quot;space-between&quot;],&quot;icon-direction&quot;:[0,&quot;row&quot;],&quot;icon-color-hover&quot;:[0,&quot;#ffffff&quot;],&quot;m-element-margin&quot;:[0,&quot;0 | https://www.instagram.com/mcc_constructora/
+
+========== https://madridcalidad.es/como-lo-hacemos 200 ==========
+LENGTH: 139210
+TITLE: Servicios de construcci├│n en Madrid con calidad | Madrid Calidad Constructiva
+DESCRIPTION: En Madrid Calidad Constructiva ofrecemos servicios de construcci├│n y reformas con atenci├│n al detalle y materiales premium para resultados duraderos.
+OG_IMAGE: undefined
+GENERATOR: Hostinger Website Builder
+INTERNAL_LINKS: https://madridcalidad.es/como-lo-hacemos | /_astro-1779873139733/_..D5QYY8uW.css | /_astro-1779873139733/cookieconsent.CpXrOrr9.css | /_astro-1779873139733/Page.DNU3qLXz.css | / | /como-lo-hacemos | /articulos | /contacto | /terminos-y-condiciones | /politica-de-privacidad | /politica-de-cookies
+IMAGES: https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/TIEPVkHe2s8H0jez/logo-madrid-calidad-WNHOi4ILpZcoMBAY.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=487,fit=crop/TIEPVkHe2s8H0jez/estudio-zTrXMJLNaCSitvhE.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=257,fit=crop/TIEPVkHe2s8H0jez/estudio-zTrXMJLNaCSitvhE.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=516,fit=crop/TIEPVkHe2s8H0jez/reunion-YfkgDNGf9LlUJGVr.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=255,fit=crop/TIEPVkHe2s8H0jez/reunion-YfkgDNGf9LlUJGVr.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=508,fit=crop/TIEPVkHe2s8H0jez/doc-rjHLYxAbb1brWABc.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=257,fit=crop/TIEPVkHe2s8H0jez/doc-rjHLYxAbb1brWABc.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=437,fit=crop/TIEPVkHe2s8H0jez/pres-XvaUFh1QBKi57CIo.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=437,fit=crop/TIEPVkHe2s8H0jez/segui-fWGcWEP3RyRzXSDW.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=464,fit=crop/TIEPVkHe2s8H0jez/ejec-xT3PcUV6VEmYkRdj.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=196,fit=crop/TIEPVkHe2s8H0jez/ejec-xT3PcUV6VEmYkRdj.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1024,h=394,fit=crop/TIEPVkHe2s8H0jez/cierr-L4U0vcqsUqBOEMOb.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=284,fit=crop/TIEPVkHe2s8H0jez/cierr-L4U0vcqsUqBOEMOb.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1024,h=394,fit=crop/TIEPVkHe2s8H0jez/cae-MQweLTYCORMgcfIv.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=305,fit=crop/TIEPVkHe2s8H0jez/cae-MQweLTYCORMgcfIv.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1024,h=408,fit=crop/TIEPVkHe2s8H0jez/garant-y0rB5dmEDF4y6YpS.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=363,fit=crop/TIEPVkHe2s8H0jez/garant-y0rB5dmEDF4y6YpS.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1024,h=408,fit=crop/TIEPVkHe2s8H0jez/aten-sxqVM29oQ7lB5iDS.png | https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=314,fit=crop/TIEPVkHe2s8H0jez/aten-sxqVM29oQ7lB5iDS.png
+SCRIPTS: 
+STYLES: /_astro-1779873139733/_..D5QYY8uW.css | /_astro-1779873139733/cookieconsent.CpXrOrr9.css | /_astro-1779873139733/Page.DNU3qLXz.css
+FONTS: 
+H1: ┬┐C├│mo Lo Hacemos?
+H5: Contacto // SOLUCIONES QUE AHORRAN
+NAV_SAMPLE:  -> / | Inicio -> / | Como lo hacemos -> /como-lo-hacemos | Art├¡culos -> /articulos | Contacto -> /contacto |  -> / | Inicio -> / | Como lo hacemos -> /como-lo-hacemos | Art├¡culos -> /articulos | Contacto -> /contacto |  -> https://www.instagram.com/mcc_constructora/ | T├®rminos y condiciones -> /terminos-y-condiciones | Pol├¡tica de privacidad -> /politica-de-privacidad | Pol├¡tica de cookies -> /politica-de-cookies
+FORMS_COUNT: 1
+FORM_0: action=(none) fields=
+SOCIAL: https://www.instagram.com/mcc_constructora/&quot;]}]]],&quot;mobile&quot;:[0,{&quot;top&quot;:[0,171],&quot;left&quot;:[0,127],&quot;width&quot;:[0,37],&quot;height&quot;:[0,24]}],&quot;desktop&quot;:[0,{&quot;top&quot;:[0,150],&quot;left&quot;:[0,159],&quot;width&quot;:[0,33],&quot;height&quot;:[0,24]}],&quot;settings&quot;:[0,{&quot;styles&quot;:[0,{&quot;icon-size&quot;:[0,&quot;24px&quot;],&quot;icon-color&quot;:[0,&quot;#ffffff&quot;],&quot;icon-spacing&quot;:[0,&quot;space-between&quot;],&quot;icon-direction&quot;:[0,&quot;row&quot;],&quot;icon-color-hover&quot;:[0,&quot;#ffffff&quot;],&quot;m-element-margin&quot;:[0,&quot;0 | https://www.instagram.com/mcc_constructora/
+
+========== https://madridcalidad.es/articulos 200 ==========
+LENGTH: 87415
+TITLE: Ventajas de elegir Madrid Calidad Constructiva | Madrid Calidad Constructiva
+DESCRIPTION: Calidad premium en construcci├│n local, atenci├│n personalizada y procesos transparentes que garantizan resultados duraderos y confianza total.
+OG_IMAGE: undefined
+GENERATOR: Hostinger Website Builder
+INTERNAL_LINKS: https://madridcalidad.es/articulos | /_astro-1779873139733/_..D5QYY8uW.css | /_astro-1779873139733/cookieconsent.CpXrOrr9.css | /_astro-1779873139733/Page.DNU3qLXz.css | / | /como-lo-hacemos | /articulos | /contacto | /terminos-y-condiciones | /politica-de-privacidad | /politica-de-cookies
+IMAGES: https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/TIEPVkHe2s8H0jez/logo-madrid-calidad-WNHOi4ILpZcoMBAY.png
+SCRIPTS: 
+STYLES: /_astro-1779873139733/_..D5QYY8uW.css | /_astro-1779873139733/cookieconsent.CpXrOrr9.css | /_astro-1779873139733/Page.DNU3qLXz.css
+FONTS: 
+H5: Contacto // SOLUCIONES QUE AHORRAN
+NAV_SAMPLE:  -> / | Inicio -> / | Como lo hacemos -> /como-lo-hacemos | Art├¡culos -> /articulos | Contacto -> /contacto |  -> / | Inicio -> / | Como lo hacemos -> /como-lo-hacemos | Art├¡culos -> /articulos | Contacto -> /contacto |  -> https://www.instagram.com/mcc_constructora/ | T├®rminos y condiciones -> /terminos-y-condiciones | Pol├¡tica de privacidad -> /politica-de-privacidad | Pol├¡tica de cookies -> /politica-de-cookies
+FORMS_COUNT: 1
+FORM_0: action=(none) fields=
+SOCIAL: https://www.instagram.com/mcc_constructora/&quot;]}]]],&quot;mobile&quot;:[0,{&quot;top&quot;:[0,171],&quot;left&quot;:[0,127],&quot;width&quot;:[0,37],&quot;height&quot;:[0,24]}],&quot;desktop&quot;:[0,{&quot;top&quot;:[0,150],&quot;left&quot;:[0,159],&quot;width&quot;:[0,33],&quot;height&quot;:[0,24]}],&quot;settings&quot;:[0,{&quot;styles&quot;:[0,{&quot;icon-size&quot;:[0,&quot;24px&quot;],&quot;icon-color&quot;:[0,&quot;#ffffff&quot;],&quot;icon-spacing&quot;:[0,&quot;space-between&quot;],&quot;icon-direction&quot;:[0,&quot;row&quot;],&quot;icon-color-hover&quot;:[0,&quot;#ffffff&quot;],&quot;m-element-margin&quot;:[0,&quot;0 | https://www.instagram.com/mcc_constructora/
+
+========== https://madridcalidad.es/contacto 200 ==========
+LENGTH: 111323
+TITLE: Contacto Madrid Calidad Constructiva | Madrid Calidad Constructiva
+DESCRIPTION: Ponte en contacto con Madrid Calidad Constructiva para asesor├¡a personalizada y servicios de construcci├│n premium en Madrid.
+OG_IMAGE: undefined
+GENERATOR: Hostinger Website Builder
+INTERNAL_LINKS: https://madridcalidad.es/contacto | /_astro-1779873139733/_..D5QYY8uW.css | /_astro-1779873139733/cookieconsent.CpXrOrr9.css | /_astro-1779873139733/Page.DNU3qLXz.css | / | /como-lo-hacemos | /articulos | /contacto | /terminos-y-condiciones | /politica-de-privacidad | /politica-de-cookies
+IMAGES: https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/TIEPVkHe2s8H0jez/logo-madrid-calidad-WNHOi4ILpZcoMBAY.png
+SCRIPTS: 
+STYLES: /_astro-1779873139733/_..D5QYY8uW.css | /_astro-1779873139733/cookieconsent.CpXrOrr9.css | /_astro-1779873139733/Page.DNU3qLXz.css
+FONTS: 
+H1: CONT├üCTANOS
+H2: Ponte en contacto con nosotros Estaremos encantados de ayudarte con tu proyecto de forma personalizada.
+H5: Contacto // SOLUCIONES QUE AHORRAN
+NAV_SAMPLE:  -> / | Inicio -> / | Como lo hacemos -> /como-lo-hacemos | Art├¡culos -> /articulos | Contacto -> /contacto |  -> / | Inicio -> / | Como lo hacemos -> /como-lo-hacemos | Art├¡culos -> /articulos | Contacto -> /contacto | Ll├ímanos -> tel:711221761 | Escribenos -> mailto:fcampos.anfeda@gmail.com | Vis├¡tanos -> https://share.google/VX6wLFWHA8ThX7isC |  -> https://www.instagram.com/mcc_constructora/ | T├®rminos y condiciones -> /terminos-y-condiciones | Pol├¡tica de privacidad -> /politica-de-privacidad | Pol├¡tica de cookies -> /politica-de-cookies
+FORMS_COUNT: 2
+FORM_0: action=(none) fields=
+FORM_1: action=(none) fields=
+SOCIAL: https://www.instagram.com/mcc_constructora/&quot;]}]]],&quot;mobile&quot;:[0,{&quot;top&quot;:[0,171],&quot;left&quot;:[0,127],&quot;width&quot;:[0,37],&quot;height&quot;:[0,24]}],&quot;desktop&quot;:[0,{&quot;top&quot;:[0,150],&quot;left&quot;:[0,159],&quot;width&quot;:[0,33],&quot;height&quot;:[0,24]}],&quot;settings&quot;:[0,{&quot;styles&quot;:[0,{&quot;icon-size&quot;:[0,&quot;24px&quot;],&quot;icon-color&quot;:[0,&quot;#ffffff&quot;],&quot;icon-spacing&quot;:[0,&quot;space-between&quot;],&quot;icon-direction&quot;:[0,&quot;row&quot;],&quot;icon-color-hover&quot;:[0,&quot;#ffffff&quot;],&quot;m-element-margin&quot;:[0,&quot;0 | https://www.instagram.com/mcc_constructora/
+
+========== https://madridcalidad.es/terminos-y-condiciones 200 ==========
+LENGTH: 99867
+TITLE: T├®rminos y condiciones | Madrid Calidad Constructiva
+DESCRIPTION: undefined
+OG_IMAGE: undefined
+GENERATOR: Hostinger Website Builder
+INTERNAL_LINKS: https://madridcalidad.es/terminos-y-condiciones | /_astro-1779873139733/_..D5QYY8uW.css | /_astro-1779873139733/cookieconsent.CpXrOrr9.css | /_astro-1779873139733/Page.DNU3qLXz.css | / | /como-lo-hacemos | /articulos | /contacto | http://madridcalidad.es | /terminos-y-condiciones | /politica-de-privacidad | /politica-de-cookies
+IMAGES: https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/TIEPVkHe2s8H0jez/logo-madrid-calidad-WNHOi4ILpZcoMBAY.png
+SCRIPTS: 
+STYLES: /_astro-1779873139733/_..D5QYY8uW.css | /_astro-1779873139733/cookieconsent.CpXrOrr9.css | /_astro-1779873139733/Page.DNU3qLXz.css
+FONTS: 
+H1: T├ëRMINOS Y CONDICIONES DE USO
+H2: 1. Objeto // 2. Condiciones de acceso y uso // 3. Servicios ofrecidos // 4. Propiedad intelectual e industrial // 5. Exclusi├│n de responsabilidad // 6. Enlaces a terceros // 7. Protecci├│n de datos // 8. Legislaci├│n aplicable y jurisdicci├│n
+H5: Contacto // SOLUCIONES QUE AHORRAN
+NAV_SAMPLE:  -> / | Inicio -> / | Como lo hacemos -> /como-lo-hacemos | Art├¡culos -> /articulos | Contacto -> /contacto |  -> / | Inicio -> / | Como lo hacemos -> /como-lo-hacemos | Art├¡culos -> /articulos | Contacto -> /contacto | fcampos.anfeda@gmail.com -> mailto:fcampos.anfeda@gmail.com | madridcalidad.es -> http://madridcalidad.es | madridcalidad.es -> http://madridcalidad.es |  -> https://www.instagram.com/mcc_constructora/ | T├®rminos y condiciones -> /terminos-y-condiciones | Pol├¡tica de privacidad -> /politica-de-privacidad | Pol├¡tica de cookies -> /politica-de-cookies
+FORMS_COUNT: 1
+FORM_0: action=(none) fields=
+SOCIAL: https://www.instagram.com/mcc_constructora/&quot;]}]]],&quot;mobile&quot;:[0,{&quot;top&quot;:[0,171],&quot;left&quot;:[0,127],&quot;width&quot;:[0,37],&quot;height&quot;:[0,24]}],&quot;desktop&quot;:[0,{&quot;top&quot;:[0,150],&quot;left&quot;:[0,159],&quot;width&quot;:[0,33],&quot;height&quot;:[0,24]}],&quot;settings&quot;:[0,{&quot;styles&quot;:[0,{&quot;icon-size&quot;:[0,&quot;24px&quot;],&quot;icon-color&quot;:[0,&quot;#ffffff&quot;],&quot;icon-spacing&quot;:[0,&quot;space-between&quot;],&quot;icon-direction&quot;:[0,&quot;row&quot;],&quot;icon-color-hover&quot;:[0,&quot;#ffffff&quot;],&quot;m-element-margin&quot;:[0,&quot;0 | https://www.instagram.com/mcc_constructora/
+
+========== https://madridcalidad.es/politica-de-privacidad 200 ==========
+LENGTH: 107708
+TITLE: Pol├¡tica de privacidad | Madrid Calidad Constructiva
+DESCRIPTION: undefined
+OG_IMAGE: undefined
+GENERATOR: Hostinger Website Builder
+INTERNAL_LINKS: https://madridcalidad.es/politica-de-privacidad | /_astro-1779873139733/_..D5QYY8uW.css | /_astro-1779873139733/cookieconsent.CpXrOrr9.css | /_astro-1779873139733/Page.DNU3qLXz.css | / | /como-lo-hacemos | /articulos | /contacto | /terminos-y-condiciones | /politica-de-privacidad | /politica-de-cookies
+IMAGES: https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/TIEPVkHe2s8H0jez/logo-madrid-calidad-WNHOi4ILpZcoMBAY.png
+SCRIPTS: 
+STYLES: /_astro-1779873139733/_..D5QYY8uW.css | /_astro-1779873139733/cookieconsent.CpXrOrr9.css | /_astro-1779873139733/Page.DNU3qLXz.css
+FONTS: 
+H1: POL├ìTICA DE PRIVACIDAD
+H2: 1. Responsable del tratamiento // 2. Normativa aplicable // 3. Datos que se recogen // 4. Finalidad del tratamiento // 5. Base jur├¡dica // 6. Conservaci├│n de los datos // 7. Destinatarios // 8. Derechos del interesado // 9. Seguridad // 10. Modificaciones
+H5: Contacto // SOLUCIONES QUE AHORRAN
+NAV_SAMPLE:  -> / | Inicio -> / | Como lo hacemos -> /como-lo-hacemos | Art├¡culos -> /articulos | Contacto -> /contacto |  -> / | Inicio -> / | Como lo hacemos -> /como-lo-hacemos | Art├¡culos -> /articulos | Contacto -> /contacto | fcampos.anfeda@gmail.com -> mailto:fcampos.anfeda@gmail.com | fcampos.anfeda@gmail.com -> mailto:fcampos.anfeda@gmail.com |  -> https://www.instagram.com/mcc_constructora/ | T├®rminos y condiciones -> /terminos-y-condiciones | Pol├¡tica de privacidad -> /politica-de-privacidad | Pol├¡tica de cookies -> /politica-de-cookies
+FORMS_COUNT: 1
+FORM_0: action=(none) fields=
+SOCIAL: https://www.instagram.com/mcc_constructora/&quot;]}]]],&quot;mobile&quot;:[0,{&quot;top&quot;:[0,171],&quot;left&quot;:[0,127],&quot;width&quot;:[0,37],&quot;height&quot;:[0,24]}],&quot;desktop&quot;:[0,{&quot;top&quot;:[0,150],&quot;left&quot;:[0,159],&quot;width&quot;:[0,33],&quot;height&quot;:[0,24]}],&quot;settings&quot;:[0,{&quot;styles&quot;:[0,{&quot;icon-size&quot;:[0,&quot;24px&quot;],&quot;icon-color&quot;:[0,&quot;#ffffff&quot;],&quot;icon-spacing&quot;:[0,&quot;space-between&quot;],&quot;icon-direction&quot;:[0,&quot;row&quot;],&quot;icon-color-hover&quot;:[0,&quot;#ffffff&quot;],&quot;m-element-margin&quot;:[0,&quot;0 | https://www.instagram.com/mcc_constructora/
+
+========== https://madridcalidad.es/politica-de-cookies 200 ==========
+LENGTH: 102380
+TITLE: Pol├¡tica de cookies | Madrid Calidad Constructiva
+DESCRIPTION: undefined
+OG_IMAGE: undefined
+GENERATOR: Hostinger Website Builder
+INTERNAL_LINKS: https://madridcalidad.es/politica-de-cookies | /_astro-1779873139733/_..D5QYY8uW.css | /_astro-1779873139733/cookieconsent.CpXrOrr9.css | /_astro-1779873139733/Page.DNU3qLXz.css | / | /como-lo-hacemos | /articulos | /contacto | http://madridcalidad.es | /terminos-y-condiciones | /politica-de-privacidad | /politica-de-cookies
+IMAGES: https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/TIEPVkHe2s8H0jez/logo-madrid-calidad-WNHOi4ILpZcoMBAY.png
+SCRIPTS: 
+STYLES: /_astro-1779873139733/_..D5QYY8uW.css | /_astro-1779873139733/cookieconsent.CpXrOrr9.css | /_astro-1779873139733/Page.DNU3qLXz.css
+FONTS: 
+H1: POL├ìTICA DE COOKIES
+H2: 1. ┬┐Qu├® son las cookies? // 2. Tipos de cookies utilizadas // 3. Base jur├¡dica // 4. Conservaci├│n de las cookies // 5. Gesti├│n y configuraci├│n de cookies // 6. Actualizaci├│n de la Pol├¡tica de Cookies
+H3: a) Cookies t├®cnicas o necesarias // b) Cookies de an├ílisis // c) Cookies de personalizaci├│n (en su caso) // d) Cookies publicitarias (solo si se implementan en el futuro)
+H5: Contacto // SOLUCIONES QUE AHORRAN
+NAV_SAMPLE:  -> / | Inicio -> / | Como lo hacemos -> /como-lo-hacemos | Art├¡culos -> /articulos | Contacto -> /contacto |  -> / | Inicio -> / | Como lo hacemos -> /como-lo-hacemos | Art├¡culos -> /articulos | Contacto -> /contacto | fcampos.anfeda@gmail.com -> mailto:fcampos.anfeda@gmail.com | madridcalidad.es -> http://madridcalidad.es | madridcalidad.es -> http://madridcalidad.es |  -> https://www.instagram.com/mcc_constructora/ | T├®rminos y condiciones -> /terminos-y-condiciones | Pol├¡tica de privacidad -> /politica-de-privacidad | Pol├¡tica de cookies -> /politica-de-cookies
+FORMS_COUNT: 1
+FORM_0: action=(none) fields=
+SOCIAL: https://www.instagram.com/mcc_constructora/&quot;]}]]],&quot;mobile&quot;:[0,{&quot;top&quot;:[0,171],&quot;left&quot;:[0,127],&quot;width&quot;:[0,37],&quot;height&quot;:[0,24]}],&quot;desktop&quot;:[0,{&quot;top&quot;:[0,150],&quot;left&quot;:[0,159],&quot;width&quot;:[0,33],&quot;height&quot;:[0,24]}],&quot;settings&quot;:[0,{&quot;styles&quot;:[0,{&quot;icon-size&quot;:[0,&quot;24px&quot;],&quot;icon-color&quot;:[0,&quot;#ffffff&quot;],&quot;icon-spacing&quot;:[0,&quot;space-between&quot;],&quot;icon-direction&quot;:[0,&quot;row&quot;],&quot;icon-color-hover&quot;:[0,&quot;#ffffff&quot;],&quot;m-element-margin&quot;:[0,&quot;0 | https://www.instagram.com/mcc_constructora/

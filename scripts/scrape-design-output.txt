@@ -1,0 +1,23 @@
+﻿TOP_COLORS: #ffffff(60) | #0d141a(36) | #295A82(12) | #1A2A38(2) | #2f1c6a(1) | #1F1346(1) | #8c85ff(1) | #d5dfff(1) | #5025d1(1) | #673de6(1) | #ebe4ff(1) | #B39EF3(1) | #d63163(1) | #fc5185(1) | #ffe8ef(1) | #FEA8C2(1) | #fea419(1) | #9F6000(1) | #FFD28C(1) | #ffcd35(1)
+FONT_SAMPLES: font-family: Poppins
+font-family: Oswald
+font-family&quot
+font-family:var(--font-primary)
+font-family:var(--font-secondary)
+TEXT_BLOCKS: 
+ALT_TEXTS: Madrid Calidad Constructiva logo | black and brown leather padded tub sofa | gray computer monitor
+node : file:///D:/DESARROLLO/Madrid-calidad/scripts/scrape-design.mjs:26
+En C:\Users\Fernando\AppData\Local\Temp\ps-script-afa1433d-4a34-43f7-8645-37b5c64b598a.ps1: 100 Carácter: 147
++ ... SARROLLO\Madrid-calidad"; node scripts/scrape-design.mjs 2>&1 | Out-F ...
++                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (file:///D:/DESA...e-design.mjs:26:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+const articleLinks = [...artHtml.matchAll(/href="(\/articulos\/[^"]+)"/g)].map((m) => m[1]);
+                                 ^
+
+TypeError: artHtml.matchAll is not a function or its return value is not iterable
+    at file:///D:/DESARROLLO/Madrid-calidad/scripts/scrape-design.mjs:26:34
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+Node.js v22.16.0
