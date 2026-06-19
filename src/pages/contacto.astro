@@ -2,12 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPageMeta } from '../data/pages-meta';
 
-const meta = getPageMeta('/');
+const meta = getPageMeta('/contacto');
 ---
 
 <BaseLayout title={meta.title} description={meta.description}>
   <section class="page-placeholder container">
-    <h1>Inicio</h1>
-    <p>Contenido de la página de inicio — Fase 2 (SPEC-201 a SPEC-207).</p>
+    <h1>Contáctanos</h1>
+    <p>Ponte en contacto con nosotros. Estaremos encantados de ayudarte con tu proyecto de forma personalizada.</p>
+    <p><em>Formulario y datos — Fase 3 (SPEC-303).</em></p>
   </section>
 </BaseLayout>

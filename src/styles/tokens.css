@@ -1,0 +1,28 @@
+:root {
+  /* Colores */
+  --color-text: #0d141a;
+  --color-primary: #295a82;
+  --color-secondary: #1a2a38;
+  --color-bg: #ffffff;
+  --color-on-primary: #ffffff;
+  --color-border: #e2e8f0;
+  --color-muted: #64748b;
+  --color-footer-bg: #1a2a38;
+
+  /* Tipografía */
+  --font-primary: 'Poppins', system-ui, sans-serif;
+  --font-heading: 'Oswald', system-ui, sans-serif;
+
+  /* Layout */
+  --container-max: 1200px;
+  --section-padding-mobile: 2.5rem;
+  --section-padding-desktop: 4rem;
+  --header-height: 4.5rem;
+
+  /* Breakpoints (referencia para media queries) */
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+
+  /* Transiciones */
+  --transition-fast: 150ms ease;
+}
