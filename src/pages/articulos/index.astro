@@ -1,14 +1,73 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Fragment } from 'astro/jsx-runtime';
 import { getPageMeta } from '../../data/pages-meta';
-import { articlesPageContent } from '../../data/page-content';
+import { site } from '../../data/site';
 import PageHeader from '../../components/sections/PageHeader.astro';
-import ArticlesEmpty from '../../components/sections/ArticlesEmpty.astro';
+import ArticleCard from '../../components/sections/ArticleCard.astro';
+import BlogIndexSchema from '../../components/seo/BlogIndexSchema.astro';
+import BreadcrumbSchema from '../../components/seo/BreadcrumbSchema.astro';
+import { getPublishedArticles } from '../../utils/articles';
 
 const meta = getPageMeta('/articulos');
+const articles = await getPublishedArticles();
+const pageUrl = new URL('/articulos', site.url).href;
 ---
 
 <BaseLayout title={meta.title} description={meta.description}>
-  <PageHeader title={articlesPageContent.title} centered={true} />
-  <ArticlesEmpty />
+  <Fragment slot="head">
+    <BlogIndexSchema articles={articles} pageUrl={pageUrl} />
+    <BreadcrumbSchema
+      items={[
+        { name: 'Inicio', url: '/' },
+        { name: 'Artículos' },
+      ]}
+    />
+  </Fragment>
+  <PageHeader
+    title="Artículos y guías"
+    subtitle="Consejos sobre rehabilitación energética, SATE, subvenciones y reformas en Madrid."
+    centered={true}
+  />
+
+  <section class="section blog-index" aria-label="Listado de artículos">
+    <div class="container">
+      {
+        articles.length > 0 ? (
+          <div class="blog-index__grid">
+            {articles.map((article) => (
+              <ArticleCard article={article} />
+            ))}
+          </div>
+        ) : (
+          <p class="blog-index__empty">Próximamente publicaremos nuevos artículos.</p>
+        )
+      }
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .blog-index__grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .blog-index__empty {
+    text-align: center;
+    color: var(--color-muted);
+    padding-block: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .blog-index__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .blog-index__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

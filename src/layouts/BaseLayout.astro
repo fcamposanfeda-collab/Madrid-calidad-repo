@@ -12,9 +12,20 @@ interface Props {
   description: string;
   ogImage?: string;
   preloadImage?: string;
+  ogType?: 'website' | 'article';
+  articlePublished?: Date;
+  articleModified?: Date;
 }
 
-const { title, description, ogImage = site.ogImage, preloadImage } = Astro.props;
+const {
+  title,
+  description,
+  ogImage = site.ogImage,
+  preloadImage,
+  ogType = 'website',
+  articlePublished,
+  articleModified,
+} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, site.url);
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, site.url).href;
 const fontHref =
@@ -46,12 +57,26 @@ const fontHref =
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:locale" content="es_ES" />
+    {
+      ogType === 'article' && articlePublished && (
+        <meta property="article:published_time" content={articlePublished.toISOString()} />
+      )
+    }
+    {
+      ogType === 'article' && (articleModified ?? articlePublished) && (
+        <meta
+          property="article:modified_time"
+          content={(articleModified ?? articlePublished)!.toISOString()}
+        />
+      )
+    }
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <slot name="head" />
     <SeoSchema />
     <title>{title}</title>
   </head>

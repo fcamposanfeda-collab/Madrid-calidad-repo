@@ -1,0 +1,38 @@
+---
+import { site } from '../../data/site';
+import type { Articulo } from '../../utils/articles';
+import { getArticleHref } from '../../utils/articles';
+
+interface Props {
+  articles: Articulo[];
+  pageUrl: string;
+}
+
+const { articles, pageUrl } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Artículos y guías de rehabilitación en Madrid',
+  description:
+    'Blog con guías sobre SATE, subvenciones, rehabilitación de fachadas, cubiertas y eficiencia energética en Madrid.',
+  url: pageUrl,
+  inLanguage: 'es-ES',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: site.name,
+    url: site.url,
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: articles.map((article, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: new URL(getArticleHref(article.id), site.url).href,
+      name: article.data.title,
+    })),
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

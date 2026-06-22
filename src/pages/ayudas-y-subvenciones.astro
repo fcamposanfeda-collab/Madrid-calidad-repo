@@ -2,7 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
 import FaqSection from '../components/sections/FaqSection.astro';
+import RelatedArticles from '../components/sections/RelatedArticles.astro';
 import { getServiceHref } from '../data/services-seo';
+import { getPublishedArticles, getArticlesBySlugs } from '../utils/articles';
 
 const title = 'Ayudas y subvenciones rehabilitación Madrid | Madrid Calidad Constructiva';
 const description =
@@ -30,6 +32,16 @@ const faq = [
       'Es un documento técnico que recoge el estado del edificio y justifica la necesidad de rehabilitación. Algunas convocatorias subvencionan su elaboración hasta un importe máximo definido en cada programa.',
   },
 ];
+
+const allArticles = await getPublishedArticles();
+const relatedArticles = getArticlesBySlugs(
+  [
+    'ayudas-rehabilitacion-energetica-madrid-2026',
+    'subvenciones-next-generation-edificios',
+    'iva-reducido-rehabilitacion-viviendas-madrid',
+  ],
+  allArticles,
+);
 ---
 
 <BaseLayout title={title} description={description}>
@@ -71,6 +83,8 @@ const faq = [
       </p>
     </div>
   </section>
+
+  {relatedArticles.length > 0 && <RelatedArticles articles={relatedArticles} title="Guías sobre ayudas" />}
 
   <FaqSection items={faq} />
 </BaseLayout>

@@ -1,0 +1,73 @@
+---
+import Button from '../ui/Button.astro';
+import ArticleCard from './ArticleCard.astro';
+import type { Articulo } from '../../utils/articles';
+
+interface Props {
+  articles: Articulo[];
+}
+
+const { articles } = Astro.props;
+const featured = articles.slice(0, 3);
+---
+
+{
+  featured.length > 0 && (
+    <section class="blog-preview section" aria-labelledby="blog-preview-title">
+      <div class="container">
+        <header class="blog-preview__header">
+          <h2 id="blog-preview-title" class="blog-preview__title">Últimos artículos</h2>
+          <p class="blog-preview__intro">
+            Guías sobre rehabilitación energética, SATE, subvenciones y reformas en Madrid.
+          </p>
+        </header>
+        <div class="blog-preview__grid">
+          {featured.map((article) => (
+            <ArticleCard article={article} />
+          ))}
+        </div>
+        <div class="blog-preview__cta">
+          <Button href="/articulos" variant="primary">Ver todos los artículos</Button>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .blog-preview__header {
+    text-align: center;
+    max-width: 40rem;
+    margin: 0 auto 2rem;
+  }
+
+  .blog-preview__title {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .blog-preview__intro {
+    margin: 0;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  .blog-preview__grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .blog-preview__cta {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .blog-preview__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

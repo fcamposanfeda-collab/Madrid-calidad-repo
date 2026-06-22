@@ -5,12 +5,15 @@ import Button from '../ui/Button.astro';
 import FaqSection from './FaqSection.astro';
 import Breadcrumb from '../ui/Breadcrumb.astro';
 import SubsidiesBanner from './SubsidiesBanner.astro';
+import RelatedArticles from './RelatedArticles.astro';
+import type { Articulo } from '../../utils/articles';
 
 interface Props {
   service: ServiceLanding;
+  relatedArticles?: Articulo[];
 }
 
-const { service } = Astro.props;
+const { service, relatedArticles = [] } = Astro.props;
 
 const relatedServices = service.relatedSlugs
   .map((slug) => getServiceBySlug(slug))
@@ -110,6 +113,16 @@ const relatedServices = service.relatedSlugs
   }
 
   <SubsidiesBanner />
+
+  {
+    relatedArticles.length > 0 && (
+      <RelatedArticles
+        articles={relatedArticles}
+        title="Guías relacionadas"
+        showAllLink={true}
+      />
+    )
+  }
 
   <FaqSection items={service.faq} />
 

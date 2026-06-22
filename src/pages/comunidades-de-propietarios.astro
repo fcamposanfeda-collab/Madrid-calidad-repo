@@ -3,7 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
 import ContactForm from '../components/forms/ContactForm.astro';
 import FaqSection from '../components/sections/FaqSection.astro';
+import RelatedArticles from '../components/sections/RelatedArticles.astro';
 import { getServiceHref } from '../data/services-seo';
+import { getPublishedArticles, getArticlesBySlugs } from '../utils/articles';
 
 const title = 'Rehabilitación para comunidades de propietarios Madrid | Madrid Calidad Constructiva';
 const description =
@@ -26,6 +28,16 @@ const faq = [
       'Planificamos por fases, horarios acordados y comunicación previa con vecinos. En fachadas y cubiertas coordinamos accesos y seguridad con el administrador.',
   },
 ];
+
+const allArticles = await getPublishedArticles();
+const relatedArticles = getArticlesBySlugs(
+  [
+    'rehabilitar-fachada-comunidad-propietarios',
+    'que-es-sate-precio-madrid',
+    'cuando-impermeabilizar-cubierta-edificio',
+  ],
+  allArticles,
+);
 ---
 
 <BaseLayout title={title} description={description}>
@@ -68,6 +80,8 @@ const faq = [
       <ContactForm formId="comunidades" />
     </div>
   </section>
+
+  {relatedArticles.length > 0 && <RelatedArticles articles={relatedArticles} title="Guías para comunidades" />}
 
   <FaqSection items={faq} title="Preguntas frecuentes para comunidades" />
 </BaseLayout>

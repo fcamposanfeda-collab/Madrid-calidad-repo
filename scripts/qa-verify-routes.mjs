@@ -30,6 +30,19 @@ const projectSlugs = [
   'reforma-cocina-lista',
 ];
 
+const articleSlugs = [
+  'que-es-sate-precio-madrid',
+  'ayudas-rehabilitacion-energetica-madrid-2026',
+  'rehabilitar-fachada-comunidad-propietarios',
+  'cuando-impermeabilizar-cubierta-edificio',
+  'trabajos-verticales-vs-andamio',
+  'certificado-energetico-rehabilitacion',
+  'subvenciones-next-generation-edificios',
+  'rehabilitacion-energetica-integral-guia',
+  'reforma-integral-piso-madrid-guia',
+  'iva-reducido-rehabilitacion-viviendas-madrid',
+];
+
 const routes = [
   '/',
   '/servicios',
@@ -40,8 +53,9 @@ const routes = [
   '/presupuestos',
   '/proyectos',
   ...projectSlugs.map((slug) => `/proyectos/${slug}`),
-  '/como-lo-hacemos',
   '/articulos',
+  ...articleSlugs.map((slug) => `/articulos/${slug}`),
+  '/como-lo-hacemos',
   '/contacto',
   '/terminos-y-condiciones',
   '/politica-de-privacidad',

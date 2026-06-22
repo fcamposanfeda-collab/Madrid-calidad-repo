@@ -14,9 +14,12 @@ import ProjectsPreview from '../components/sections/ProjectsPreview.astro';
 import HomeFaq from '../components/sections/HomeFaq.astro';
 import ZonesSection from '../components/sections/ZonesSection.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
+import BlogPreview from '../components/sections/BlogPreview.astro';
+import { getPublishedArticles } from '../utils/articles';
 
 const meta = getPageMeta('/');
 const heroImage = stockImages.piso.src;
+const articles = await getPublishedArticles();
 ---
 
 <BaseLayout title={meta.title} description={meta.description} preloadImage={heroImage}>
@@ -29,6 +32,7 @@ const heroImage = stockImages.piso.src;
   <RehabPlan />
   <TestimonialsSection />
   <ProjectsPreview />
+  <BlogPreview articles={articles} />
   <ZonesSection />
   <HomeFaq />
   <ContactSection />
