@@ -3,10 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPageMeta } from '../data/pages-meta';
 import { stockImages } from '../data/placeholders';
 import HeroWithForm from '../components/sections/HeroWithForm.astro';
+import TrustBar from '../components/sections/TrustBar.astro';
 import WhyChooseSection from '../components/sections/WhyChooseSection.astro';
+import ProcessOverview from '../components/sections/ProcessOverview.astro';
 import ServiceCategories from '../components/sections/ServiceCategories.astro';
 import AboutSection from '../components/sections/AboutSection.astro';
 import RehabPlan from '../components/sections/RehabPlan.astro';
+import TestimonialsSection from '../components/sections/TestimonialsSection.astro';
 import ProjectsPreview from '../components/sections/ProjectsPreview.astro';
 import HomeFaq from '../components/sections/HomeFaq.astro';
 import ZonesSection from '../components/sections/ZonesSection.astro';
@@ -18,10 +21,13 @@ const heroImage = stockImages.piso.src;
 
 <BaseLayout title={meta.title} description={meta.description} preloadImage={heroImage}>
   <HeroWithForm />
+  <TrustBar />
   <WhyChooseSection />
+  <ProcessOverview />
   <ServiceCategories />
   <AboutSection />
   <RehabPlan />
+  <TestimonialsSection />
   <ProjectsPreview />
   <ZonesSection />
   <HomeFaq />

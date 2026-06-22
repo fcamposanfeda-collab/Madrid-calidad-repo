@@ -1,37 +1,53 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import QuoteForm from '../components/forms/QuoteForm.astro';
+import BudgetForm from '../components/forms/BudgetForm.astro';
 import ContactInfo from '../components/sections/ContactInfo.astro';
+import { getPageMeta } from '../data/pages-meta';
 
-const title = 'Presupuesto sin compromiso | Madrid Calidad Constructiva';
-const description =
-  'Solicita presupuesto para rehabilitación energética, SATE, reformas integrales y más en Madrid. Respuesta rápida.';
+const meta = getPageMeta('/presupuestos');
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={meta.title} description={meta.description}>
   <header class="presupuesto-hero section">
     <div class="container presupuesto-hero__inner">
-      <h1>Solicita tu presupuesto</h1>
+      <h1>¿Cuánto cuesta tu proyecto en Madrid?</h1>
       <p>
-        Cuéntanos tu proyecto y te contactaremos para una valoración personalizada. Sin compromiso.
+        Cuanto más detalle nos facilites, más precisa será la estimación orientativa. Un técnico revisará tu
+        solicitud y te contactará sin compromiso.
       </p>
     </div>
   </header>
 
   <section class="section presupuesto-form">
     <div class="container presupuesto-form__grid">
-      <div class="presupuesto-form__card">
-        <h2>Formulario de presupuesto</h2>
-        <QuoteForm formId="presupuesto" />
+      <div class="presupuesto-form__main">
+        <div class="presupuesto-form__card">
+          <BudgetForm formId="presupuesto-detallado" />
+        </div>
+        <p class="presupuesto-form__disclaimer">
+          * Estimación orientativa. El presupuesto definitivo se emite tras visita técnica al inmueble.
+        </p>
       </div>
-      <aside>
+
+      <aside class="presupuesto-form__aside">
         <ContactInfo />
-        <ul class="presupuesto-form__benefits">
-          <li>Visita técnica gratuita</li>
-          <li>Estudio de subvenciones</li>
-          <li>Presupuesto detallado</li>
-          <li>Respuesta en 24–48 h</li>
-        </ul>
+        <div class="presupuesto-form__box">
+          <h2>Qué incluye nuestra respuesta</h2>
+          <ul class="presupuesto-form__benefits">
+            <li>Revisión de tu solicitud en 24–48 h</li>
+            <li>Visita técnica gratuita si procede</li>
+            <li>Estudio de subvenciones aplicables</li>
+            <li>Presupuesto detallado por partidas</li>
+            <li>Un único interlocutor durante la obra</li>
+          </ul>
+        </div>
+        <div class="presupuesto-form__box presupuesto-form__box--muted">
+          <h2>¿Prefieres algo más rápido?</h2>
+          <p>
+            Si aún no tienes todos los datos, usa el formulario corto de la <a href="/">página de inicio</a> o
+            llámanos directamente.
+          </p>
+        </div>
       </aside>
     </div>
   </section>
@@ -44,20 +60,23 @@ const description =
   }
 
   .presupuesto-hero__inner {
-    max-width: 40rem;
+    max-width: 44rem;
   }
 
   .presupuesto-hero h1 {
     margin: 0 0 0.75rem;
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.15;
     text-transform: uppercase;
   }
 
   .presupuesto-hero p {
     margin: 0;
-    opacity: 0.9;
+    opacity: 0.92;
     line-height: 1.7;
+    font-size: 1.0625rem;
   }
 
   .presupuesto-form__grid {
@@ -66,24 +85,72 @@ const description =
     align-items: start;
   }
 
-  .presupuesto-form__card h2 {
-    margin: 0 0 1.25rem;
-    font-size: 1.25rem;
+  .presupuesto-form__card {
+    padding: 1.75rem 1.5rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 32px rgba(13, 20, 26, 0.06);
+  }
+
+  @media (min-width: 640px) {
+    .presupuesto-form__card {
+      padding: 2rem 2.25rem;
+    }
+  }
+
+  .presupuesto-form__disclaimer {
+    margin: 1rem 0 0;
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    font-style: italic;
+  }
+
+  .presupuesto-form__aside {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .presupuesto-form__box {
+    padding: 1.25rem 1.5rem;
+    background: #f8fafc;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+  }
+
+  .presupuesto-form__box--muted p {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--color-muted);
+  }
+
+  .presupuesto-form__box--muted a {
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: underline;
+  }
+
+  .presupuesto-form__box h2 {
+    margin: 0 0 1rem;
+    font-size: 1rem;
     font-weight: 600;
+    color: var(--color-secondary);
   }
 
   .presupuesto-form__benefits {
-    margin: 2rem 0 0;
+    margin: 0;
     padding: 0;
     list-style: none;
     display: grid;
-    gap: 0.75rem;
+    gap: 0.625rem;
   }
 
   .presupuesto-form__benefits li {
     padding-left: 1.25rem;
     position: relative;
-    font-weight: 500;
+    font-size: 0.9375rem;
+    line-height: 1.5;
   }
 
   .presupuesto-form__benefits li::before {
@@ -94,9 +161,9 @@ const description =
     font-weight: 700;
   }
 
-  @media (min-width: 992px) {
+  @media (min-width: 1100px) {
     .presupuesto-form__grid {
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1fr min(22rem, 32%);
     }
   }
 </style>

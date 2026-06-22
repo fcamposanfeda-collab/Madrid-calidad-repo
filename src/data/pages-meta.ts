@@ -39,8 +39,9 @@ export const pagesMeta = {
     description: 'Conoce Madrid Calidad Constructiva: rehabilitación energética y reformas integrales en Madrid.',
   },
   '/presupuestos': {
-    title: 'Presupuesto sin compromiso | Madrid Calidad Constructiva',
-    description: 'Solicita presupuesto para rehabilitación, SATE y reformas en Madrid.',
+    title: 'Presupuesto reforma y rehabilitación Madrid | Madrid Calidad Constructiva',
+    description:
+      'Solicita presupuesto orientativo para reformas integrales, rehabilitación energética y SATE en Madrid.',
   },
   '/proyectos': {
     title: 'Proyectos en Madrid | Madrid Calidad Constructiva',

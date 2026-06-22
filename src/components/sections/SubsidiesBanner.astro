@@ -1,0 +1,73 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<aside class="subsidies-banner section" aria-labelledby="subsidies-banner-title">
+  <div class="container subsidies-banner__inner">
+    <div>
+      <h2 id="subsidies-banner-title">¿Tu proyecto puede acogerse a subvenciones?</h2>
+      <p>
+        Muchas actuaciones de rehabilitación energética y reforma en edificios pueden acceder a ayudas
+        públicas. Te informamos sin compromiso y gestionamos la tramitación.
+      </p>
+    </div>
+    <div class="subsidies-banner__actions">
+      <Button href="/ayudas-y-subvenciones" variant="outline">Ver ayudas</Button>
+      <Button href="/presupuestos" variant="primary">Consultar mi caso</Button>
+    </div>
+  </div>
+</aside>
+
+<style>
+  .subsidies-banner {
+    background: var(--color-secondary);
+    color: var(--color-on-primary);
+    padding-block: 2.5rem;
+  }
+
+  .subsidies-banner__inner {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .subsidies-banner h2 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .subsidies-banner p {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    opacity: 0.92;
+    max-width: 40rem;
+  }
+
+  .subsidies-banner__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .subsidies-banner__actions :global(.btn--outline) {
+    border-color: rgba(255, 255, 255, 0.6);
+    color: var(--color-on-primary);
+  }
+
+  .subsidies-banner__actions :global(.btn--outline:hover) {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-on-primary);
+    color: var(--color-on-primary);
+  }
+
+  @media (min-width: 768px) {
+    .subsidies-banner__inner {
+      grid-template-columns: 1fr auto;
+    }
+  }
+</style>

@@ -1,0 +1,138 @@
+---
+import Button from '../ui/Button.astro';
+import { testimonials, testimonialsIntro } from '../../data/testimonials';
+
+function stars(count: number) {
+  return '★'.repeat(count) + '☆'.repeat(5 - count);
+}
+---
+
+<section class="testimonials section" aria-labelledby="testimonials-title">
+  <div class="container">
+    <header class="testimonials__header">
+      <p class="testimonials__rating" aria-label={testimonialsIntro.ratingLabel}>
+        <span aria-hidden="true">{stars(4)}</span>
+        {testimonialsIntro.ratingLabel}
+      </p>
+      <h2 id="testimonials-title" class="testimonials__title">{testimonialsIntro.title}</h2>
+      <p class="testimonials__subtitle">{testimonialsIntro.subtitle}</p>
+    </header>
+
+    <div class="testimonials__grid">
+      {
+        testimonials.map((item) => (
+          <blockquote class="testimonials__card">
+            <p class="testimonials__quote">"{item.quote}"</p>
+            <footer class="testimonials__footer">
+              <cite class="testimonials__author">{item.author}</cite>
+              <span class="testimonials__meta">
+                {item.role} · {item.location}
+              </span>
+            </footer>
+          </blockquote>
+        ))
+      }
+    </div>
+
+    <p class="testimonials__note">* Testimonios orientativos. Se actualizarán con reseñas verificadas.</p>
+
+    <div class="testimonials__cta">
+      <Button href="/presupuestos" variant="primary">Solicitar presupuesto</Button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials__header {
+    text-align: center;
+    max-width: 42rem;
+    margin: 0 auto 2rem;
+  }
+
+  .testimonials__rating {
+    margin: 0 0 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-primary);
+  }
+
+  .testimonials__rating span {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 1.125rem;
+    letter-spacing: 0.1em;
+    color: #eab308;
+  }
+
+  .testimonials__title {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .testimonials__subtitle {
+    margin: 0;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  .testimonials__grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .testimonials__card {
+    margin: 0;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .testimonials__quote {
+    margin: 0 0 1.25rem;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  .testimonials__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .testimonials__author {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--color-secondary);
+  }
+
+  .testimonials__meta {
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+  }
+
+  .testimonials__note {
+    margin: 1.5rem 0 0;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    font-style: italic;
+  }
+
+  .testimonials__cta {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .testimonials__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

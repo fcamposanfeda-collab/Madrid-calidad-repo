@@ -3,6 +3,8 @@ import type { ServiceLanding } from '../../data/services-seo';
 import { getServiceHref, getServiceBySlug } from '../../data/services-seo';
 import Button from '../ui/Button.astro';
 import FaqSection from './FaqSection.astro';
+import Breadcrumb from '../ui/Breadcrumb.astro';
+import SubsidiesBanner from './SubsidiesBanner.astro';
 
 interface Props {
   service: ServiceLanding;
@@ -16,6 +18,14 @@ const relatedServices = service.relatedSlugs
 ---
 
 <article class="service-page">
+  <Breadcrumb
+    items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Servicios', href: '/servicios' },
+      { label: service.shortTitle },
+    ]}
+  />
+
   <header class="service-page__hero section">
     <div class="container service-page__hero-grid">
       <div class="service-page__hero-text">
@@ -23,7 +33,7 @@ const relatedServices = service.relatedSlugs
         <p class="service-page__subtitle">{service.subtitle}</p>
         <p class="service-page__intro">{service.intro}</p>
         <div class="service-page__actions">
-          <Button href="/contacto" variant="primary">Solicitar presupuesto</Button>
+          <Button href="/presupuestos" variant="primary">Solicitar presupuesto</Button>
           <Button href="/como-lo-hacemos" variant="outline">Cómo trabajamos</Button>
         </div>
       </div>
@@ -99,13 +109,15 @@ const relatedServices = service.relatedSlugs
     )
   }
 
+  <SubsidiesBanner />
+
   <FaqSection items={service.faq} />
 
   <section class="section service-page__cta">
     <div class="container service-page__cta-inner">
       <h2>¿Hablamos de tu proyecto?</h2>
       <p>Presupuesto y asesoramiento sin compromiso en toda la Comunidad de Madrid.</p>
-      <Button href="/contacto" variant="primary">Contactar ahora</Button>
+      <Button href="/presupuestos" variant="primary">Solicitar presupuesto</Button>
     </div>
   </section>
 </article>

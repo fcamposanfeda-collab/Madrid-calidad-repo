@@ -1,0 +1,612 @@
+---
+import Button from '../ui/Button.astro';
+import {
+  projectTypes,
+  yesNoOptions,
+  alisarOptions,
+  subsidiesOptions,
+  buildingProblems,
+} from '../../data/budget-form-options';
+
+interface Props {
+  formId?: string;
+}
+
+const { formId = 'budget' } = Astro.props;
+const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
+const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
+
+const id = (name: string) => `${formId}-${name}`;
+const statusId = `${formId}-status`;
+const honeypotId = `${formId}-company`;
+---
+
+<form
+  class="budget-form"
+  method="post"
+  action={formEndpoint || '#'}
+  data-contact-form
+  data-form-endpoint={formEndpoint}
+  data-budget-form
+  novalidate
+>
+  <div class="budget-form__honeypot" aria-hidden="true">
+    <label for={honeypotId}>Empresa</label>
+    <input type="text" id={honeypotId} name="company" tabindex="-1" autocomplete="off" />
+  </div>
+
+  {web3formsKey && <input type="hidden" name="access_key" value={web3formsKey} />}
+  <input type="hidden" name="subject" value="Solicitud presupuesto detallado — Madrid Calidad" />
+  <input type="hidden" name="from_name" value="Web Madrid Calidad" />
+
+  <fieldset class="budget-form__section">
+    <legend>1. ¿Qué tipo de proyecto necesitas?</legend>
+    <div class="budget-form__field">
+      <label class="budget-form__label" for={id('tipo')}>
+        Tipo de proyecto<span class="budget-form__required">*</span>
+      </label>
+      <select class="budget-form__input" id={id('tipo')} name="tipo_proyecto" required data-budget-tipo>
+        <option value="">Selecciona una opción</option>
+        {projectTypes.map((opt) => (
+          <option value={opt.value} data-group={opt.group}>{opt.label}</option>
+        ))}
+      </select>
+    </div>
+  </fieldset>
+
+  <fieldset class="budget-form__section">
+    <legend>2. Información del inmueble</legend>
+    <div class="budget-form__row budget-form__row--3">
+      <div class="budget-form__field">
+        <label class="budget-form__label" for={id('superficie')}>Superficie (m²)</label>
+        <input
+          class="budget-form__input"
+          type="number"
+          id={id('superficie')}
+          name="superficie_m2"
+          min="1"
+          placeholder="Ej. 85"
+        />
+      </div>
+      <div class="budget-form__field">
+        <label class="budget-form__label" for={id('municipio')}>Municipio</label>
+        <input
+          class="budget-form__input"
+          type="text"
+          id={id('municipio')}
+          name="municipio"
+          placeholder="Ej. Madrid"
+        />
+      </div>
+      <div class="budget-form__field">
+        <label class="budget-form__label" for={id('cp')}>Código postal</label>
+        <input
+          class="budget-form__input"
+          type="text"
+          id={id('cp')}
+          name="codigo_postal"
+          inputmode="numeric"
+          placeholder="28001"
+          maxlength="5"
+        />
+      </div>
+    </div>
+
+    <div class="budget-form__row budget-form__row--2" data-budget-panel="comunidad rehabilitacion" hidden>
+      <div class="budget-form__field">
+        <label class="budget-form__label" for={id('plantas')}>Nº de plantas del edificio</label>
+        <input class="budget-form__input" type="number" id={id('plantas')} name="plantas_edificio" min="1" />
+      </div>
+      <div class="budget-form__field">
+        <label class="budget-form__label" for={id('viviendas')}>Nº de viviendas</label>
+        <input class="budget-form__input" type="number" id={id('viviendas')} name="viviendas_edificio" min="1" />
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="budget-form__section" data-budget-panel="reforma" hidden>
+    <legend>3. Detalle de la reforma</legend>
+    <div class="budget-form__row budget-form__row--3">
+      <div class="budget-form__field" data-budget-panel="cocina" hidden>
+        <label class="budget-form__label" for={id('sup-cocina')}>Superficie cocina (m²)</label>
+        <input class="budget-form__input" type="number" id={id('sup-cocina')} name="superficie_cocina_m2" min="1" />
+      </div>
+      <div class="budget-form__field">
+        <label class="budget-form__label" for={id('dormitorios')}>Nº dormitorios</label>
+        <input class="budget-form__input" type="number" id={id('dormitorios')} name="dormitorios" min="0" />
+      </div>
+      <div class="budget-form__field">
+        <label class="budget-form__label" for={id('banos')}>Nº baños</label>
+        <input class="budget-form__input" type="number" id={id('banos')} name="banos" min="0" />
+      </div>
+    </div>
+    <div class="budget-form__field">
+      <label class="budget-form__label" for={id('salones')}>Nº salones / estancias principales</label>
+      <input class="budget-form__input" type="number" id={id('salones')} name="salones" min="0" />
+    </div>
+  </fieldset>
+
+  <fieldset class="budget-form__section" data-budget-panel="reforma" hidden>
+    <legend>4. Actuaciones previstas</legend>
+
+    <div class="budget-form__radios">
+      <span class="budget-form__label">¿Cambiar tuberías?</span>
+      <div class="budget-form__radio-group" role="radiogroup" aria-label="Cambiar tuberías">
+        {yesNoOptions.map((opt) => (
+          <label class="budget-form__radio">
+            <input type="radio" name="tuberias" value={opt.value} />
+            {opt.label}
+          </label>
+        ))}
+      </div>
+    </div>
+
+    <div class="budget-form__radios">
+      <span class="budget-form__label">¿Cambiar instalación eléctrica?</span>
+      <div class="budget-form__radio-group" role="radiogroup" aria-label="Instalación eléctrica">
+        {yesNoOptions.map((opt) => (
+          <label class="budget-form__radio">
+            <input type="radio" name="electricidad" value={opt.value} />
+            {opt.label}
+          </label>
+        ))}
+      </div>
+    </div>
+
+    <div class="budget-form__radios" data-budget-panel="bano" hidden>
+      <span class="budget-form__label">¿Bañera por plato de ducha?</span>
+      <div class="budget-form__radio-group" role="radiogroup" aria-label="Bañera por ducha">
+        {yesNoOptions.map((opt) => (
+          <label class="budget-form__radio">
+            <input type="radio" name="banera_ducha" value={opt.value} />
+            {opt.label}
+          </label>
+        ))}
+      </div>
+    </div>
+
+    <div class="budget-form__radios">
+      <span class="budget-form__label">¿Hay que alisar?</span>
+      <div class="budget-form__radio-group budget-form__radio-group--wrap" role="radiogroup" aria-label="Alisar">
+        {alisarOptions.map((opt) => (
+          <label class="budget-form__radio">
+            <input type="radio" name="alisar" value={opt.value} />
+            {opt.label}
+          </label>
+        ))}
+      </div>
+    </div>
+
+    <div class="budget-form__radios">
+      <span class="budget-form__label">¿Cambiar puertas?</span>
+      <div class="budget-form__radio-group" role="radiogroup" aria-label="Cambiar puertas">
+        {yesNoOptions.map((opt) => (
+          <label class="budget-form__radio">
+            <input type="radio" name="puertas" value={opt.value} />
+            {opt.label}
+          </label>
+        ))}
+      </div>
+    </div>
+
+    <div class="budget-form__radios">
+      <span class="budget-form__label">¿Acuchillar suelos?</span>
+      <div class="budget-form__radio-group" role="radiogroup" aria-label="Acuchillar suelos">
+        {yesNoOptions.map((opt) => (
+          <label class="budget-form__radio">
+            <input type="radio" name="acuchillar" value={opt.value} data-acuchillar-toggle />
+            {opt.label}
+          </label>
+        ))}
+      </div>
+    </div>
+
+    <div class="budget-form__field" data-acuchillar-m2 hidden>
+      <label class="budget-form__label" for={id('acuchillar-m2')}>Superficie a acuchillar (m²)</label>
+      <input class="budget-form__input" type="number" id={id('acuchillar-m2')} name="acuchillar_m2" min="1" />
+    </div>
+
+    <div class="budget-form__radios">
+      <span class="budget-form__label">¿Cambiar rodapiés?</span>
+      <div class="budget-form__radio-group" role="radiogroup" aria-label="Rodapiés">
+        {yesNoOptions.map((opt) => (
+          <label class="budget-form__radio">
+            <input type="radio" name="rodapies" value={opt.value} />
+            {opt.label}
+          </label>
+        ))}
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="budget-form__section" data-budget-panel="rehabilitacion comunidad" hidden>
+    <legend>3. Estado del edificio</legend>
+    <p class="budget-form__hint">Marca los problemas que conozcas (opcional).</p>
+    <div class="budget-form__checks">
+      {buildingProblems.map((problem) => (
+        <label class="budget-form__check">
+          <input type="checkbox" name="problemas" value={problem.value} />
+          {problem.label}
+        </label>
+      ))}
+    </div>
+    <div class="budget-form__radios">
+      <span class="budget-form__label">¿Te interesan subvenciones o ayudas?</span>
+      <div class="budget-form__radio-group budget-form__radio-group--wrap" role="radiogroup" aria-label="Subvenciones">
+        {subsidiesOptions.map((opt) => (
+          <label class="budget-form__radio">
+            <input type="radio" name="subvenciones" value={opt.value} />
+            {opt.label}
+          </label>
+        ))}
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="budget-form__section budget-form__section--contact">
+    <legend>5. Tus datos de contacto</legend>
+    <p class="budget-form__hint">
+      Con esta información prepararemos una estimación orientativa y un técnico te llamará para concretar el
+      proyecto.
+    </p>
+
+    <div class="budget-form__row">
+      <div class="budget-form__field">
+        <label class="budget-form__label" for={id('nombre')}>
+          Nombre<span class="budget-form__required">*</span>
+        </label>
+        <input
+          class="budget-form__input"
+          type="text"
+          id={id('nombre')}
+          name="nombre"
+          autocomplete="name"
+          required
+        />
+      </div>
+      <div class="budget-form__field">
+        <label class="budget-form__label" for={id('telefono')}>
+          Teléfono<span class="budget-form__required">*</span>
+        </label>
+        <input
+          class="budget-form__input"
+          type="tel"
+          id={id('telefono')}
+          name="telefono"
+          autocomplete="tel"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="budget-form__field">
+      <label class="budget-form__label" for={id('email')}>
+        Correo electrónico<span class="budget-form__required">*</span>
+      </label>
+      <input
+        class="budget-form__input"
+        type="email"
+        id={id('email')}
+        name="email"
+        autocomplete="email"
+        required
+      />
+    </div>
+
+    <div class="budget-form__field">
+      <label class="budget-form__label" for={id('mensaje')}>Comentarios adicionales</label>
+      <textarea
+        class="budget-form__input budget-form__textarea"
+        id={id('mensaje')}
+        name="mensaje"
+        rows="3"
+        placeholder="Plazos, calidades deseadas, dudas…"
+      />
+    </div>
+
+    <label class="budget-form__privacy" for={id('privacidad')}>
+      <input type="checkbox" id={id('privacidad')} name="privacidad" value="si" required />
+      <span>
+        He leído y acepto la{' '}
+        <a href="/politica-de-privacidad" target="_blank" rel="noopener">política de privacidad</a>
+      </span>
+    </label>
+  </fieldset>
+
+  <p class="budget-form__status" id={statusId} role="status" aria-live="polite" hidden data-form-status></p>
+
+  <Button type="submit" variant="primary" class="budget-form__submit">Solicitar presupuesto</Button>
+</form>
+
+<style>
+  .budget-form {
+    display: grid;
+    gap: 1.75rem;
+  }
+
+  .budget-form__honeypot {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .budget-form__section {
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .budget-form__section legend {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--color-secondary);
+    margin-bottom: 0.25rem;
+    padding: 0;
+  }
+
+  .budget-form__section--contact {
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .budget-form__hint {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  .budget-form__row {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .budget-form__row--2 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .budget-form__row--3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .budget-form__field {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .budget-form__label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-secondary);
+  }
+
+  .budget-form__required {
+    color: #c0392b;
+    margin-left: 0.125rem;
+  }
+
+  .budget-form__input {
+    width: 100%;
+    padding: 0.6875rem 0.75rem;
+    font: inherit;
+    font-size: 0.9375rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.2rem;
+    background: var(--color-bg);
+  }
+
+  .budget-form__input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(41, 90, 130, 0.15);
+  }
+
+  .budget-form__textarea {
+    resize: vertical;
+    min-height: 5rem;
+  }
+
+  .budget-form__radios {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .budget-form__radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+  }
+
+  .budget-form__radio {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+
+  .budget-form__checks {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  }
+
+  .budget-form__check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+
+  .budget-form__privacy {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+    cursor: pointer;
+  }
+
+  .budget-form__privacy a {
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: underline;
+  }
+
+  .budget-form__status {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  .budget-form__status[data-type='success'] {
+    color: #15803d;
+  }
+
+  .budget-form__status[data-type='error'] {
+    color: #dc2626;
+  }
+
+  .budget-form__submit {
+    width: 100%;
+    padding: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .budget-form [hidden] {
+    display: none !important;
+  }
+</style>
+
+<script>
+  function updateBudgetPanels(form: HTMLFormElement) {
+    const select = form.querySelector('[data-budget-tipo]');
+    if (!(select instanceof HTMLSelectElement)) return;
+
+    const option = select.selectedOptions[0];
+    const group = option?.dataset.group ?? '';
+    const value = select.value;
+
+    const showReforma = group === 'reforma';
+    const showRehab = group === 'rehabilitacion' || group === 'comunidad';
+    const showComunidad = group === 'comunidad' || group === 'rehabilitacion';
+    const showCocina = ['reforma-cocina', 'reforma-cocina-bano', 'reforma-integral', 'reforma-piso'].includes(value);
+    const showBano = ['reforma-bano', 'reforma-cocina-bano', 'reforma-integral', 'reforma-piso'].includes(value);
+
+    form.querySelectorAll('[data-budget-panel]').forEach((el) => {
+      if (!(el instanceof HTMLElement)) return;
+      const panels = el.dataset.budgetPanel?.split(' ') ?? [];
+      let visible = false;
+      if (panels.includes('reforma') && showReforma) visible = true;
+      if (panels.includes('rehabilitacion') && showRehab) visible = true;
+      if (panels.includes('comunidad') && showComunidad) visible = true;
+      if (panels.includes('cocina') && showCocina) visible = true;
+      if (panels.includes('bano') && showBano) visible = true;
+      el.hidden = !visible;
+    });
+
+    const acuchillarSi = form.querySelector('input[name="acuchillar"][value="si"]');
+    const acuchillarPanel = form.querySelector('[data-acuchillar-m2]');
+    if (acuchillarPanel instanceof HTMLElement && acuchillarSi instanceof HTMLInputElement) {
+      acuchillarPanel.hidden = !acuchillarSi.checked || !showReforma;
+    }
+  }
+
+  function initBudgetForms() {
+    document.querySelectorAll('[data-budget-form]').forEach((element) => {
+      if (!(element instanceof HTMLFormElement)) return;
+      const form = element;
+      if (form.dataset.budgetInitialized === 'true') return;
+      form.dataset.budgetInitialized = 'true';
+
+      const tipo = form.querySelector('[data-budget-tipo]');
+      tipo?.addEventListener('change', () => updateBudgetPanels(form));
+
+      form.querySelectorAll('[data-acuchillar-toggle]').forEach((radio) => {
+        radio.addEventListener('change', () => updateBudgetPanels(form));
+      });
+
+      updateBudgetPanels(form);
+    });
+  }
+
+  function showStatus(form: HTMLFormElement, message: string, type: 'success' | 'error') {
+    const status = form.querySelector('[data-form-status]');
+    if (!(status instanceof HTMLElement)) return;
+    status.textContent = message;
+    status.dataset.type = type;
+    status.hidden = false;
+  }
+
+  function initContactForms() {
+    document.querySelectorAll('[data-contact-form]').forEach((element) => {
+      if (!(element instanceof HTMLFormElement)) return;
+      const form = element;
+      if (form.dataset.initialized === 'true') return;
+      form.dataset.initialized = 'true';
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const endpoint = form.dataset.formEndpoint ?? '';
+        const honeypot = form.querySelector('input[name="company"]');
+        if (honeypot instanceof HTMLInputElement && honeypot.value.trim()) return;
+
+        const privacy = form.querySelector('input[name="privacidad"]');
+        if (privacy instanceof HTMLInputElement && !privacy.checked) {
+          showStatus(form, 'Debes aceptar la política de privacidad.', 'error');
+          return;
+        }
+
+        if (!form.reportValidity()) return;
+
+        if (!endpoint) {
+          showStatus(
+            form,
+            'Formulario en configuración. Llámanos o escríbenos por email mientras tanto.',
+            'error',
+          );
+          return;
+        }
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        if (submitButton instanceof HTMLButtonElement) submitButton.disabled = true;
+
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' },
+          });
+          const data = await response.json().catch(() => null);
+          if (!response.ok || (data && data.success === false)) throw new Error('Network error');
+          form.reset();
+          updateBudgetPanels(form);
+          showStatus(form, 'Solicitud enviada. Te contactaremos en breve.', 'success');
+        } catch {
+          showStatus(form, 'Error al enviar. Inténtalo de nuevo o llámanos.', 'error');
+        } finally {
+          if (submitButton instanceof HTMLButtonElement) submitButton.disabled = false;
+        }
+      });
+    });
+  }
+
+  initBudgetForms();
+  initContactForms();
+  document.addEventListener('astro:page-load', () => {
+    initBudgetForms();
+    initContactForms();
+  });
+</script>
