@@ -1,0 +1,72 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'outline';
+  type?: 'button' | 'submit';
+  class?: string;
+}
+
+const { href, variant = 'primary', type = 'button', class: className = '' } = Astro.props;
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag
+  href={href}
+  type={!href ? type : undefined}
+  class:list={['btn', `btn--${variant}`, className]}
+>
+  <slot />
+</Tag>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.75rem;
+    font-family: var(--font-primary);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    border: 2px solid transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition:
+      background-color var(--transition-fast),
+      color var(--transition-fast),
+      border-color var(--transition-fast);
+  }
+
+  .btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+
+  .btn--primary:hover,
+  .btn--primary:focus-visible {
+    background-color: var(--color-secondary);
+  }
+
+  .btn--secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-on-primary);
+  }
+
+  .btn--secondary:hover,
+  .btn--secondary:focus-visible {
+    background-color: var(--color-primary);
+  }
+
+  .btn--outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .btn--outline:hover,
+  .btn--outline:focus-visible {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+</style>

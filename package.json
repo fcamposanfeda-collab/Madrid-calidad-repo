@@ -10,9 +10,11 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "download:assets": "node scripts/download-assets.mjs"
+    "download:assets": "node scripts/download-assets.mjs",
+    "qa:routes": "node scripts/qa-verify-routes.mjs"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "astro": "^6.4.7"
   }
 }

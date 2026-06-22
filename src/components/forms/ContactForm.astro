@@ -1,0 +1,217 @@
+---
+import Button from '../ui/Button.astro';
+
+interface Props {
+  formId?: string;
+}
+
+const { formId = 'contact' } = Astro.props;
+const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
+const nameId = `${formId}-nombre`;
+const emailId = `${formId}-email`;
+const messageId = `${formId}-mensaje`;
+const statusId = `${formId}-status`;
+const honeypotId = `${formId}-company`;
+---
+
+<form
+  class="contact-form"
+  method="post"
+  action={formEndpoint || '#'}
+  data-contact-form
+  data-form-endpoint={formEndpoint}
+  novalidate
+>
+  <div class="contact-form__honeypot" aria-hidden="true">
+    <label for={honeypotId}>Empresa</label>
+    <input type="text" id={honeypotId} name="company" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <div class="contact-form__field">
+    <label class="contact-form__label" for={nameId}>Nombre completo</label>
+    <input
+      class="contact-form__input"
+      type="text"
+      id={nameId}
+      name="nombre"
+      autocomplete="name"
+    />
+  </div>
+
+  <div class="contact-form__field">
+    <label class="contact-form__label" for={emailId}>
+      Correo electrónico<span class="contact-form__required" aria-hidden="true">*</span>
+    </label>
+    <input
+      class="contact-form__input"
+      type="email"
+      id={emailId}
+      name="email"
+      autocomplete="email"
+      required
+      aria-required="true"
+    />
+  </div>
+
+  <div class="contact-form__field">
+    <label class="contact-form__label" for={messageId}>
+      Mensaje<span class="contact-form__required" aria-hidden="true">*</span>
+    </label>
+    <textarea
+      class="contact-form__input contact-form__textarea"
+      id={messageId}
+      name="mensaje"
+      rows="5"
+      required
+      aria-required="true"
+    ></textarea>
+  </div>
+
+  <p class="contact-form__status" id={statusId} role="status" aria-live="polite" hidden data-form-status></p>
+
+  <Button type="submit" variant="primary">Enviar consulta</Button>
+</form>
+
+<style>
+  .contact-form {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .contact-form__honeypot {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .contact-form__field {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .contact-form__label {
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  .contact-form__required {
+    color: var(--color-primary);
+    margin-left: 0.125rem;
+  }
+
+  .contact-form__input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font: inherit;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    transition: border-color var(--transition-fast);
+  }
+
+  .contact-form__input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(41, 90, 130, 0.15);
+  }
+
+  .contact-form__input:user-invalid {
+    border-color: #dc2626;
+  }
+
+  .contact-form__textarea {
+    resize: vertical;
+    min-height: 8rem;
+  }
+
+  .contact-form__status {
+    margin: 0;
+    font-size: 0.9375rem;
+  }
+
+  .contact-form__status[data-type='success'] {
+    color: #15803d;
+  }
+
+  .contact-form__status[data-type='error'] {
+    color: #dc2626;
+  }
+</style>
+
+<script>
+  function showStatus(form: HTMLFormElement, message: string, type: 'success' | 'error') {
+    const status = form.querySelector('[data-form-status]');
+    if (!(status instanceof HTMLElement)) return;
+    status.textContent = message;
+    status.dataset.type = type;
+    status.hidden = false;
+  }
+
+  function initContactForms() {
+    document.querySelectorAll('[data-contact-form]').forEach((element) => {
+      if (!(element instanceof HTMLFormElement)) return;
+      const form = element;
+      if (form.dataset.initialized === 'true') return;
+      form.dataset.initialized = 'true';
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const endpoint = form.dataset.formEndpoint ?? '';
+        const honeypot = form.querySelector('input[name="company"]');
+        if (honeypot instanceof HTMLInputElement && honeypot.value.trim()) {
+          return;
+        }
+
+        if (!endpoint) {
+          showStatus(
+            form,
+            'El formulario aún no está configurado. Define PUBLIC_FORM_ENDPOINT en el entorno.',
+            'error',
+          );
+          return;
+        }
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        if (submitButton instanceof HTMLButtonElement) {
+          submitButton.disabled = true;
+        }
+
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' },
+          });
+
+          if (!response.ok) {
+            throw new Error('Network error');
+          }
+
+          form.reset();
+          showStatus(
+            form,
+            'Consulta enviada correctamente. Nos pondremos en contacto contigo pronto.',
+            'success',
+          );
+        } catch {
+          showStatus(
+            form,
+            'No se pudo enviar la consulta. Inténtalo de nuevo o contáctanos por teléfono.',
+            'error',
+          );
+        } finally {
+          if (submitButton instanceof HTMLButtonElement) {
+            submitButton.disabled = false;
+          }
+        }
+      });
+    });
+  }
+
+  initContactForms();
+  document.addEventListener('astro:page-load', initContactForms);
+</script>

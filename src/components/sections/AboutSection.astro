@@ -1,0 +1,42 @@
+---
+import Button from '../ui/Button.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+import { aboutContent } from '../../data/home-content';
+
+const { title, text, highlight } = aboutContent;
+const parts = text.split(highlight);
+---
+
+<section class="about section" aria-labelledby="sobre-nosotros">
+  <div class="container about__inner">
+    <SectionTitle title={title} id="sobre-nosotros" />
+    <p class="about__text">
+      {parts[0]}
+      <strong>{highlight}</strong>
+      {parts[1]}
+    </p>
+    <Button href="/contacto" variant="primary">Contáctanos</Button>
+  </div>
+</section>
+
+<style>
+  .about {
+    background: #f8fafc;
+  }
+
+  .about__inner {
+    max-width: 48rem;
+  }
+
+  .about__text {
+    margin: 0 0 2rem;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  .about__text strong {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+</style>

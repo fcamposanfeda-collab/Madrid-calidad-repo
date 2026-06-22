@@ -1,0 +1,109 @@
+---
+import { processSteps } from '../../data/process-steps';
+---
+
+<section class="process-timeline section" aria-label="Proceso de trabajo">
+  <ol class="container process-timeline__list">
+    {
+      processSteps.map((step, index) => (
+        <li class:list={['process-step', { 'process-step--reverse': index % 2 === 1 }]}>
+          <div class="process-step__media">
+            <img
+              src={step.src}
+              alt={step.alt}
+              loading="lazy"
+              decoding="async"
+              class="process-step__image"
+            />
+          </div>
+          <div class="process-step__content">
+            <span class="process-step__number" aria-hidden="true">
+              {String(step.step).padStart(2, '0')}
+            </span>
+            <h2 class="process-step__title">{step.title}</h2>
+            <p class="process-step__description">{step.description}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</section>
+
+<style>
+  .process-timeline {
+    padding-top: 0;
+  }
+
+  .process-timeline__list {
+    display: grid;
+    gap: 3rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .process-step {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+    list-style: none;
+  }
+
+  .process-step__media {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(13, 20, 26, 0.1);
+    background: var(--color-border);
+  }
+
+  .process-step__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .process-step__number {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--color-primary);
+  }
+
+  .process-step__title {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .process-step__description {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+  }
+
+  @media (min-width: 768px) {
+    .process-timeline__list {
+      gap: 4rem;
+    }
+
+    .process-step {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .process-step--reverse .process-step__media {
+      order: 2;
+    }
+
+    .process-step--reverse .process-step__content {
+      order: 1;
+    }
+  }
+</style>

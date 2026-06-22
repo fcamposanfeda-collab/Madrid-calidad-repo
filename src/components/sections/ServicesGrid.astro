@@ -1,0 +1,62 @@
+---
+import Button from '../ui/Button.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+import ServiceCard from '../ui/ServiceCard.astro';
+import { services, servicesIntro } from '../../data/services';
+---
+
+<section class="services section" aria-labelledby="servicios-title">
+  <div class="container">
+    <SectionTitle title="Servicios" id="servicios-title" />
+    <p class="services__intro">{servicesIntro}</p>
+
+    <div class="services__grid">
+      {
+        services.map((service) => (
+          <ServiceCard
+            title={service.title}
+            image={service.src}
+            imageAlt={service.alt}
+          />
+        ))
+      }
+    </div>
+
+    <div class="services__cta">
+      <Button href="/contacto" variant="primary">Contáctanos</Button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services__intro {
+    margin: -1rem 0 2.5rem;
+    max-width: 48rem;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+  }
+
+  .services__grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .services__cta {
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .services__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .services__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

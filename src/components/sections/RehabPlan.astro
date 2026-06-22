@@ -1,0 +1,65 @@
+---
+import SectionTitle from '../ui/SectionTitle.astro';
+import { rehabPlanContent } from '../../data/home-content';
+import { images } from '../../data/images';
+
+const { title } = rehabPlanContent;
+const { rehabPlan } = images;
+---
+
+<section class="rehab-plan section" aria-labelledby="rehab-plan-title">
+  <div class="container rehab-plan__inner">
+    <div class="rehab-plan__content">
+      <SectionTitle title={title} as="h3" id="rehab-plan-title" />
+    </div>
+    <figure class="rehab-plan__figure">
+      <img
+        src={rehabPlan.src}
+        alt={rehabPlan.alt}
+        loading="lazy"
+        decoding="async"
+        class="rehab-plan__image"
+      />
+    </figure>
+  </div>
+</section>
+
+<style>
+  .rehab-plan {
+    background: var(--color-bg);
+  }
+
+  .rehab-plan__inner {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .rehab-plan__content :global(.section-title) {
+    margin-bottom: 0;
+  }
+
+  .rehab-plan__content :global(.section-title__heading) {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    text-transform: none;
+  }
+
+  .rehab-plan__figure {
+    margin: 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(13, 20, 26, 0.12);
+  }
+
+  .rehab-plan__image {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (min-width: 768px) {
+    .rehab-plan__inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+</style>
