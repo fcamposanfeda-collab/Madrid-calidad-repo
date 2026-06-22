@@ -1,0 +1,54 @@
+---
+import { contact } from '../../data/contact';
+---
+
+<div class="sticky-cta" aria-label="Acciones rápidas">
+  <a class="sticky-cta__btn sticky-cta__btn--call" href={`tel:${contact.phone.replace(/\s/g, '')}`}>
+    Llámanos
+  </a>
+  <a class="sticky-cta__btn sticky-cta__btn--contact" href="/presupuestos">Presupuesto</a>
+</div>
+
+<style>
+  .sticky-cta {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 150;
+    box-shadow: 0 -2px 12px rgba(13, 20, 26, 0.1);
+  }
+
+  .sticky-cta__btn {
+    flex: 1;
+    padding: 0.875rem;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .sticky-cta__btn--call {
+    background: var(--color-secondary);
+    color: var(--color-on-primary);
+  }
+
+  .sticky-cta__btn--contact {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+
+  @media (min-width: 1100px) {
+    .sticky-cta {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1099px) {
+    :global(body) {
+      padding-bottom: 3rem;
+    }
+  }
+</style>

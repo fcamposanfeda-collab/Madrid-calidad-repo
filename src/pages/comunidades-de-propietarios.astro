@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+import ContactForm from '../components/forms/ContactForm.astro';
+import FaqSection from '../components/sections/FaqSection.astro';
+import { getServiceHref } from '../data/services-seo';
+
+const title = 'Rehabilitación para comunidades de propietarios Madrid | Madrid Calidad Constructiva';
+const description =
+  'Rehabilitación energética, fachadas, cubiertas y subvenciones para comunidades de propietarios en Madrid. Asesoramiento a presidentes y administradores.';
+
+const faq = [
+  {
+    question: '¿Cómo convocar una junta para aprobar una rehabilitación?',
+    answer:
+      'La mayoría de obras en elementos comunes requieren mayoría cualificada según la Ley de Propiedad Horizontal. Te facilitamos informes y presupuestos claros para presentar en junta.',
+  },
+  {
+    question: '¿Quién puede solicitar las subvenciones, la comunidad o cada vecino?',
+    answer:
+      'Depende del programa. Las ayudas a nivel de edificio las solicita la comunidad; otras actuaciones en vivienda pueden ser individuales. Te orientamos en cada convocatoria.',
+  },
+  {
+    question: '¿Cómo minimizáis molestias durante la obra?',
+    answer:
+      'Planificamos por fases, horarios acordados y comunicación previa con vecinos. En fachadas y cubiertas coordinamos accesos y seguridad con el administrador.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <header class="page-hero section">
+    <div class="container page-hero__inner">
+      <h1>Comunidades de propietarios en Madrid</h1>
+      <p>
+        Rehabilitación de fachadas, cubiertas, instalaciones y mejora energética con un equipo que
+        entiende las necesidades de las juntas de propietarios y de los administradores de fincas.
+        Diagnóstico, presupuesto, subvenciones y ejecución con un único interlocutor.
+      </p>
+      <Button href="#formulario-comunidades" variant="primary">Solicitar información</Button>
+    </div>
+  </header>
+
+  <section class="section content-block">
+    <div class="container content-block__inner">
+      <h2>Servicios más demandados por comunidades</h2>
+      <ul class="service-links">
+        <li><a href={getServiceHref('rehabilitacion-fachadas-madrid')}>Rehabilitación de fachadas</a></li>
+        <li><a href={getServiceHref('sate-madrid')}>Aislamiento SATE</a></li>
+        <li><a href={getServiceHref('rehabilitacion-cubiertas-madrid')}>Rehabilitación de cubiertas</a></li>
+        <li><a href={getServiceHref('impermeabilizacion-madrid')}>Impermeabilización</a></li>
+        <li><a href={getServiceHref('accesibilidad-edificios-madrid')}>Accesibilidad y ascensores</a></li>
+        <li><a href="/ayudas-y-subvenciones">Ayudas y subvenciones</a></li>
+      </ul>
+      <h2>Qué incluye nuestro asesoramiento</h2>
+      <p>
+        Visita técnica al edificio, identificación de patologías, propuesta de actuaciones priorizadas,
+        presupuesto desglosado, estudio de ayudas públicas y calendario de obra. Todo sin compromiso
+        inicial.
+      </p>
+    </div>
+  </section>
+
+  <section class="section form-section" id="formulario-comunidades" aria-labelledby="form-title">
+    <div class="container form-section__inner">
+      <h2 id="form-title">Cuéntanos sobre tu edificio</h2>
+      <p>Indica en el mensaje el número de viviendas, municipio y tipo de actuación que necesitáis.</p>
+      <ContactForm formId="comunidades" />
+    </div>
+  </section>
+
+  <FaqSection items={faq} title="Preguntas frecuentes para comunidades" />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: #f8fafc;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-hero__inner,
+  .content-block__inner,
+  .form-section__inner {
+    max-width: 40rem;
+  }
+
+  .page-hero h1 {
+    margin: 0 0 1rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+
+  .page-hero p {
+    margin: 0 0 1.5rem;
+    line-height: 1.75;
+    color: var(--color-muted);
+  }
+
+  .content-block h2 {
+    margin: 0 0 1rem;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+  }
+
+  .content-block h2:not(:first-child) {
+    margin-top: 2rem;
+  }
+
+  .content-block p {
+    margin: 0;
+    line-height: 1.75;
+  }
+
+  .service-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .service-links a {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .form-section {
+    background: #f8fafc;
+    border-block: 1px solid var(--color-border);
+  }
+
+  .form-section h2 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .form-section > .container > p {
+    margin: 0 0 1.5rem;
+    color: var(--color-muted);
+  }
+</style>

@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceLandingContent from '../../components/sections/ServiceLandingContent.astro';
+import { allServiceLandings, getServiceBySlug } from '../../data/services-seo';
+
+export function getStaticPaths() {
+  return allServiceLandings.map((service) => ({
+    params: { slug: service.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const service = getServiceBySlug(slug!);
+
+if (!service) {
+  return Astro.redirect('/servicios');
+}
+---
+
+<BaseLayout title={service.title} description={service.description}>
+  <ServiceLandingContent service={service} />
+</BaseLayout>

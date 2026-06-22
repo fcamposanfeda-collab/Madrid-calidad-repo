@@ -19,6 +19,33 @@ export const pagesMeta = {
     description:
       'Ponte en contacto con Madrid Calidad Constructiva para asesoría personalizada y servicios de construcción premium en Madrid.',
   },
+  '/servicios': {
+    title: 'Servicios de rehabilitación en Madrid | Madrid Calidad Constructiva',
+    description:
+      'Rehabilitación energética, SATE, fachadas, cubiertas, impermeabilización y reformas integrales en Madrid.',
+  },
+  '/ayudas-y-subvenciones': {
+    title: 'Ayudas y subvenciones rehabilitación Madrid | Madrid Calidad Constructiva',
+    description:
+      'Ayudas Next Generation y subvenciones para rehabilitación energética de edificios en Madrid.',
+  },
+  '/comunidades-de-propietarios': {
+    title: 'Rehabilitación comunidades de propietarios Madrid | Madrid Calidad Constructiva',
+    description:
+      'Rehabilitación de fachadas, cubiertas y eficiencia energética para comunidades de propietarios en Madrid.',
+  },
+  '/nosotros': {
+    title: 'Sobre nosotros | Madrid Calidad Constructiva',
+    description: 'Conoce Madrid Calidad Constructiva: rehabilitación energética y reformas integrales en Madrid.',
+  },
+  '/presupuestos': {
+    title: 'Presupuesto sin compromiso | Madrid Calidad Constructiva',
+    description: 'Solicita presupuesto para rehabilitación, SATE y reformas en Madrid.',
+  },
+  '/proyectos': {
+    title: 'Proyectos en Madrid | Madrid Calidad Constructiva',
+    description: 'Portfolio de obras de rehabilitación y reformas en la Comunidad de Madrid.',
+  },
   '/terminos-y-condiciones': {
     title: 'Términos y condiciones | Madrid Calidad Constructiva',
     description: 'Términos y condiciones de uso del sitio web de Madrid Calidad Constructiva.',

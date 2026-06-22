@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import ServiceCard from '../../components/ui/ServiceCard.astro';
+import SectionTitle from '../../components/ui/SectionTitle.astro';
+import { allServiceLandings, getServiceHref } from '../../data/services-seo';
+
+const title = 'Servicios de rehabilitación en Madrid | Madrid Calidad Constructiva';
+const description =
+  'Rehabilitación energética, SATE, fachadas, cubiertas, impermeabilización, trabajos verticales, subvenciones y reformas integrales en Madrid.';
+---
+
+<BaseLayout title={title} description={description}>
+  <header class="hub-header section">
+    <div class="container hub-header__inner">
+      <h1 class="hub-header__title">Nuestros servicios en Madrid</h1>
+      <p class="hub-header__subtitle">
+        Soluciones integrales de rehabilitación energética, obra y gestión de subvenciones para
+        comunidades, particulares y promotores en la Comunidad de Madrid.
+      </p>
+      <Button href="/contacto" variant="primary">Solicitar presupuesto</Button>
+    </div>
+  </header>
+
+  <section class="section" aria-labelledby="servicios-grid-title">
+    <div class="container">
+      <SectionTitle title="Especialidades" id="servicios-grid-title" />
+      <div class="hub-grid">
+        {
+          allServiceLandings.map((service) => (
+            <ServiceCard
+              title={service.shortTitle}
+              image={service.image.src}
+              imageAlt={service.image.alt}
+              href={getServiceHref(service.slug)}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section hub-links">
+    <div class="container hub-links__inner">
+      <h2>También te puede interesar</h2>
+      <ul>
+        <li><a href="/ayudas-y-subvenciones">Ayudas y subvenciones</a></li>
+        <li><a href="/comunidades-de-propietarios">Comunidades de propietarios</a></li>
+        <li><a href="/como-lo-hacemos">Cómo lo hacemos</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hub-header {
+    background: #f8fafc;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hub-header__inner {
+    max-width: 48rem;
+  }
+
+  .hub-header__title {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+
+  .hub-header__subtitle {
+    margin: 0 0 1.5rem;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+  }
+
+  .hub-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .hub-links {
+    background: #f8fafc;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .hub-links__inner {
+    max-width: 48rem;
+  }
+
+  .hub-links h2 {
+    margin: 0 0 1rem;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+  }
+
+  .hub-links ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hub-links a {
+    font-weight: 500;
+    color: var(--color-primary);
+  }
+
+  @media (min-width: 768px) {
+    .hub-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hub-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

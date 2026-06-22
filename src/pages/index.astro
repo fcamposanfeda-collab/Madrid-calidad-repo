@@ -1,22 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { images } from '../data/images';
-import Hero from '../components/sections/Hero.astro';
-import ServicePills from '../components/sections/ServicePills.astro';
+import { stockImages } from '../data/placeholders';
+import HeroWithForm from '../components/sections/HeroWithForm.astro';
+import WhyChooseSection from '../components/sections/WhyChooseSection.astro';
+import ServiceCategories from '../components/sections/ServiceCategories.astro';
 import AboutSection from '../components/sections/AboutSection.astro';
-import ServicesGrid from '../components/sections/ServicesGrid.astro';
 import RehabPlan from '../components/sections/RehabPlan.astro';
+import ProjectsPreview from '../components/sections/ProjectsPreview.astro';
+import HomeFaq from '../components/sections/HomeFaq.astro';
+import ZonesSection from '../components/sections/ZonesSection.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
 
 const meta = getPageMeta('/');
+const heroImage = stockImages.hero.src;
 ---
 
-<BaseLayout title={meta.title} description={meta.description} preloadImage={images.hero.src}>
-  <Hero />
-  <ServicePills />
+<BaseLayout title={meta.title} description={meta.description} preloadImage={heroImage}>
+  <HeroWithForm />
+  <WhyChooseSection />
+  <ServiceCategories />
   <AboutSection />
-  <ServicesGrid />
   <RehabPlan />
+  <ProjectsPreview />
+  <ZonesSection />
+  <HomeFaq />
   <ContactSection />
 </BaseLayout>

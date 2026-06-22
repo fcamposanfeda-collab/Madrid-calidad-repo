@@ -1,0 +1,132 @@
+---
+import Button from '../ui/Button.astro';
+
+const items = [
+  {
+    title: 'Seriedad y confianza',
+    text: 'Un gestor de proyecto te acompaña desde la idea inicial hasta el servicio post-obra.',
+  },
+  {
+    title: 'Garantía y resultados',
+    text: 'Planificamos cada fase para que el proyecto se ejecute como acordamos y en los plazos previstos.',
+  },
+  {
+    title: 'Subvenciones y financiación',
+    text: 'Te ayudamos a acceder a ayudas públicas y opciones de financiación para tu rehabilitación.',
+  },
+  {
+    title: 'Cumplimiento de plazos',
+    text: 'Visión integral de la obra, equipos coordinados y seguimiento diario del avance.',
+  },
+  {
+    title: 'Equipo técnico propio',
+    text: 'Profesionales de rehabilitación, reforma y eficiencia energética bajo un mismo equipo.',
+  },
+  {
+    title: 'Servicio post-venta',
+    text: 'Seguimiento tras la entrega y garantía en todas nuestras actuaciones.',
+  },
+];
+---
+
+<section class="why section" aria-labelledby="why-title">
+  <div class="container">
+    <header class="why__header">
+      <h2 id="why-title" class="why__title">La mejor empresa de rehabilitación y reformas en Madrid</h2>
+      <p class="why__intro">
+        Elegir bien es clave. Estas son las razones por las que comunidades y particulares confían en
+        Madrid Calidad Constructiva.
+      </p>
+    </header>
+
+    <div class="why__grid">
+      {
+        items.map((item) => (
+          <article class="why__card">
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="why__cta">
+      <Button href="/nosotros" variant="outline">Conócenos</Button>
+      <Button href="/presupuestos" variant="primary">Pide presupuesto</Button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .why {
+    background: #f8fafc;
+  }
+
+  .why__header {
+    max-width: 40rem;
+    margin-bottom: 2rem;
+  }
+
+  .why__title {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.15;
+  }
+
+  .why__intro {
+    margin: 0;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  .why__grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+  }
+
+  .why__card {
+    padding: 1.5rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    border-top: 3px solid var(--color-primary);
+  }
+
+  .why__card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .why__card p {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--color-muted);
+  }
+
+  .why__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .why__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .why__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

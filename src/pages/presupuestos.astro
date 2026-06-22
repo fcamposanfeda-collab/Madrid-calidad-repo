@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteForm from '../components/forms/QuoteForm.astro';
+import ContactInfo from '../components/sections/ContactInfo.astro';
+
+const title = 'Presupuesto sin compromiso | Madrid Calidad Constructiva';
+const description =
+  'Solicita presupuesto para rehabilitación energética, SATE, reformas integrales y más en Madrid. Respuesta rápida.';
+---
+
+<BaseLayout title={title} description={description}>
+  <header class="presupuesto-hero section">
+    <div class="container presupuesto-hero__inner">
+      <h1>Solicita tu presupuesto</h1>
+      <p>
+        Cuéntanos tu proyecto y te contactaremos para una valoración personalizada. Sin compromiso.
+      </p>
+    </div>
+  </header>
+
+  <section class="section presupuesto-form">
+    <div class="container presupuesto-form__grid">
+      <div class="presupuesto-form__card">
+        <h2>Formulario de presupuesto</h2>
+        <QuoteForm formId="presupuesto" />
+      </div>
+      <aside>
+        <ContactInfo />
+        <ul class="presupuesto-form__benefits">
+          <li>Visita técnica gratuita</li>
+          <li>Estudio de subvenciones</li>
+          <li>Presupuesto detallado</li>
+          <li>Respuesta en 24–48 h</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .presupuesto-hero {
+    background: var(--color-secondary);
+    color: var(--color-on-primary);
+  }
+
+  .presupuesto-hero__inner {
+    max-width: 40rem;
+  }
+
+  .presupuesto-hero h1 {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    text-transform: uppercase;
+  }
+
+  .presupuesto-hero p {
+    margin: 0;
+    opacity: 0.9;
+    line-height: 1.7;
+  }
+
+  .presupuesto-form__grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .presupuesto-form__card h2 {
+    margin: 0 0 1.25rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .presupuesto-form__benefits {
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .presupuesto-form__benefits li {
+    padding-left: 1.25rem;
+    position: relative;
+    font-weight: 500;
+  }
+
+  .presupuesto-form__benefits li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  @media (min-width: 992px) {
+    .presupuesto-form__grid {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+  }
+</style>

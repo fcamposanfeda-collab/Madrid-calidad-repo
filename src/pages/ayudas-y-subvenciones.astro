@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+import FaqSection from '../components/sections/FaqSection.astro';
+import { getServiceHref } from '../data/services-seo';
+
+const title = 'Ayudas y subvenciones rehabilitación Madrid | Madrid Calidad Constructiva';
+const description =
+  'Ayudas Next Generation, subvenciones estatales y autonómicas para rehabilitación energética de edificios en Madrid. Gestión completa de tramitación.';
+
+const faq = [
+  {
+    question: '¿Qué ayudas existen para rehabilitar un edificio en Madrid?',
+    answer:
+      'Existen programas europeos (Next Generation), estatales y de la Comunidad de Madrid para rehabilitación energética a nivel de edificio, vivienda y actuaciones en envolvente, instalaciones y accesibilidad. La convocatoria aplicable depende del tipo de actuación y del ahorro energético previsto.',
+  },
+  {
+    question: '¿Madrid Calidad gestiona la solicitud de subvenciones?',
+    answer:
+      'Sí. Preparamos documentación técnica, presentamos solicitudes y acompañamos la justificación ante la administración, coordinando plazos con la ejecución de la obra.',
+  },
+  {
+    question: '¿Se pueden combinar subvención y deducción en el IRPF?',
+    answer:
+      'En muchos supuestos las ayudas públicas y las deducciones fiscales por mejora energética son compatibles dentro de los límites legales. Analizamos tu caso para maximizar el apoyo disponible.',
+  },
+  {
+    question: '¿Qué es el libro del edificio existente?',
+    answer:
+      'Es un documento técnico que recoge el estado del edificio y justifica la necesidad de rehabilitación. Algunas convocatorias subvencionan su elaboración hasta un importe máximo definido en cada programa.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <header class="page-hero section">
+    <div class="container page-hero__inner">
+      <h1>Ayudas y subvenciones para rehabilitación en Madrid</h1>
+      <p>
+        Los fondos europeos y los programas estatales han impulsado ayudas económicas y fiscales para
+        la rehabilitación energética de edificios. En Madrid Calidad Constructiva te ayudamos a
+        identificar las convocatorias aplicables, preparar la documentación y ejecutar la obra cumpliendo
+        todos los requisitos.
+      </p>
+      <Button href="/contacto" variant="primary">Consultar ayudas para mi edificio</Button>
+    </div>
+  </header>
+
+  <section class="section content-block">
+    <div class="container content-block__inner">
+      <h2>Programa de rehabilitación a nivel de edificio</h2>
+      <p>
+        Las actuaciones integrales en envolvente, instalaciones y eficiencia energética pueden acceder
+        a intensidades de ayuda elevadas según el ahorro conseguido. Trabajamos con comunidades de
+        propietarios para definir un paquete de obras que sea técnicamente sólido y financieramente viable.
+      </p>
+      <h2>Ayudas para viviendas y particulares</h2>
+      <p>
+        Aislamiento, sustitución de ventanas, instalación de energías renovables y otras mejoras pueden
+        tener apoyo directo. Te informamos sobre requisitos, plazos y documentación necesaria.
+      </p>
+      <h2>Proyecto técnico y libro del edificio</h2>
+      <p>
+        Muchas ayudas exigen proyecto redactado por técnico competente. Coordinamos la redacción y la
+        tramitación municipal para que no pierdas plazos de convocatoria.
+      </p>
+      <p>
+        <a href={getServiceHref('subvenciones-rehabilitacion-madrid')}>Más sobre gestión de subvenciones</a>
+        ·
+        <a href={getServiceHref('rehabilitacion-energetica-madrid')}>Rehabilitación energética</a>
+      </p>
+    </div>
+  </section>
+
+  <FaqSection items={faq} />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: #f8fafc;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-hero__inner {
+    max-width: 48rem;
+  }
+
+  .page-hero h1 {
+    margin: 0 0 1rem;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+
+  .page-hero p {
+    margin: 0 0 1.5rem;
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--color-muted);
+  }
+
+  .content-block__inner {
+    max-width: 48rem;
+  }
+
+  .content-block h2 {
+    margin: 2rem 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    text-transform: uppercase;
+  }
+
+  .content-block h2:first-child {
+    margin-top: 0;
+  }
+
+  .content-block p {
+    margin: 0 0 1rem;
+    line-height: 1.75;
+  }
+
+  .content-block a {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+</style>

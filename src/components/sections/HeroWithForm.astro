@@ -1,0 +1,149 @@
+---
+import QuoteForm from '../forms/QuoteForm.astro';
+import { stockImages } from '../../data/placeholders';
+---
+
+<section class="hero-form" aria-labelledby="hero-title">
+  <div class="hero-form__bg">
+    <img
+      src={stockImages.hero.src}
+      alt=""
+      role="presentation"
+      width="1600"
+      height="900"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="hero-form__overlay" aria-hidden="true"></div>
+  </div>
+
+  <div class="container hero-form__grid">
+    <div class="hero-form__copy">
+      <p class="hero-form__eyebrow">Madrid Calidad Constructiva</p>
+      <h1 id="hero-title" class="hero-form__title">Rehabilitación y reformas integrales en Madrid</h1>
+      <p class="hero-form__lead">
+        Especialistas en rehabilitación energética, SATE, fachadas, cubiertas y reformas con gestión de
+        subvenciones. Un único equipo desde el estudio hasta la entrega de obra.
+      </p>
+      <ul class="hero-form__badges">
+        <li>Presupuesto sin compromiso</li>
+        <li>Gestión de ayudas</li>
+        <li>Toda la Comunidad de Madrid</li>
+      </ul>
+    </div>
+
+    <div class="hero-form__card">
+      <h2 class="hero-form__form-title">Pide presupuesto ahora</h2>
+      <QuoteForm formId="hero-quote" compact />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-form {
+    position: relative;
+    color: var(--color-on-primary);
+    overflow: hidden;
+  }
+
+  .hero-form__bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-form__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-form__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      rgba(26, 42, 56, 0.92) 0%,
+      rgba(41, 90, 130, 0.78) 55%,
+      rgba(26, 42, 56, 0.65) 100%
+    );
+  }
+
+  .hero-form__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    padding-block: 2.5rem 3rem;
+  }
+
+  .hero-form__eyebrow {
+    margin: 0 0 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+
+  .hero-form__title {
+    margin: 0 0 1rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.875rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.08;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-form__lead {
+    margin: 0 0 1.25rem;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    max-width: 34rem;
+    opacity: 0.95;
+  }
+
+  .hero-form__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hero-form__badges li {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+  }
+
+  .hero-form__form-title {
+    margin: 0 0 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .hero-form__card {
+    max-width: 28rem;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  @media (min-width: 992px) {
+    .hero-form__grid {
+      grid-template-columns: 1fr min(28rem, 40%);
+      gap: 3rem;
+      padding-block: 3.5rem 4rem;
+    }
+
+    .hero-form__card {
+      margin-inline: 0 0 auto;
+    }
+  }
+</style>

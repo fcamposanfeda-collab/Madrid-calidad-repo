@@ -1,0 +1,274 @@
+---
+import Button from '../ui/Button.astro';
+
+interface Props {
+  formId?: string;
+  compact?: boolean;
+  submitLabel?: string;
+}
+
+const { formId = 'quote', compact = false, submitLabel = 'Solicitar presupuesto' } = Astro.props;
+const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
+const nameId = `${formId}-nombre`;
+const emailId = `${formId}-email`;
+const phoneId = `${formId}-telefono`;
+const typeId = `${formId}-tipo`;
+const privacyId = `${formId}-privacidad`;
+const statusId = `${formId}-status`;
+const honeypotId = `${formId}-company`;
+
+const serviceOptions = [
+  { value: 'rehabilitacion', label: 'Rehabilitación energética' },
+  { value: 'sate', label: 'SATE / Fachadas' },
+  { value: 'cubiertas', label: 'Cubiertas / Impermeabilización' },
+  { value: 'reforma-integral', label: 'Reforma integral' },
+  { value: 'reforma-cocina', label: 'Reforma de cocina' },
+  { value: 'reforma-bano', label: 'Reforma de baño' },
+  { value: 'subvenciones', label: 'Subvenciones y ayudas' },
+  { value: 'comunidad', label: 'Comunidad de propietarios' },
+  { value: 'otros', label: 'Otros servicios' },
+];
+---
+
+<form
+  class:list={['quote-form', { 'quote-form--compact': compact }]}
+  method="post"
+  action={formEndpoint || '#'}
+  data-contact-form
+  data-form-endpoint={formEndpoint}
+  novalidate
+>
+  <div class="quote-form__honeypot" aria-hidden="true">
+    <label for={honeypotId}>Empresa</label>
+    <input type="text" id={honeypotId} name="company" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <div class="quote-form__row">
+    <div class="quote-form__field">
+      <label class="quote-form__label" for={nameId}>Nombre</label>
+      <input class="quote-form__input" type="text" id={nameId} name="nombre" autocomplete="name" />
+    </div>
+    <div class="quote-form__field">
+      <label class="quote-form__label" for={emailId}>
+        Email<span class="quote-form__required" aria-hidden="true">*</span>
+      </label>
+      <input
+        class="quote-form__input"
+        type="email"
+        id={emailId}
+        name="email"
+        autocomplete="email"
+        required
+        aria-required="true"
+      />
+    </div>
+  </div>
+
+  <div class="quote-form__row">
+    <div class="quote-form__field">
+      <label class="quote-form__label" for={phoneId}>Teléfono</label>
+      <input class="quote-form__input" type="tel" id={phoneId} name="telefono" autocomplete="tel" />
+    </div>
+    <div class="quote-form__field">
+      <label class="quote-form__label" for={typeId}>Tipo de servicio</label>
+      <select class="quote-form__input" id={typeId} name="tipo_servicio">
+        <option value="">Selecciona una opción</option>
+        {serviceOptions.map((opt) => <option value={opt.value}>{opt.label}</option>)}
+      </select>
+    </div>
+  </div>
+
+  {!compact && (
+    <div class="quote-form__field">
+      <label class="quote-form__label" for={`${formId}-mensaje`}>Tu proyecto</label>
+      <textarea
+        class="quote-form__input quote-form__textarea"
+        id={`${formId}-mensaje`}
+        name="mensaje"
+        rows="3"
+        placeholder="Cuéntanos qué necesitas…"
+      />
+    </div>
+  )}
+
+  <label class="quote-form__privacy" for={privacyId}>
+    <input type="checkbox" id={privacyId} name="privacidad" value="si" required />
+    <span>
+      He leído y acepto la <a href="/politica-de-privacidad" target="_blank" rel="noopener">política de privacidad</a>
+    </span>
+  </label>
+
+  <p class="quote-form__status" id={statusId} role="status" aria-live="polite" hidden data-form-status></p>
+
+  <Button type="submit" variant="primary" class="quote-form__submit">{submitLabel}</Button>
+</form>
+
+<style>
+  .quote-form {
+    display: grid;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--color-bg);
+    border-radius: 0.5rem;
+    box-shadow: 0 12px 40px rgba(13, 20, 26, 0.12);
+  }
+
+  .quote-form--compact {
+    padding: 1.25rem;
+    box-shadow: none;
+    border: 1px solid var(--color-border);
+  }
+
+  .quote-form__honeypot {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .quote-form__row {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .quote-form__row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .quote-form__field {
+    display: grid;
+    gap: 0.375rem;
+  }
+
+  .quote-form__label {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .quote-form__required {
+    color: var(--color-primary);
+  }
+
+  .quote-form__input {
+    width: 100%;
+    padding: 0.75rem 0.875rem;
+    font: inherit;
+    font-size: 0.9375rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    background: var(--color-bg);
+  }
+
+  .quote-form__input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(41, 90, 130, 0.12);
+  }
+
+  .quote-form__textarea {
+    resize: vertical;
+    min-height: 5rem;
+  }
+
+  .quote-form__privacy {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+    cursor: pointer;
+  }
+
+  .quote-form__privacy a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .quote-form__privacy input {
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+  }
+
+  .quote-form__status {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  .quote-form__status[data-type='success'] {
+    color: #15803d;
+  }
+
+  .quote-form__status[data-type='error'] {
+    color: #dc2626;
+  }
+
+  .quote-form__submit {
+    width: 100%;
+  }
+</style>
+
+<script>
+  function showStatus(form: HTMLFormElement, message: string, type: 'success' | 'error') {
+    const status = form.querySelector('[data-form-status]');
+    if (!(status instanceof HTMLElement)) return;
+    status.textContent = message;
+    status.dataset.type = type;
+    status.hidden = false;
+  }
+
+  function initContactForms() {
+    document.querySelectorAll('[data-contact-form]').forEach((element) => {
+      if (!(element instanceof HTMLFormElement)) return;
+      const form = element;
+      if (form.dataset.initialized === 'true') return;
+      form.dataset.initialized = 'true';
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const endpoint = form.dataset.formEndpoint ?? '';
+        const honeypot = form.querySelector('input[name="company"]');
+        if (honeypot instanceof HTMLInputElement && honeypot.value.trim()) return;
+
+        const privacy = form.querySelector('input[name="privacidad"]');
+        if (privacy instanceof HTMLInputElement && !privacy.checked) {
+          showStatus(form, 'Debes aceptar la política de privacidad.', 'error');
+          return;
+        }
+
+        if (!endpoint) {
+          showStatus(
+            form,
+            'Formulario en configuración. Llámanos o escríbenos por email mientras tanto.',
+            'error',
+          );
+          return;
+        }
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        if (submitButton instanceof HTMLButtonElement) submitButton.disabled = true;
+
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' },
+          });
+          if (!response.ok) throw new Error('Network error');
+          form.reset();
+          showStatus(form, 'Solicitud enviada. Te contactaremos en breve.', 'success');
+        } catch {
+          showStatus(form, 'Error al enviar. Inténtalo de nuevo o llámanos.', 'error');
+        } finally {
+          if (submitButton instanceof HTMLButtonElement) submitButton.disabled = false;
+        }
+      });
+    });
+  }
+
+  initContactForms();
+  document.addEventListener('astro:page-load', initContactForms);
+</script>
