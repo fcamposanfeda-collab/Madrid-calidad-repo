@@ -7,6 +7,7 @@ interface Props {
 
 const { formId = 'contact' } = Astro.props;
 const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
+const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
 const nameId = `${formId}-nombre`;
 const emailId = `${formId}-email`;
 const messageId = `${formId}-mensaje`;
@@ -26,6 +27,10 @@ const honeypotId = `${formId}-company`;
     <label for={honeypotId}>Empresa</label>
     <input type="text" id={honeypotId} name="company" tabindex="-1" autocomplete="off" />
   </div>
+
+  {web3formsKey && <input type="hidden" name="access_key" value={web3formsKey} />}
+  <input type="hidden" name="subject" value="Nueva consulta — Madrid Calidad" />
+  <input type="hidden" name="from_name" value="Web Madrid Calidad" />
 
   <div class="contact-form__field">
     <label class="contact-form__label" for={nameId}>Nombre completo</label>
