@@ -5,6 +5,7 @@ import { getPageMeta } from '../../data/pages-meta';
 import { site } from '../../data/site';
 import PageHeader from '../../components/sections/PageHeader.astro';
 import ArticleCard from '../../components/sections/ArticleCard.astro';
+import ArticleCta from '../../components/sections/ArticleCta.astro';
 import BlogIndexSchema from '../../components/seo/BlogIndexSchema.astro';
 import BreadcrumbSchema from '../../components/seo/BreadcrumbSchema.astro';
 import { getPublishedArticles } from '../../utils/articles';
@@ -12,6 +13,8 @@ import { getPublishedArticles } from '../../utils/articles';
 const meta = getPageMeta('/articulos');
 const articles = await getPublishedArticles();
 const pageUrl = new URL('/articulos', site.url).href;
+
+const categories = [...new Set(articles.map((a) => a.data.category))].sort();
 ---
 
 <BaseLayout title={meta.title} description={meta.description}>
@@ -25,13 +28,31 @@ const pageUrl = new URL('/articulos', site.url).href;
     />
   </Fragment>
   <PageHeader
-    title="Artículos y guías"
-    subtitle="Consejos sobre rehabilitación energética, SATE, subvenciones y reformas en Madrid."
+    title="Blog de rehabilitación y reformas en Madrid"
+    subtitle="Guías prácticas sobre eficiencia energética, SATE, subvenciones, reformas integrales y mantenimiento de edificios. Escrito por nuestro equipo técnico."
     centered={true}
   />
 
   <section class="section blog-index" aria-label="Listado de artículos">
     <div class="container">
+      <p class="blog-index__intro">
+        En Madrid Calidad Constructiva publicamos artículos para ayudarte a tomar decisiones informadas
+        sobre tu vivienda o comunidad de propietarios: desde cómo acceder a ayudas públicas hasta cuándo
+        rehabilitar una fachada o impermeabilizar una cubierta. Si tienes dudas concretas,
+        <a href="/presupuestos">solicita presupuesto sin compromiso</a>.
+      </p>
+
+      {
+        categories.length > 1 && (
+          <nav class="blog-index__categories" aria-label="Categorías del blog">
+            <span class="blog-index__categories-label">Temas:</span>
+            {categories.map((category) => (
+              <span class="blog-index__category-tag">{category}</span>
+            ))}
+          </nav>
+        )
+      }
+
       {
         articles.length > 0 ? (
           <div class="blog-index__grid">
@@ -45,9 +66,54 @@ const pageUrl = new URL('/articulos', site.url).href;
       }
     </div>
   </section>
+
+  <ArticleCta />
 </BaseLayout>
 
 <style>
+  .blog-index__intro {
+    max-width: 48rem;
+    margin: 0 auto 2rem;
+    text-align: center;
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--color-muted);
+  }
+
+  .blog-index__intro a {
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .blog-index__categories {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .blog-index__categories-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-muted);
+    margin-right: 0.25rem;
+  }
+
+  .blog-index__category-tag {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-primary);
+    background: rgba(41, 90, 130, 0.08);
+    border-radius: 999px;
+  }
+
   .blog-index__grid {
     display: grid;
     gap: 1.5rem;

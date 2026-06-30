@@ -1,13 +1,14 @@
 import type { LegalDocument } from '../../types/legal';
+import { company } from '../company';
 
 export const terminosDocument: LegalDocument = {
   title: 'TÉRMINOS Y CONDICIONES DE USO',
   intro: [
-    'Titular: MADRID CALIDAD COSNTRUCTIVA SL',
-    'CIF: B56413214',
-    'Domicilio: Paseo de la Castellana 140, 14B, 28046, Madrid, España',
-    'Correo electrónico: fcampos.anfeda@gmail.com',
-    'Sitio web: madridcalidad.es',
+    `Titular: ${company.legalName}`,
+    `CIF: ${company.cif}`,
+    `Domicilio: ${company.address}`,
+    `Correo electrónico: ${company.email}`,
+    `Sitio web: ${company.website}`,
   ],
   sections: [
     {

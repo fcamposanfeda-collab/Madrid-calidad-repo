@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "download:assets": "node scripts/download-assets.mjs",
-    "qa:routes": "node scripts/qa-verify-routes.mjs"
+    "qa:routes": "node scripts/qa-verify-routes.mjs",
+    "check:forms": "node scripts/check-form-env.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

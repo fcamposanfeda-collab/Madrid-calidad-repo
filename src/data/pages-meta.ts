@@ -10,9 +10,9 @@ export const pagesMeta = {
       'En Madrid Calidad Constructiva ofrecemos servicios de construcción y reformas con atención al detalle y materiales premium para resultados duraderos.',
   },
   '/articulos': {
-    title: 'Blog rehabilitación y reformas Madrid | Madrid Calidad Constructiva',
+    title: 'Blog de rehabilitación y reformas en Madrid | Madrid Calidad Constructiva',
     description:
-      'Artículos sobre SATE, subvenciones, rehabilitación de fachadas, cubiertas y eficiencia energética en Madrid.',
+      'Guías prácticas sobre rehabilitación energética, SATE, subvenciones Next Generation, reformas integrales, fachadas y cubiertas en Madrid. Consejos de expertos.',
   },
   '/contacto': {
     title: 'Contacto Madrid Calidad Constructiva | Madrid Calidad Constructiva',

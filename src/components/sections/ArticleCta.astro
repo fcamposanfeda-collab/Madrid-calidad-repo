@@ -3,11 +3,11 @@ import Button from '../ui/Button.astro';
 import { getServiceHref } from '../../data/services-seo';
 
 interface Props {
-  serviceSlug: string;
+  serviceSlug?: string;
 }
 
 const { serviceSlug } = Astro.props;
-const href = getServiceHref(serviceSlug);
+const href = serviceSlug ? getServiceHref(serviceSlug) : null;
 ---
 
 <aside class="article-cta section" aria-label="Solicitar presupuesto">
@@ -16,7 +16,8 @@ const href = getServiceHref(serviceSlug);
     <p>Solicita una valoración sin compromiso. Te asesoramos y gestionamos ayudas si procede.</p>
     <div class="article-cta__actions">
       <Button href="/presupuestos" variant="primary">Solicitar presupuesto</Button>
-      <Button href={href} variant="outline">Ver servicio relacionado</Button>
+      {href && <Button href={href} variant="outline">Ver servicio relacionado</Button>}
+      {!href && <Button href="/contacto" variant="outline">Contactar</Button>}
     </div>
   </div>
 </aside>
@@ -39,6 +40,7 @@ const href = getServiceHref(serviceSlug);
     font-family: var(--font-heading);
     font-size: 1.375rem;
     text-transform: uppercase;
+    color: var(--color-on-primary);
   }
 
   .article-cta p {

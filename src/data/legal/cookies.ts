@@ -1,13 +1,14 @@
 import type { LegalDocument } from '../../types/legal';
+import { company } from '../company';
 
 export const cookiesDocument: LegalDocument = {
   title: 'POLÍTICA DE COOKIES',
   intro: [
-    'Titular: MADRID CALIDAD COSNTRUCTIVA SL',
-    'CIF: B56413214',
-    'Domicilio social: Paseo de la Castellana 140, 14B, 28046, Madrid, España',
-    'Correo electrónico: fcampos.anfeda@gmail.com',
-    'Sitio web: madridcalidad.es',
+    `Titular: ${company.legalName}`,
+    `CIF: ${company.cif}`,
+    `Domicilio social: ${company.address}`,
+    `Correo electrónico: ${company.email}`,
+    `Sitio web: ${company.website}`,
     'En cumplimiento del artículo 22.2 de la Ley 34/2002, de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSI-CE), y del Reglamento (UE) 2016/679 (RGPD), se informa al usuario sobre el uso de cookies en este sitio web.',
   ],
   sections: [

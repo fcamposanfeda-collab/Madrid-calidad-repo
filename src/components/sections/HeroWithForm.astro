@@ -64,7 +64,11 @@ const heroImage = stockImages.piso;
   .hero-reiteman__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(26, 42, 56, 0.72);
+    background: linear-gradient(
+      135deg,
+      rgba(13, 20, 26, 0.82) 0%,
+      rgba(26, 42, 56, 0.75) 100%
+    );
   }
 
   .hero-reiteman__grid {
@@ -86,6 +90,8 @@ const heroImage = stockImages.piso;
     letter-spacing: 0.01em;
     text-transform: none;
     max-width: 14ch;
+    color: var(--color-on-primary);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
   }
 
   .hero-reiteman__rule {
@@ -102,7 +108,9 @@ const heroImage = stockImages.piso;
     font-size: clamp(1rem, 1.8vw, 1.1875rem);
     line-height: 1.65;
     font-weight: 400;
+    color: var(--color-on-primary);
     opacity: 0.95;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
   }
 
   .hero-reiteman__card {

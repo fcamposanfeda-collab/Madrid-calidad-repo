@@ -7,7 +7,6 @@ h6 {
   font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.2;
-  color: var(--color-text);
 }
 
 h1 {

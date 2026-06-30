@@ -94,7 +94,7 @@ const canonicalUrl = new URL(canonicalPath, site.url).href;
       </div>
     </div>
 
-    {serviceSlug && <ArticleCta serviceSlug={serviceSlug} />}
+    <ArticleCta serviceSlug={serviceSlug} />
     {related.length > 0 && <RelatedArticles articles={related} />}
   </article>
 </BaseLayout>

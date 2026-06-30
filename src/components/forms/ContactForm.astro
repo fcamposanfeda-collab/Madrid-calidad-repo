@@ -1,13 +1,13 @@
 ---
 import Button from '../ui/Button.astro';
+import { formConfig } from '../../data/form-config';
 
 interface Props {
   formId?: string;
 }
 
 const { formId = 'contact' } = Astro.props;
-const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
-const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
+const { endpoint: formEndpoint, web3formsAccessKey: web3formsKey } = formConfig;
 const nameId = `${formId}-nombre`;
 const emailId = `${formId}-email`;
 const messageId = `${formId}-mensaje`;
@@ -21,6 +21,7 @@ const honeypotId = `${formId}-company`;
   action={formEndpoint || '#'}
   data-contact-form
   data-form-endpoint={formEndpoint}
+  data-form-configured={formConfig.isConfigured ? 'true' : 'false'}
   novalidate
 >
   <div class="contact-form__honeypot" aria-hidden="true">
@@ -165,18 +166,18 @@ const honeypotId = `${formId}-company`;
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        const endpoint = form.dataset.formEndpoint ?? '';
-        const honeypot = form.querySelector('input[name="company"]');
-        if (honeypot instanceof HTMLInputElement && honeypot.value.trim()) {
+        if (form.dataset.formConfigured !== 'true') {
+          showStatus(
+            form,
+            'El formulario aún no está activado. Contacta por teléfono o email mientras tanto.',
+            'error',
+          );
           return;
         }
 
-        if (!endpoint) {
-          showStatus(
-            form,
-            'El formulario aún no está configurado. Define PUBLIC_FORM_ENDPOINT en el entorno.',
-            'error',
-          );
+        const endpoint = form.dataset.formEndpoint ?? '';
+        const honeypot = form.querySelector('input[name="company"]');
+        if (honeypot instanceof HTMLInputElement && honeypot.value.trim()) {
           return;
         }
 

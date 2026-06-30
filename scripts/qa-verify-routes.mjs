@@ -41,6 +41,12 @@ const articleSlugs = [
   'rehabilitacion-energetica-integral-guia',
   'reforma-integral-piso-madrid-guia',
   'iva-reducido-rehabilitacion-viviendas-madrid',
+  'plan-renove-ventanas-madrid-2026',
+  'precio-rehabilitacion-energetica-m2-madrid',
+  'bomba-de-calor-rehabilitacion-vivienda',
+  'ite-rehabilitacion-edificios-madrid',
+  'mantenimiento-cubiertas-comunidades',
+  'deduccion-irpf-rehabilitacion-energetica',
 ];
 
 const routes = [

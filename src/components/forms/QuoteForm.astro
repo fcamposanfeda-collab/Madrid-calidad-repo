@@ -1,5 +1,6 @@
 ---
 import Button from '../ui/Button.astro';
+import { formConfig } from '../../data/form-config';
 
 interface Props {
   formId?: string;
@@ -10,8 +11,7 @@ interface Props {
 const { formId = 'quote', variant = 'default', submitLabel = 'Solicitar presupuesto' } = Astro.props;
 const isHero = variant === 'hero';
 
-const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
-const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
+const { endpoint: formEndpoint, web3formsAccessKey: web3formsKey } = formConfig;
 const nameId = `${formId}-nombre`;
 const emailId = `${formId}-email`;
 const phoneId = `${formId}-telefono`;
@@ -40,6 +40,7 @@ const serviceOptions = [
   action={formEndpoint || '#'}
   data-contact-form
   data-form-endpoint={formEndpoint}
+  data-form-configured={formConfig.isConfigured ? 'true' : 'false'}
   novalidate
 >
   <div class="quote-form__honeypot" aria-hidden="true">
@@ -350,10 +351,10 @@ const serviceOptions = [
 
         if (!form.reportValidity()) return;
 
-        if (!endpoint) {
+        if (form.dataset.formConfigured !== 'true') {
           showStatus(
             form,
-            'Formulario en configuración. Llámanos o escríbenos por email mientras tanto.',
+            'El formulario aún no está activado. Contacta por teléfono o email mientras tanto.',
             'error',
           );
           return;

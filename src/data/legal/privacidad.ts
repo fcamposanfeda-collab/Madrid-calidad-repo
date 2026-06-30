@@ -1,4 +1,5 @@
 import type { LegalDocument } from '../../types/legal';
+import { company } from '../company';
 
 export const privacidadDocument: LegalDocument = {
   title: 'POLÍTICA DE PRIVACIDAD',
@@ -6,10 +7,10 @@ export const privacidadDocument: LegalDocument = {
     {
       title: '1. Responsable del tratamiento',
       paragraphs: [
-        'MADRID CALIDAD COSNTRUCTIVA SL',
-        'CIF: B56413214',
-        'Domicilio: Paseo de la Castellana 140, 14B, 28046, Madrid',
-        'Correo electrónico: fcampos.anfeda@gmail.com',
+        company.legalName,
+        `CIF: ${company.cif}`,
+        `Domicilio: ${company.address}`,
+        `Correo electrónico: ${company.email}`,
       ],
     },
     {
@@ -91,7 +92,7 @@ export const privacidadDocument: LegalDocument = {
         {
           title: '',
           paragraphs: [
-            'Para ejercerlos deberá enviar solicitud junto con copia de documento identificativo al correo: fcampos.anfeda@gmail.com.',
+            `Para ejercerlos deberá enviar solicitud junto con copia de documento identificativo al correo: ${company.email}.`,
             'Asimismo, podrá presentar reclamación ante la Agencia Española de Protección de Datos si considera que sus derechos no han sido vulnerados adecuadamente.',
           ],
         },

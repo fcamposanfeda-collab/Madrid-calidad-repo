@@ -70,9 +70,9 @@ export const mainNav: NavItem[] = [
     ],
   },
   { type: 'link', label: 'Proyectos', href: '/proyectos' },
+  { type: 'link', label: 'Blog', href: '/articulos' },
   { type: 'link', label: 'Nosotros', href: '/nosotros' },
   { type: 'link', label: 'Presupuestos', href: '/presupuestos' },
-  { type: 'link', label: 'Contacto', href: '/contacto' },
 ];
 
 /** Enlaces planos para footer */
