@@ -1,0 +1,144 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { Fragment } from 'astro/jsx-runtime';
+import Breadcrumb from '../components/ui/Breadcrumb.astro';
+import ArticleCta from '../components/sections/ArticleCta.astro';
+import RelatedArticles from '../components/sections/RelatedArticles.astro';
+import ArticleSchema from '../components/seo/ArticleSchema.astro';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
+import { site } from '../data/site';
+import { formatArticleDate, getArticleHref } from '../utils/articles';
+import type { Articulo } from '../utils/articles';
+import '../styles/prose.css';
+
+interface Props {
+  article: Articulo;
+  related: Articulo[];
+}
+
+const { article, related } = Astro.props;
+const { title, description, pubDate, updatedDate, category, image, serviceSlug } = article.data;
+const pageTitle = `${title} | ${site.name}`;
+const canonicalPath = getArticleHref(article.id);
+const canonicalUrl = new URL(canonicalPath, site.url).href;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={description}
+  ogImage={image}
+  ogType="article"
+  articlePublished={pubDate}
+  articleModified={updatedDate}
+>
+  <Fragment slot="head">
+    <ArticleSchema
+      title={title}
+      description={description}
+      url={canonicalUrl}
+      image={image}
+      pubDate={pubDate}
+      updatedDate={updatedDate}
+    />
+    <BreadcrumbSchema
+      items={[
+        { name: 'Inicio', url: '/' },
+        { name: 'Artículos', url: '/articulos' },
+        { name: title },
+      ]}
+    />
+  </Fragment>
+
+  <article class="article-page">
+    <Breadcrumb
+      items={[
+        { label: 'Inicio', href: '/' },
+        { label: 'Artículos', href: '/articulos' },
+        { label: title },
+      ]}
+    />
+
+    <header class="article-page__header section">
+      <div class="container article-page__header-inner">
+        <p class="article-page__category">{category}</p>
+        <h1 class="article-page__title">{title}</h1>
+        <p class="article-page__meta">
+          <time datetime={pubDate.toISOString()}>{formatArticleDate(pubDate)}</time>
+          {
+            updatedDate && (
+              <>
+                {' '}
+                · Actualizado{' '}
+                <time datetime={updatedDate.toISOString()}>{formatArticleDate(updatedDate)}</time>
+              </>
+            )
+          }
+        </p>
+        {image && (
+          <img
+            class="article-page__cover"
+            src={image}
+            alt={title}
+            width="960"
+            height="540"
+            loading="eager"
+            decoding="async"
+          />
+        )}
+      </div>
+    </header>
+
+    <div class="section">
+      <div class="container prose">
+        <slot />
+      </div>
+    </div>
+
+    {serviceSlug && <ArticleCta serviceSlug={serviceSlug} />}
+    {related.length > 0 && <RelatedArticles articles={related} />}
+  </article>
+</BaseLayout>
+
+<style>
+  .article-page__header {
+    background: #f8fafc;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--section-padding-mobile);
+  }
+
+  .article-page__header-inner {
+    max-width: 48rem;
+  }
+
+  .article-page__category {
+    margin: 0 0 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary);
+  }
+
+  .article-page__title {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .article-page__meta {
+    margin: 0 0 1.5rem;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  .article-page__cover {
+    width: 100%;
+    border-radius: 0.5rem;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+</style>

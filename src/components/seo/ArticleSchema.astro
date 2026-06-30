@@ -1,0 +1,46 @@
+---
+import { site } from '../../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  url: string;
+  image?: string;
+  pubDate: Date;
+  updatedDate?: Date;
+}
+
+const { title, description, url, image, pubDate, updatedDate } = Astro.props;
+const imageUrl = image?.startsWith('http') ? image : image ? new URL(image, site.url).href : site.ogImage;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  image: imageUrl,
+  datePublished: pubDate.toISOString(),
+  dateModified: (updatedDate ?? pubDate).toISOString(),
+  author: {
+    '@type': 'Organization',
+    name: site.name,
+    url: site.url,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: site.name,
+    url: site.url,
+    logo: {
+      '@type': 'ImageObject',
+      url: site.ogImage,
+    },
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': url,
+  },
+  inLanguage: 'es-ES',
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

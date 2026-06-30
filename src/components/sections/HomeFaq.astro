@@ -1,0 +1,33 @@
+---
+import FaqSection from './FaqSection.astro';
+
+const faq = [
+  {
+    question: '¿Cuánto cuesta una rehabilitación energética en Madrid?',
+    answer:
+      'Depende del tamaño del edificio, actuaciones previstas y calidades. Tras la visita técnica elaboramos un presupuesto personalizado sin compromiso.',
+  },
+  {
+    question: '¿Gestionáis subvenciones para comunidades de propietarios?',
+    answer:
+      'Sí. Identificamos convocatorias aplicables, preparamos documentación y coordinamos plazos con la ejecución de la obra.',
+  },
+  {
+    question: '¿Cuánto tarda una reforma integral de piso?',
+    answer:
+      'Entre 2 y 4 meses en una vivienda media, según metros y alcance. Definimos calendario en el presupuesto firmado.',
+  },
+  {
+    question: '¿Trabajáis fuera de Madrid capital?',
+    answer:
+      'Sí, en toda la Comunidad de Madrid: Móstoles, Alcorcón, Pozuelo, Getafe, Leganés y resto de municipios.',
+  },
+  {
+    question: '¿Qué es el SATE y cuándo conviene instalarlo?',
+    answer:
+      'El Sistema de Aislamiento Térmico Exterior mejora la eficiencia sin perder metros interiores. Conviene cuando la fachada necesita renovación y el edificio tiene mal aislamiento.',
+  },
+];
+---
+
+<FaqSection items={faq} title="Preguntas frecuentes" />

@@ -17,12 +17,14 @@ import { services, servicesIntro } from '../../data/services';
             title={service.title}
             image={service.src}
             imageAlt={service.alt}
+            href={service.href}
           />
         ))
       }
     </div>
 
     <div class="services__cta">
+      <Button href="/servicios" variant="outline">Ver todos los servicios</Button>
       <Button href="/contacto" variant="primary">Contáctanos</Button>
     </div>
   </div>
@@ -46,6 +48,10 @@ import { services, servicesIntro } from '../../data/services';
   .services__cta {
     margin-top: 2.5rem;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
   }
 
   @media (min-width: 768px) {

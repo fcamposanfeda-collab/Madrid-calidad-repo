@@ -6,12 +6,32 @@ interface Props {
 }
 
 const { formId = 'contact' } = Astro.props;
+const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
+const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
 const nameId = `${formId}-nombre`;
 const emailId = `${formId}-email`;
 const messageId = `${formId}-mensaje`;
+const statusId = `${formId}-status`;
+const honeypotId = `${formId}-company`;
 ---
 
-<form class="contact-form" method="post" action="#" data-contact-form>
+<form
+  class="contact-form"
+  method="post"
+  action={formEndpoint || '#'}
+  data-contact-form
+  data-form-endpoint={formEndpoint}
+  novalidate
+>
+  <div class="contact-form__honeypot" aria-hidden="true">
+    <label for={honeypotId}>Empresa</label>
+    <input type="text" id={honeypotId} name="company" tabindex="-1" autocomplete="off" />
+  </div>
+
+  {web3formsKey && <input type="hidden" name="access_key" value={web3formsKey} />}
+  <input type="hidden" name="subject" value="Nueva consulta — Madrid Calidad" />
+  <input type="hidden" name="from_name" value="Web Madrid Calidad" />
+
   <div class="contact-form__field">
     <label class="contact-form__label" for={nameId}>Nombre completo</label>
     <input
@@ -52,6 +72,8 @@ const messageId = `${formId}-mensaje`;
     ></textarea>
   </div>
 
+  <p class="contact-form__status" id={statusId} role="status" aria-live="polite" hidden data-form-status></p>
+
   <Button type="submit" variant="primary">Enviar consulta</Button>
 </form>
 
@@ -59,6 +81,14 @@ const messageId = `${formId}-mensaje`;
   .contact-form {
     display: grid;
     gap: 1.25rem;
+  }
+
+  .contact-form__honeypot {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
   }
 
   .contact-form__field {
@@ -101,13 +131,92 @@ const messageId = `${formId}-mensaje`;
     resize: vertical;
     min-height: 8rem;
   }
+
+  .contact-form__status {
+    margin: 0;
+    font-size: 0.9375rem;
+  }
+
+  .contact-form__status[data-type='success'] {
+    color: #15803d;
+  }
+
+  .contact-form__status[data-type='error'] {
+    color: #dc2626;
+  }
 </style>
 
 <script>
-  document.querySelectorAll('[data-contact-form]').forEach((form) => {
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      // Envío real en SPEC-501
+  function showStatus(form: HTMLFormElement, message: string, type: 'success' | 'error') {
+    const status = form.querySelector('[data-form-status]');
+    if (!(status instanceof HTMLElement)) return;
+    status.textContent = message;
+    status.dataset.type = type;
+    status.hidden = false;
+  }
+
+  function initContactForms() {
+    document.querySelectorAll('[data-contact-form]').forEach((element) => {
+      if (!(element instanceof HTMLFormElement)) return;
+      const form = element;
+      if (form.dataset.initialized === 'true') return;
+      form.dataset.initialized = 'true';
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const endpoint = form.dataset.formEndpoint ?? '';
+        const honeypot = form.querySelector('input[name="company"]');
+        if (honeypot instanceof HTMLInputElement && honeypot.value.trim()) {
+          return;
+        }
+
+        if (!endpoint) {
+          showStatus(
+            form,
+            'El formulario aún no está configurado. Define PUBLIC_FORM_ENDPOINT en el entorno.',
+            'error',
+          );
+          return;
+        }
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        if (submitButton instanceof HTMLButtonElement) {
+          submitButton.disabled = true;
+        }
+
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' },
+          });
+
+          if (!response.ok) {
+            throw new Error('Network error');
+          }
+
+          form.reset();
+          showStatus(
+            form,
+            'Consulta enviada correctamente. Nos pondremos en contacto contigo pronto.',
+            'success',
+          );
+        } catch {
+          showStatus(
+            form,
+            'No se pudo enviar la consulta. Inténtalo de nuevo o contáctanos por teléfono.',
+            'error',
+          );
+        } finally {
+          if (submitButton instanceof HTMLButtonElement) {
+            submitButton.disabled = false;
+          }
+        }
+      });
     });
-  });
+  }
+
+  initContactForms();
+  document.addEventListener('astro:page-load', initContactForms);
 </script>

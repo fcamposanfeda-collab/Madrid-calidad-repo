@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import { projects, getProjectBySlug, getProjectServiceHref } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({ params: { slug: project.slug } }));
+}
+
+const { slug } = Astro.params;
+const project = getProjectBySlug(slug!);
+
+if (!project) {
+  return Astro.redirect('/proyectos');
+}
+
+const title = `${project.title} | Madrid Calidad Constructiva`;
+const description = project.excerpt;
+---
+
+<BaseLayout title={title} description={description}>
+  <article>
+    <header class="project-hero section">
+      <div class="container project-hero__grid">
+        <div>
+          <p class="project-hero__tag">{project.service}</p>
+          <h1>{project.title}</h1>
+          <p class="project-hero__location">{project.location}</p>
+          <p>{project.excerpt}</p>
+          <div class="project-hero__actions">
+            <Button href="/presupuestos" variant="primary">Solicitar presupuesto</Button>
+            <Button href={getProjectServiceHref(project)} variant="outline">Ver servicio</Button>
+          </div>
+        </div>
+        <img src={project.image.src} alt={project.image.alt} width="720" height="480" loading="eager" />
+      </div>
+    </header>
+
+    <section class="section content">
+      <div class="container content__inner">
+        <h2>Descripción del proyecto</h2>
+        <p>
+          Obra realizada por Madrid Calidad Constructiva en {project.location}. Este proyecto forma parte
+          de nuestro portfolio de {project.service.toLowerCase()} en la Comunidad de Madrid.
+        </p>
+        <p>
+          Próximamente añadiremos más imágenes, datos técnicos y resultados de la actuación. Si buscas un
+          servicio similar, solicita presupuesto sin compromiso.
+        </p>
+        <Button href="/proyectos" variant="outline">Volver a proyectos</Button>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .project-hero {
+    background: #f8fafc;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .project-hero__grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .project-hero__tag {
+    margin: 0 0 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary);
+  }
+
+  .project-hero h1 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+
+  .project-hero__location {
+    margin: 0 0 1rem;
+    font-weight: 600;
+    color: var(--color-muted);
+  }
+
+  .project-hero p {
+    margin: 0 0 1.5rem;
+    line-height: 1.75;
+  }
+
+  .project-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .project-hero img {
+    border-radius: 0.5rem;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .content__inner {
+    max-width: 48rem;
+  }
+
+  .content h2 {
+    margin: 0 0 1rem;
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    text-transform: uppercase;
+  }
+
+  .content p {
+    margin: 0 0 1rem;
+    line-height: 1.75;
+  }
+
+  @media (min-width: 768px) {
+    .project-hero__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

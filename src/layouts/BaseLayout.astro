@@ -2,16 +2,34 @@
 import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+import StickyMobileCta from '../components/layout/StickyMobileCta.astro';
+import SeoSchema from '../components/SeoSchema.astro';
 import { site } from '../data/site';
 
 interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  preloadImage?: string;
+  ogType?: 'website' | 'article';
+  articlePublished?: Date;
+  articleModified?: Date;
 }
 
-const { title, description, ogImage } = Astro.props;
+const {
+  title,
+  description,
+  ogImage = site.ogImage,
+  preloadImage,
+  ogType = 'website',
+  articlePublished,
+  articleModified,
+} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, site.url);
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, site.url).href;
+const fontHref =
+  'https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Poppins:wght@400;500;600&display=swap';
 ---
 
 <!doctype html>
@@ -20,26 +38,56 @@ const canonicalURL = new URL(Astro.url.pathname, site.url);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#295a82" />
+    <meta name="author" content={site.name} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="canonical" href={canonicalURL} />
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Poppins:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    {ogImage && <meta property="og:image" content={ogImage} />}
+    <link rel="preload" as="style" href={fontHref} />
+    <link href={fontHref} rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href={fontHref} rel="stylesheet" />
+    </noscript>
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content="es_ES" />
+    {
+      ogType === 'article' && articlePublished && (
+        <meta property="article:published_time" content={articlePublished.toISOString()} />
+      )
+    }
+    {
+      ogType === 'article' && (articleModified ?? articlePublished) && (
+        <meta
+          property="article:modified_time"
+          content={(articleModified ?? articlePublished)!.toISOString()}
+        />
+      )
+    }
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <slot name="head" />
+    <SeoSchema />
     <title>{title}</title>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
     <Header />
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
     <Footer />
+    <CookieConsent />
+    <StickyMobileCta />
   </body>
 </html>

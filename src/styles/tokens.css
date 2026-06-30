@@ -17,7 +17,9 @@
   --container-max: 1200px;
   --section-padding-mobile: 2.5rem;
   --section-padding-desktop: 4rem;
-  --header-height: 4.5rem;
+  --header-top-height: 2.25rem;
+  --header-main-height: 4.25rem;
+  --header-height: calc(var(--header-top-height) + var(--header-main-height));
 
   /* Breakpoints (referencia para media queries) */
   --bp-md: 768px;

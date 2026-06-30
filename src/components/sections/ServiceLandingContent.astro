@@ -1,0 +1,304 @@
+---
+import type { ServiceLanding } from '../../data/services-seo';
+import { getServiceHref, getServiceBySlug } from '../../data/services-seo';
+import Button from '../ui/Button.astro';
+import FaqSection from './FaqSection.astro';
+import Breadcrumb from '../ui/Breadcrumb.astro';
+import SubsidiesBanner from './SubsidiesBanner.astro';
+import RelatedArticles from './RelatedArticles.astro';
+import type { Articulo } from '../../utils/articles';
+
+interface Props {
+  service: ServiceLanding;
+  relatedArticles?: Articulo[];
+}
+
+const { service, relatedArticles = [] } = Astro.props;
+
+const relatedServices = service.relatedSlugs
+  .map((slug) => getServiceBySlug(slug))
+  .filter((s): s is ServiceLanding => Boolean(s));
+---
+
+<article class="service-page">
+  <Breadcrumb
+    items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Servicios', href: '/servicios' },
+      { label: service.shortTitle },
+    ]}
+  />
+
+  <header class="service-page__hero section">
+    <div class="container service-page__hero-grid">
+      <div class="service-page__hero-text">
+        <h1 class="service-page__title">{service.h1}</h1>
+        <p class="service-page__subtitle">{service.subtitle}</p>
+        <p class="service-page__intro">{service.intro}</p>
+        <div class="service-page__actions">
+          <Button href="/presupuestos" variant="primary">Solicitar presupuesto</Button>
+          <Button href="/como-lo-hacemos" variant="outline">Cómo trabajamos</Button>
+        </div>
+      </div>
+      <div class="service-page__hero-media">
+        <img
+          src={service.image.src}
+          alt={service.image.alt}
+          width="640"
+          height="400"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </header>
+
+  {
+    service.whatIs && (
+      <section class="section" aria-labelledby="what-is-title">
+        <div class="container service-page__content">
+          <h2 id="what-is-title">{service.whatIs.title}</h2>
+          {service.whatIs.paragraphs.map((p) => (
+            <p>{p}</p>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section service-page__benefits" aria-labelledby="benefits-title">
+    <div class="container">
+      <h2 id="benefits-title" class="service-page__section-title">Beneficios</h2>
+      <ul class="service-page__benefits-grid">
+        {
+          service.benefits.map((benefit) => (
+            <li class="service-page__benefit">
+              <h3>{benefit.title}</h3>
+              <p>{benefit.description}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  {
+    service.sections.map((section) => (
+      <section class="section" aria-labelledby={`section-${section.title}`}>
+        <div class="container service-page__content">
+          <h2 id={`section-${section.title}`}>{section.title}</h2>
+          {section.paragraphs.map((p) => (
+            <p>{p}</p>
+          ))}
+        </div>
+      </section>
+    ))
+  }
+
+  {
+    relatedServices.length > 0 && (
+      <section class="section service-page__related" aria-labelledby="related-title">
+        <div class="container">
+          <h2 id="related-title" class="service-page__section-title">Servicios relacionados</h2>
+          <ul class="service-page__related-list">
+            {relatedServices.map((related) => (
+              <li>
+                <a href={getServiceHref(related.slug)}>{related.shortTitle}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+
+  <SubsidiesBanner />
+
+  {
+    relatedArticles.length > 0 && (
+      <RelatedArticles
+        articles={relatedArticles}
+        title="Guías relacionadas"
+        showAllLink={true}
+      />
+    )
+  }
+
+  <FaqSection items={service.faq} />
+
+  <section class="section service-page__cta">
+    <div class="container service-page__cta-inner">
+      <h2>¿Hablamos de tu proyecto?</h2>
+      <p>Presupuesto y asesoramiento sin compromiso en toda la Comunidad de Madrid.</p>
+      <Button href="/presupuestos" variant="primary">Solicitar presupuesto</Button>
+    </div>
+  </section>
+</article>
+
+<style>
+  .service-page__hero {
+    background: #f8fafc;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .service-page__hero-grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .service-page__title {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+
+  .service-page__subtitle {
+    margin: 0 0 1rem;
+    font-size: 1.125rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  .service-page__intro {
+    margin: 0 0 1.5rem;
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    max-width: 40rem;
+  }
+
+  .service-page__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .service-page__hero-media {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: var(--color-border);
+  }
+
+  .service-page__hero-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .service-page__content {
+    max-width: 48rem;
+  }
+
+  .service-page__content h2 {
+    margin: 0 0 1rem;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .service-page__content p {
+    margin: 0 0 1rem;
+    line-height: 1.75;
+    color: var(--color-text);
+  }
+
+  .service-page__section-title {
+    margin: 0 0 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .service-page__benefits-grid {
+    display: grid;
+    gap: 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .service-page__benefit {
+    padding: 1.25rem;
+    background: #f8fafc;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+  }
+
+  .service-page__benefit h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .service-page__benefit p {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+  }
+
+  .service-page__related-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .service-page__related-list a {
+    font-weight: 500;
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .service-page__cta {
+    background: var(--color-secondary);
+    color: var(--color-on-primary);
+  }
+
+  .service-page__cta-inner {
+    text-align: center;
+    max-width: 36rem;
+    margin-inline: auto;
+  }
+
+  .service-page__cta h2 {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    text-transform: uppercase;
+  }
+
+  .service-page__cta p {
+    margin: 0 0 1.5rem;
+    opacity: 0.9;
+    line-height: 1.6;
+  }
+
+  @media (min-width: 768px) {
+    .service-page__hero-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .service-page__benefits-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .service-page__benefits-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

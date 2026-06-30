@@ -1,13 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalLayout from '../layouts/LegalLayout.astro';
 import { getPageMeta } from '../data/pages-meta';
+import { terminosDocument } from '../data/legal/terminos';
 
 const meta = getPageMeta('/terminos-y-condiciones');
 ---
 
-<BaseLayout title={meta.title} description={meta.description}>
-  <section class="page-placeholder container">
-    <h1>Términos y Condiciones de Uso</h1>
-    <p><em>Contenido legal — Fase 4 (SPEC-402).</em></p>
-  </section>
-</BaseLayout>
+<LegalLayout title={meta.title} description={meta.description} document={terminosDocument} />

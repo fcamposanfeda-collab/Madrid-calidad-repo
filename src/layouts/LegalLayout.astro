@@ -1,0 +1,33 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import LegalContent from '../components/sections/LegalContent.astro';
+import type { LegalDocument } from '../types/legal';
+
+interface Props {
+  title: string;
+  description: string;
+  document: LegalDocument;
+}
+
+const { title, description, document } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="legal-page section">
+    <div class="container">
+      <LegalContent document={document} />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    padding-block: var(--section-padding-mobile);
+  }
+
+  @media (min-width: 768px) {
+    .legal-page {
+      padding-block: var(--section-padding-desktop);
+    }
+  }
+</style>

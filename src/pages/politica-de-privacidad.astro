@@ -1,13 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalLayout from '../layouts/LegalLayout.astro';
 import { getPageMeta } from '../data/pages-meta';
+import { privacidadDocument } from '../data/legal/privacidad';
 
 const meta = getPageMeta('/politica-de-privacidad');
 ---
 
-<BaseLayout title={meta.title} description={meta.description}>
-  <section class="page-placeholder container">
-    <h1>Política de Privacidad</h1>
-    <p><em>Contenido legal — Fase 4 (SPEC-403).</em></p>
-  </section>
-</BaseLayout>
+<LegalLayout title={meta.title} description={meta.description} document={privacidadDocument} />

@@ -1,0 +1,49 @@
+---
+import { site } from '../data/site';
+import { contact } from '../data/contact';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${site.url}/#website`,
+      url: site.url,
+      name: site.name,
+      inLanguage: site.lang,
+    },
+    {
+      '@type': 'GeneralContractor',
+      '@id': `${site.url}/#organization`,
+      name: site.name,
+      url: site.url,
+      email: contact.email,
+      telephone: contact.phone,
+      image: site.ogImage,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: contact.address,
+        addressLocality: 'Madrid',
+        addressCountry: 'ES',
+      },
+      sameAs: [contact.instagram],
+      areaServed: {
+        '@type': 'City',
+        name: 'Madrid',
+      },
+      knowsAbout: [
+        'Rehabilitación energética',
+        'SATE',
+        'Rehabilitación de fachadas',
+        'Impermeabilización de cubiertas',
+        'Subvenciones rehabilitación edificios',
+        'Reformas integrales Madrid',
+        'Certificado energético',
+        'Trabajos verticales',
+      ],
+    },
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

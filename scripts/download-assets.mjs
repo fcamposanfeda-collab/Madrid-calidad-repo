@@ -4,11 +4,11 @@ const CDN_WIDE = 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,f
 const assets = [
   { url: `${CDN}/logo-madrid-calidad-WNHOi4ILpZcoMBAY.png`, dest: 'public/images/logo-madrid-calidad.png' },
   {
-    url: 'https://images.unsplash.com/photo-1654302861319-849671c254cf?auto=format&fit=crop&w=1920',
+    url: 'https://images.unsplash.com/photo-1654302861319-849671c254cf?auto=format&fit=crop&w=1280&q=75',
     dest: 'public/images/hero-interior.jpg',
   },
   {
-    url: 'https://images.unsplash.com/photo-1619972898592-5de4b1c68025?auto=format&fit=crop&w=1920',
+    url: 'https://images.unsplash.com/photo-1619972898592-5de4b1c68025?auto=format&fit=crop&w=1280&q=75',
     dest: 'public/images/contacto-bg.jpg',
   },
   {

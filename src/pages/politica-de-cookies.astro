@@ -1,13 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalLayout from '../layouts/LegalLayout.astro';
 import { getPageMeta } from '../data/pages-meta';
+import { cookiesDocument } from '../data/legal/cookies';
 
 const meta = getPageMeta('/politica-de-cookies');
 ---
 
-<BaseLayout title={meta.title} description={meta.description}>
-  <section class="page-placeholder container">
-    <h1>Política de Cookies</h1>
-    <p><em>Contenido legal — Fase 4 (SPEC-404).</em></p>
-  </section>
-</BaseLayout>
+<LegalLayout title={meta.title} description={meta.description} document={cookiesDocument} />
