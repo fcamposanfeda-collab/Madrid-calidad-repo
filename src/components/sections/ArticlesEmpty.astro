@@ -1,0 +1,54 @@
+---
+import { articlesPageContent } from '../../data/page-content';
+
+const { emptyTitle, emptyText } = articlesPageContent;
+---
+
+<section class="articles-empty section" aria-labelledby="articles-empty-title">
+  <div class="container articles-empty__inner">
+    <div class="articles-empty__icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+      </svg>
+    </div>
+    <h2 id="articles-empty-title" class="articles-empty__title">{emptyTitle}</h2>
+    <p class="articles-empty__text">{emptyText}</p>
+  </div>
+</section>
+
+<style>
+  .articles-empty {
+    padding-top: 0;
+  }
+
+  .articles-empty__inner {
+    max-width: 36rem;
+    margin-inline: auto;
+    padding: 3rem 2rem;
+    text-align: center;
+    border: 1px dashed var(--color-border);
+    border-radius: 0.5rem;
+    background: #f8fafc;
+  }
+
+  .articles-empty__icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+
+  .articles-empty__title {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .articles-empty__text {
+    margin: 0;
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+</style>

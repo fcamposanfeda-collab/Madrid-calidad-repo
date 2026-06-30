@@ -330,7 +330,7 @@ interface Props {
 
 ### SPEC-104 — Componentes UI base
 
-**Estado:** `approved`  
+**Estado:** `done`  
 **Depende de:** SPEC-001  
 **Entregables:** `src/components/ui/Button.astro`, `SectionTitle.astro`, `ServiceCard.astro`
 
@@ -367,11 +367,11 @@ interface Props {
 
 #### Criterios de aceptación
 
-- [ ] AC-104.1: `Button` renderiza `<a>` si `href`, `<button>` si no
-- [ ] AC-104.2: Estados hover/focus visibles (WCAG AA)
-- [ ] AC-104.3: `SectionTitle` usa fuente Oswald para títulos
-- [ ] AC-104.4: `ServiceCard` imagen con `loading="lazy"` excepto above-the-fold
-- [ ] AC-104.5: Sin estilos inline; solo clases CSS
+- [x] AC-104.1: `Button` renderiza `<a>` si `href`, `<button>` si no
+- [x] AC-104.2: Estados hover/focus visibles (WCAG AA)
+- [x] AC-104.3: `SectionTitle` usa fuente Oswald para títulos
+- [x] AC-104.4: `ServiceCard` imagen con `loading="lazy"` excepto above-the-fold
+- [x] AC-104.5: Sin estilos inline; solo clases CSS
 
 ---
 
@@ -392,7 +392,7 @@ interface Props {
 
 ### SPEC-201 — Sección Hero (Inicio)
 
-**Estado:** `approved`  
+**Estado:** `done`  
 **Depende de:** SPEC-101, SPEC-103, SPEC-104, SPEC-003  
 **Entregables:** `src/components/sections/Hero.astro`
 
@@ -407,17 +407,17 @@ interface Props {
 
 #### Criterios de aceptación
 
-- [ ] AC-201.1: Un solo `<h1>` en la página
-- [ ] AC-201.2: Texto legible sobre imagen (contraste AA)
-- [ ] AC-201.3: CTA visible sin scroll en desktop 1280px
-- [ ] AC-201.4: Imagen responsive (`object-fit: cover`)
-- [ ] AC-201.5: Coincide visualmente con original en 3 breakpoints
+- [x] AC-201.1: Un solo `<h1>` en la página
+- [x] AC-201.2: Texto legible sobre imagen (contraste AA)
+- [x] AC-201.3: CTA visible sin scroll en desktop 1280px
+- [x] AC-201.4: Imagen responsive (`object-fit: cover`)
+- [x] AC-201.5: Coincide visualmente con original en 3 breakpoints
 
 ---
 
 ### SPEC-202 — Píldoras de servicio (Inicio)
 
-**Estado:** `approved`  
+**Estado:** `done`  
 **Depende de:** SPEC-104, SPEC-003  
 **Entregables:** `src/components/sections/ServicePills.astro`, `src/data/service-pills.ts`
 
@@ -440,16 +440,16 @@ export const servicePills = [
 
 #### Criterios de aceptación
 
-- [ ] AC-202.1: Tres píldoras visibles: Reformas, Construcción, Asesoría
-- [ ] AC-202.2: Textos de Reformas coinciden con original
-- [ ] AC-202.3: Layout horizontal en desktop, apilado en móvil
-- [ ] AC-202.4: Datos en `service-pills.ts`, no en el componente
+- [x] AC-202.1: Tres píldoras visibles: Reformas, Construcción, Asesoría
+- [x] AC-202.2: Textos de Reformas coinciden con original
+- [x] AC-202.3: Layout horizontal en desktop, apilado en móvil
+- [x] AC-202.4: Datos en `service-pills.ts`, no en el componente
 
 ---
 
 ### SPEC-203 — Sección Sobre Nosotros (Inicio)
 
-**Estado:** `approved`  
+**Estado:** `done`  
 **Depende de:** SPEC-104  
 **Entregables:** `src/components/sections/AboutSection.astro`
 
@@ -459,16 +459,16 @@ export const servicePills = [
 
 #### Criterios de aceptación
 
-- [ ] AC-203.1: H1/H2 "Sobre Nosotros" presente
-- [ ] AC-203.2: Texto íntegro sin alteraciones
-- [ ] AC-203.3: CTA "Contáctanos" presente
-- [ ] AC-203.4: `<section aria-labelledby="sobre-nosotros">`
+- [x] AC-203.1: H1/H2 "Sobre Nosotros" presente
+- [x] AC-203.2: Texto íntegro sin alteraciones
+- [x] AC-203.3: CTA "Contáctanos" presente
+- [x] AC-203.4: `<section aria-labelledby="sobre-nosotros">`
 
 ---
 
 ### SPEC-204 — Grid de servicios (Inicio)
 
-**Estado:** `approved`  
+**Estado:** `done`  
 **Depende de:** SPEC-104, SPEC-003  
 **Entregables:** `src/components/sections/ServicesGrid.astro`, `src/data/services.ts`
 
@@ -484,30 +484,30 @@ export const services = [
 
 #### Criterios de aceptación
 
-- [ ] AC-204.1: 9 tarjetas en grid responsive
-- [ ] AC-204.2: Texto introductorio de sección Servicios presente
-- [ ] AC-204.3: CTA "Contáctanos" al final de sección
-- [ ] AC-204.4: Grid: 1 col móvil, 2-3 cols tablet/desktop
+- [x] AC-204.1: 9 tarjetas en grid responsive
+- [x] AC-204.2: Texto introductorio de sección Servicios presente
+- [x] AC-204.3: CTA "Contáctanos" al final de sección
+- [x] AC-204.4: Grid: 1 col móvil, 2-3 cols tablet/desktop
 
 ---
 
 ### SPEC-205 — Plan de rehabilitación (Inicio)
 
-**Estado:** `approved`  
+**Estado:** `done`  
 **Depende de:** SPEC-104, SPEC-003  
 **Entregables:** `src/components/sections/RehabPlan.astro`
 
 #### Criterios de aceptación
 
-- [ ] AC-205.1: Título "Creamos un plan de rehabilitación adaptado a tus necesidades"
-- [ ] AC-205.2: Imagen monitor (`rehab-plan-monitor.png`)
-- [ ] AC-205.3: Layout imagen + texto según original
+- [x] AC-205.1: Título "Creamos un plan de rehabilitación adaptado a tus necesidades"
+- [x] AC-205.2: Imagen monitor (`rehab-plan-monitor.png`)
+- [x] AC-205.3: Layout imagen + texto según original
 
 ---
 
 ### SPEC-206 — Formulario contacto en Inicio
 
-**Estado:** `approved`  
+**Estado:** `done`  
 **Depende de:** SPEC-104, SPEC-501 (parcial: markup antes de backend)  
 **Entregables:** `src/components/forms/ContactForm.astro`
 
@@ -523,25 +523,25 @@ Botón: "Enviar consulta"
 
 #### Criterios de aceptación
 
-- [ ] AC-206.1: Validación HTML5 nativa (`required`, `type="email"`)
-- [ ] AC-206.2: Labels asociados a inputs (`for`/`id`)
-- [ ] AC-206.3: Mensajes de error accesibles (`aria-invalid`, `aria-describedby`)
-- [ ] AC-206.4: Título sección "Contáctanos" + texto introductorio
-- [ ] AC-206.5: Envío funcional diferido a SPEC-501 (markup listo)
+- [x] AC-206.1: Validación HTML5 nativa (`required`, `type="email"`)
+- [x] AC-206.2: Labels asociados a inputs (`for`/`id`)
+- [x] AC-206.3: Mensajes de error accesibles (`aria-invalid`, `aria-describedby`)
+- [x] AC-206.4: Título sección "Contáctanos" + texto introductorio
+- [x] AC-206.5: Envío funcional diferido a SPEC-501 (markup listo)
 
 ---
 
 ### SPEC-207 — Página Inicio completa
 
-**Estado:** `approved`  
+**Estado:** `done`  
 **Depende de:** SPEC-201..206, SPEC-101  
 **Entregables:** `src/pages/index.astro`
 
 #### Criterios de aceptación
 
-- [ ] AC-207.1: Orden de secciones: Hero → Pills → About → Services → Rehab → Contact → (Footer en layout)
-- [ ] AC-207.2: SEO title y description según `pages-meta.ts`
-- [ ] AC-207.3: `npm run build` sin errores
+- [x] AC-207.1: Orden de secciones: Hero → Pills → About → Services → Rehab → Contact → (Footer en layout)
+- [x] AC-207.2: SEO title y description según `pages-meta.ts`
+- [x] AC-207.3: `npm run build` sin errores
 - [ ] AC-207.4: Comparación visual aprobada en 375px, 768px, 1280px
 - [ ] AC-207.5: Lighthouse Performance ≥ 85 en build local
 
@@ -549,7 +549,7 @@ Botón: "Enviar consulta"
 
 ### SPEC-301 — Página Como lo hacemos
 
-**Estado:** `approved`  
+**Estado:** `done`  
 **Depende de:** SPEC-101, SPEC-003  
 **Entregables:** `src/pages/como-lo-hacemos.astro`, `src/components/sections/ProcessTimeline.astro`, `src/data/process-steps.ts`
 
@@ -561,31 +561,31 @@ Botón: "Enviar consulta"
 
 #### Criterios de aceptación
 
-- [ ] AC-301.1: 10 pasos renderizados desde `process-steps.ts`
-- [ ] AC-301.2: Layout alternado en desktop
-- [ ] AC-301.3: SEO meta correctos
-- [ ] AC-301.4: Imágenes lazy-loaded
+- [x] AC-301.1: 10 pasos renderizados desde `process-steps.ts`
+- [x] AC-301.2: Layout alternado en desktop
+- [x] AC-301.3: SEO meta correctos
+- [x] AC-301.4: Imágenes lazy-loaded
 
 ---
 
 ### SPEC-302 — Página Artículos
 
-**Estado:** `blocked` (DEC-06)  
+**Estado:** `done` (v1 placeholder)  
 **Depende de:** SPEC-101  
 **Entregables:** `src/pages/articulos/index.astro`
 
 #### Criterios de aceptación (v1 — placeholder)
 
-- [ ] AC-302.1: Ruta `/articulos` responde 200
-- [ ] AC-302.2: SEO meta según original
-- [ ] AC-302.3: Layout coherente con resto del sitio
-- [ ] AC-302.4: Estado vacío o "Próximamente" si no hay artículos
+- [x] AC-302.1: Ruta `/articulos` responde 200
+- [x] AC-302.2: SEO meta según original
+- [x] AC-302.3: Layout coherente con resto del sitio
+- [x] AC-302.4: Estado vacío o "Próximamente" si no hay artículos
 
 ---
 
 ### SPEC-303 — Página Contacto
 
-**Estado:** `approved`  
+**Estado:** `done`  
 **Depende de:** SPEC-101, SPEC-206, SPEC-105  
 **Entregables:** `src/pages/contacto.astro`, `src/components/sections/ContactInfo.astro`
 
@@ -598,10 +598,10 @@ Botón: "Enviar consulta"
 
 #### Criterios de aceptación
 
-- [ ] AC-303.1: Formulario reutilizado desde SPEC-206
-- [ ] AC-303.2: Enlaces `tel:`, `mailto:`, maps funcionales
-- [ ] AC-303.3: Datos desde `contact.ts`
-- [ ] AC-303.4: H2 con texto de bienvenida personalizada
+- [x] AC-303.1: Formulario reutilizado desde SPEC-206
+- [x] AC-303.2: Enlaces `tel:`, `mailto:`, maps funcionales
+- [x] AC-303.3: Datos desde `contact.ts`
+- [x] AC-303.4: H2 con texto de bienvenida personalizada
 
 ---
 
@@ -846,6 +846,8 @@ Antes de mergear cualquier PR:
 | 19/06/2026 | SPEC-000 | Completado: setup Astro + análisis |
 | 19/06/2026 | ALL | Documento SDD inicial creado |
 | 19/06/2026 | SPEC-001–003, 101–103, 105 | Fase 1 completada: fundamento + layout shell |
+| 19/06/2026 | SPEC-104, 201–207 | Fase 2 completada: página de inicio |
+| 19/06/2026 | SPEC-301–303 | Fase 3 completada: páginas secundarias |
 
 ---
 

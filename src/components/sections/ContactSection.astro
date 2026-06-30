@@ -1,0 +1,84 @@
+---
+import SectionTitle from '../ui/SectionTitle.astro';
+import ContactForm from '../forms/ContactForm.astro';
+import { contactSectionIntro } from '../../data/home-content';
+import { images } from '../../data/images';
+
+const { title, text } = contactSectionIntro;
+---
+
+<section class="contact-section section" aria-labelledby="contact-section-title">
+  <div class="contact-section__background" aria-hidden="true">
+    <img src={images.contactoBg.src} alt="" loading="lazy" decoding="async" />
+    <div class="contact-section__overlay"></div>
+  </div>
+
+  <div class="container contact-section__inner">
+    <div class="contact-section__header">
+      <SectionTitle title={title} as="h3" id="contact-section-title" />
+      <p class="contact-section__intro">{text}</p>
+    </div>
+    <div class="contact-section__form-wrap">
+      <ContactForm formId="home-contact" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    position: relative;
+    color: var(--color-on-primary);
+    overflow: hidden;
+  }
+
+  .contact-section__background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .contact-section__background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .contact-section__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(26, 42, 56, 0.88);
+  }
+
+  .contact-section__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 2rem;
+    max-width: 40rem;
+  }
+
+  .contact-section__inner :global(.section-title__heading),
+  .contact-section__inner :global(.section-title__subtitle) {
+    color: var(--color-on-primary);
+  }
+
+  .contact-section__intro {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  .contact-section__form-wrap {
+    padding: 2rem;
+    background: var(--color-bg);
+    border-radius: 0.5rem;
+    color: var(--color-text);
+  }
+
+  @media (min-width: 768px) {
+    .contact-section__inner {
+      max-width: 36rem;
+    }
+  }
+</style>

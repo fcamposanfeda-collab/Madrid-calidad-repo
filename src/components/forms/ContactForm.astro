@@ -1,0 +1,113 @@
+---
+import Button from '../ui/Button.astro';
+
+interface Props {
+  formId?: string;
+}
+
+const { formId = 'contact' } = Astro.props;
+const nameId = `${formId}-nombre`;
+const emailId = `${formId}-email`;
+const messageId = `${formId}-mensaje`;
+---
+
+<form class="contact-form" method="post" action="#" data-contact-form>
+  <div class="contact-form__field">
+    <label class="contact-form__label" for={nameId}>Nombre completo</label>
+    <input
+      class="contact-form__input"
+      type="text"
+      id={nameId}
+      name="nombre"
+      autocomplete="name"
+    />
+  </div>
+
+  <div class="contact-form__field">
+    <label class="contact-form__label" for={emailId}>
+      Correo electrónico<span class="contact-form__required" aria-hidden="true">*</span>
+    </label>
+    <input
+      class="contact-form__input"
+      type="email"
+      id={emailId}
+      name="email"
+      autocomplete="email"
+      required
+      aria-required="true"
+    />
+  </div>
+
+  <div class="contact-form__field">
+    <label class="contact-form__label" for={messageId}>
+      Mensaje<span class="contact-form__required" aria-hidden="true">*</span>
+    </label>
+    <textarea
+      class="contact-form__input contact-form__textarea"
+      id={messageId}
+      name="mensaje"
+      rows="5"
+      required
+      aria-required="true"
+    ></textarea>
+  </div>
+
+  <Button type="submit" variant="primary">Enviar consulta</Button>
+</form>
+
+<style>
+  .contact-form {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .contact-form__field {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .contact-form__label {
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  .contact-form__required {
+    color: var(--color-primary);
+    margin-left: 0.125rem;
+  }
+
+  .contact-form__input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font: inherit;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    transition: border-color var(--transition-fast);
+  }
+
+  .contact-form__input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(41, 90, 130, 0.15);
+  }
+
+  .contact-form__input:user-invalid {
+    border-color: #dc2626;
+  }
+
+  .contact-form__textarea {
+    resize: vertical;
+    min-height: 8rem;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[data-contact-form]').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      // Envío real en SPEC-501
+    });
+  });
+</script>

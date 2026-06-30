@@ -1,14 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getPageMeta } from '../../data/pages-meta';
+import { articlesPageContent } from '../../data/page-content';
+import PageHeader from '../../components/sections/PageHeader.astro';
+import ArticlesEmpty from '../../components/sections/ArticlesEmpty.astro';
 
 const meta = getPageMeta('/articulos');
 ---
 
 <BaseLayout title={meta.title} description={meta.description}>
-  <section class="page-placeholder container">
-    <h1>Artículos</h1>
-    <p>Próximamente publicaremos contenido sobre construcción, rehabilitación y eficiencia energética.</p>
-    <p><em>Contenido completo — Fase 3 (SPEC-302).</em></p>
-  </section>
+  <PageHeader title={articlesPageContent.title} centered={true} />
+  <ArticlesEmpty />
 </BaseLayout>

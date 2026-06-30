@@ -1,0 +1,131 @@
+---
+import { contact } from '../../data/contact';
+import { contactPageContent } from '../../data/page-content';
+
+const { welcomeTitle, welcomeText, actions, details } = contactPageContent;
+
+const actionLinks = {
+  phone: `tel:${contact.phoneCta}`,
+  email: `mailto:${contact.emailLegal}`,
+  maps: contact.mapsUrl,
+} as const;
+---
+
+<aside class="contact-info" aria-labelledby="contact-info-title">
+  <h2 id="contact-info-title" class="contact-info__title">{welcomeTitle}</h2>
+  <p class="contact-info__text">{welcomeText}</p>
+
+  <div class="contact-info__actions">
+    <a href={actionLinks.phone} class="contact-info__action">
+      <span class="contact-info__action-label">{actions.call.label}</span>
+    </a>
+    <a href={actionLinks.email} class="contact-info__action">
+      <span class="contact-info__action-label">{actions.email.label}</span>
+    </a>
+    <a
+      href={actionLinks.maps}
+      class="contact-info__action"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="contact-info__action-label">{actions.visit.label}</span>
+    </a>
+  </div>
+
+  <dl class="contact-info__details">
+    <div class="contact-info__detail">
+      <dt>{details.phoneLabel}</dt>
+      <dd>
+        <a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phoneDisplay}</a>
+      </dd>
+    </div>
+    <div class="contact-info__detail">
+      <dt>{details.emailLabel}</dt>
+      <dd>
+        <a href={`mailto:${contact.email}`}>{contact.email}</a>
+      </dd>
+    </div>
+    <div class="contact-info__detail">
+      <dt>{details.addressLabel}</dt>
+      <dd>{contact.address}</dd>
+    </div>
+  </dl>
+</aside>
+
+<style>
+  .contact-info {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .contact-info__title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .contact-info__text {
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+  }
+
+  .contact-info__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .contact-info__action {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    color: var(--color-on-primary);
+    background: var(--color-primary);
+    border-radius: 0.25rem;
+    transition: background-color var(--transition-fast);
+  }
+
+  .contact-info__action:hover,
+  .contact-info__action:focus-visible {
+    background: var(--color-secondary);
+  }
+
+  .contact-info__details {
+    margin: 0;
+    display: grid;
+    gap: 1.25rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .contact-info__detail dt {
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-primary);
+  }
+
+  .contact-info__detail dd {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .contact-info__detail a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .contact-info__detail a:hover {
+    color: var(--color-primary);
+  }
+</style>
