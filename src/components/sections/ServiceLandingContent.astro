@@ -3,7 +3,6 @@ import type { ServiceLanding } from '../../data/services-seo';
 import { getServiceHref, getServiceBySlug } from '../../data/services-seo';
 import Button from '../ui/Button.astro';
 import FaqSection from './FaqSection.astro';
-import Breadcrumb from '../ui/Breadcrumb.astro';
 import SubsidiesBanner from './SubsidiesBanner.astro';
 import RelatedArticles from './RelatedArticles.astro';
 import type { Articulo } from '../../utils/articles';
@@ -21,14 +20,6 @@ const relatedServices = service.relatedSlugs
 ---
 
 <article class="service-page">
-  <Breadcrumb
-    items={[
-      { label: 'Inicio', href: '/' },
-      { label: 'Servicios', href: '/servicios' },
-      { label: service.shortTitle },
-    ]}
-  />
-
   <header class="service-page__hero section">
     <div class="container service-page__hero-grid">
       <div class="service-page__hero-text">

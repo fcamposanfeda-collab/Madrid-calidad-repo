@@ -1,7 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import { Fragment } from 'astro/jsx-runtime';
-import Breadcrumb from '../components/ui/Breadcrumb.astro';
 import ArticleCta from '../components/sections/ArticleCta.astro';
 import RelatedArticles from '../components/sections/RelatedArticles.astro';
 import ArticleSchema from '../components/seo/ArticleSchema.astro';
@@ -50,14 +49,6 @@ const canonicalUrl = new URL(canonicalPath, site.url).href;
   </Fragment>
 
   <article class="article-page">
-    <Breadcrumb
-      items={[
-        { label: 'Inicio', href: '/' },
-        { label: 'Artículos', href: '/articulos' },
-        { label: title },
-      ]}
-    />
-
     <header class="article-page__header section">
       <div class="container article-page__header-inner">
         <p class="article-page__category">{category}</p>

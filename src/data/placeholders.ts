@@ -57,7 +57,7 @@ export const stockImages = {
     alt: 'Rehabilitación energética Chamberí',
   },
   proyecto2: {
-    src: 'https://images.unsplash.com/photo-1518005028251-37900150dfca?w=800&q=80',
+    src: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80',
     alt: 'SATE en Móstoles',
   },
   proyecto3: {

@@ -8,7 +8,7 @@ relatedSlugs:
   - cuando-impermeabilizar-cubierta-edificio
   - rehabilitar-fachada-comunidad-propietarios
   - ite-rehabilitacion-edificios-madrid
-image: 'https://images.unsplash.com/photo-1632778141160-435a5d9aeb61?w=1200&q=80'
+image: 'https://images.unsplash.com/photo-1595846519845-68e298c2edd8?w=1200&q=80'
 ---
 
 La **cubierta** es el elemento que más sufre por exposición a lluvia, granizo, heladas y sol en Madrid. En comunidades de propietarios, un mantenimiento preventivo evita filtraciones costosas y prolonga la vida útil del edificio.
