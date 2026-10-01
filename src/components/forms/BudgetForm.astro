@@ -14,7 +14,7 @@ interface Props {
 }
 
 const { formId = 'budget' } = Astro.props;
-const { endpoint: formEndpoint } = formConfig;
+const { endpoint: formEndpoint, web3formsAccessKey, isWeb3Forms, isFormSubmit } = formConfig;
 
 const id = (name: string) => `${formId}-${name}`;
 const statusId = `${formId}-status`;
@@ -36,9 +36,21 @@ const honeypotId = `${formId}-company`;
     <input type="text" id={honeypotId} name="company" tabindex="-1" autocomplete="off" />
   </div>
 
-  <input type="hidden" name="_subject" value="Solicitud presupuesto detallado — Madrid Calidad" />
-  <input type="hidden" name="_template" value="table" />
-  <input type="hidden" name="_captcha" value="false" />
+  {
+    isWeb3Forms ? (
+      <>
+        {web3formsAccessKey && <input type="hidden" name="access_key" value={web3formsAccessKey} />}
+        <input type="hidden" name="subject" value="Solicitud presupuesto detallado — Madrid Calidad" />
+        <input type="hidden" name="from_name" value="Web Madrid Calidad" />
+      </>
+    ) : (
+      <>
+        <input type="hidden" name="_subject" value="Solicitud presupuesto detallado — Madrid Calidad" />
+        {isFormSubmit && <input type="hidden" name="_template" value="table" />}
+        {isFormSubmit && <input type="hidden" name="_captcha" value="false" />}
+      </>
+    )
+  }
 
   <fieldset class="budget-form__section">
     <legend>1. ¿Qué tipo de proyecto necesitas?</legend>
@@ -491,6 +503,8 @@ const honeypotId = `${formId}-company`;
 </style>
 
 <script>
+  import { formToJsonBody } from '../../utils/form-payload';
+
   function updateBudgetPanels(form: HTMLFormElement) {
     const select = form.querySelector('[data-budget-tipo]');
     if (!(select instanceof HTMLSelectElement)) return;
@@ -585,12 +599,13 @@ const honeypotId = `${formId}-company`;
         if (submitButton instanceof HTMLButtonElement) submitButton.disabled = true;
 
         try {
-          const body = new FormData(form);
-          body.delete('company');
           const response = await fetch(endpoint, {
             method: 'POST',
-            body,
-            headers: { Accept: 'application/json' },
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+            },
+            body: formToJsonBody(form),
           });
           const data = await response.json().catch(() => null);
           const accepted = data?.success === true || data?.success === 'true';

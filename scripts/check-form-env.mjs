@@ -37,18 +37,24 @@ let ok = true;
 
 if (!endpoint) {
   console.error('✗ Falta PUBLIC_FORM_ENDPOINT');
-  console.error('  Valor recomendado: https://api.web3forms.com/submit');
+  console.error('  FormSubmit: https://formsubmit.co/ajax/dcampos@madridcalidad.es');
+  console.error('  Web3Forms:  https://api.web3forms.com/submit');
+  console.error('  Formspree:  https://formspree.io/f/xxxxxxxx');
   ok = false;
 } else {
   console.log(`✓ PUBLIC_FORM_ENDPOINT = ${endpoint}`);
 }
 
-if (!key) {
+const usesWeb3Forms = endpoint.includes('web3forms.com');
+
+if (usesWeb3Forms && !key) {
   console.error('✗ Falta PUBLIC_WEB3FORMS_ACCESS_KEY');
   console.error('  Obtén la clave en https://web3forms.com (gratis) con destino dcampos@madridcalidad.es');
   ok = false;
-} else {
+} else if (usesWeb3Forms) {
   console.log(`✓ PUBLIC_WEB3FORMS_ACCESS_KEY = ${key.slice(0, 8)}…`);
+} else if (key) {
+  console.log(`✓ PUBLIC_WEB3FORMS_ACCESS_KEY presente (no se usa con este endpoint)`);
 }
 
 if (!ok) {
