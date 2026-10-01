@@ -1,8 +1,7 @@
-/** Configuración de formularios (variables PUBLIC_* en .env / .env.production) */
+import { company } from './company';
+
+/** El destino va en la URL para que los envíos lleguen siempre a este buzón. */
 export const formConfig = {
-  endpoint: import.meta.env.PUBLIC_FORM_ENDPOINT ?? '',
-  web3formsAccessKey: import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '',
-  isConfigured:
-    Boolean(import.meta.env.PUBLIC_FORM_ENDPOINT) &&
-    Boolean(import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY),
+  endpoint: `https://formsubmit.co/ajax/${company.email}`,
+  isConfigured: true,
 } as const;

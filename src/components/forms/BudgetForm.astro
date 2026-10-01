@@ -14,7 +14,7 @@ interface Props {
 }
 
 const { formId = 'budget' } = Astro.props;
-const { endpoint: formEndpoint, web3formsAccessKey: web3formsKey } = formConfig;
+const { endpoint: formEndpoint } = formConfig;
 
 const id = (name: string) => `${formId}-${name}`;
 const statusId = `${formId}-status`;
@@ -36,9 +36,9 @@ const honeypotId = `${formId}-company`;
     <input type="text" id={honeypotId} name="company" tabindex="-1" autocomplete="off" />
   </div>
 
-  {web3formsKey && <input type="hidden" name="access_key" value={web3formsKey} />}
-  <input type="hidden" name="subject" value="Solicitud presupuesto detallado — Madrid Calidad" />
-  <input type="hidden" name="from_name" value="Web Madrid Calidad" />
+  <input type="hidden" name="_subject" value="Solicitud presupuesto detallado — Madrid Calidad" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_captcha" value="false" />
 
   <fieldset class="budget-form__section">
     <legend>1. ¿Qué tipo de proyecto necesitas?</legend>
@@ -585,13 +585,16 @@ const honeypotId = `${formId}-company`;
         if (submitButton instanceof HTMLButtonElement) submitButton.disabled = true;
 
         try {
+          const body = new FormData(form);
+          body.delete('company');
           const response = await fetch(endpoint, {
             method: 'POST',
-            body: new FormData(form),
+            body,
             headers: { Accept: 'application/json' },
           });
           const data = await response.json().catch(() => null);
-          if (!response.ok || (data && data.success === false)) throw new Error('Network error');
+          const accepted = data?.success === true || data?.success === 'true';
+          if (!response.ok || !accepted) throw new Error('Network error');
           form.reset();
           updateBudgetPanels(form);
           showStatus(form, 'Solicitud enviada. Te contactaremos en breve.', 'success');

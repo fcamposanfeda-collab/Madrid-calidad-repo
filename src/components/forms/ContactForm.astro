@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { formId = 'contact' } = Astro.props;
-const { endpoint: formEndpoint, web3formsAccessKey: web3formsKey } = formConfig;
+const { endpoint: formEndpoint } = formConfig;
 const nameId = `${formId}-nombre`;
 const emailId = `${formId}-email`;
 const messageId = `${formId}-mensaje`;
@@ -29,9 +29,9 @@ const honeypotId = `${formId}-company`;
     <input type="text" id={honeypotId} name="company" tabindex="-1" autocomplete="off" />
   </div>
 
-  {web3formsKey && <input type="hidden" name="access_key" value={web3formsKey} />}
-  <input type="hidden" name="subject" value="Nueva consulta — Madrid Calidad" />
-  <input type="hidden" name="from_name" value="Web Madrid Calidad" />
+  <input type="hidden" name="_subject" value="Nueva consulta — Madrid Calidad" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_captcha" value="false" />
 
   <div class="contact-form__field">
     <label class="contact-form__label" for={nameId}>Nombre completo</label>
@@ -187,13 +187,16 @@ const honeypotId = `${formId}-company`;
         }
 
         try {
+          const body = new FormData(form);
+          body.delete('company');
           const response = await fetch(endpoint, {
             method: 'POST',
-            body: new FormData(form),
+            body,
             headers: { Accept: 'application/json' },
           });
-
-          if (!response.ok) {
+          const data = await response.json().catch(() => null);
+          const accepted = data?.success === true || data?.success === 'true';
+          if (!response.ok || !accepted) {
             throw new Error('Network error');
           }
 
