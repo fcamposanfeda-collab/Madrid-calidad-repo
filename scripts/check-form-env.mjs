@@ -4,6 +4,7 @@
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { isWeb3FormsAccessKey } from '../src/utils/web3forms-key.mjs';
 
 const envFile = process.argv[2] ?? '.env';
 const envPath = resolve(process.cwd(), envFile);
@@ -47,14 +48,23 @@ if (!endpoint) {
 
 const usesWeb3Forms = endpoint.includes('web3forms.com');
 
-if (usesWeb3Forms && !key) {
-  console.error('✗ Falta PUBLIC_WEB3FORMS_ACCESS_KEY');
-  console.error('  Obtén la clave en https://web3forms.com (gratis) con destino dcampos@madridcalidad.es');
+if (usesWeb3Forms && !isWeb3FormsAccessKey(key)) {
+  if (!key.trim()) {
+    console.error('✗ Falta PUBLIC_WEB3FORMS_ACCESS_KEY');
+    console.error('  Obtén la clave en https://web3forms.com (gratis) con destino dcampos@madridcalidad.es');
+  } else {
+    console.error('✗ PUBLIC_WEB3FORMS_ACCESS_KEY no es una Access Key válida');
+    console.error('  Tiene que ser el UUID de https://web3forms.com, no un texto de ejemplo.');
+  }
   ok = false;
 } else if (usesWeb3Forms) {
   console.log(`✓ PUBLIC_WEB3FORMS_ACCESS_KEY = ${key.slice(0, 8)}…`);
+} else if (isWeb3FormsAccessKey(key)) {
+  console.log('✓ PUBLIC_WEB3FORMS_ACCESS_KEY presente (no se usa con este endpoint)');
 } else if (key) {
-  console.log(`✓ PUBLIC_WEB3FORMS_ACCESS_KEY presente (no se usa con este endpoint)`);
+  console.error('✗ PUBLIC_WEB3FORMS_ACCESS_KEY no es una Access Key válida');
+  console.error('  Tiene que ser el UUID de https://web3forms.com, no un texto de ejemplo.');
+  ok = false;
 }
 
 if (!ok) {
