@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { formId = 'contact' } = Astro.props;
-const { endpoint: formEndpoint, web3formsAccessKey, isWeb3Forms, isFormSubmit } = formConfig;
+const { endpoint: formEndpoint, contactAccessKey, isWeb3Forms, isFormSubmit } = formConfig;
 const nameId = `${formId}-nombre`;
 const emailId = `${formId}-email`;
 const messageId = `${formId}-mensaje`;
@@ -21,7 +21,7 @@ const honeypotId = `${formId}-company`;
   action={formEndpoint || '#'}
   data-contact-form
   data-form-endpoint={formEndpoint}
-  data-form-configured={formConfig.isConfigured ? 'true' : 'false'}
+  data-form-configured={formConfig.isContactConfigured ? 'true' : 'false'}
   novalidate
 >
   <div class="contact-form__honeypot" aria-hidden="true">
@@ -32,7 +32,7 @@ const honeypotId = `${formId}-company`;
   {
     isWeb3Forms ? (
       <>
-        {web3formsAccessKey && <input type="hidden" name="access_key" value={web3formsAccessKey} />}
+        {contactAccessKey && <input type="hidden" name="access_key" value={contactAccessKey} />}
         <input type="hidden" name="subject" value="Nueva consulta — Madrid Calidad" />
         <input type="hidden" name="from_name" value="Web Madrid Calidad" />
       </>

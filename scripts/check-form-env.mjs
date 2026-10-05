@@ -33,6 +33,7 @@ const vars = parseEnvFile(readFileSync(envPath, 'utf8'));
 
 const endpoint = vars.PUBLIC_FORM_ENDPOINT ?? '';
 const key = vars.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
+const contactKey = vars.PUBLIC_WEB3FORMS_CONTACT_ACCESS_KEY ?? '';
 
 let ok = true;
 
@@ -59,10 +60,31 @@ if (usesWeb3Forms && !isWeb3FormsAccessKey(key)) {
   ok = false;
 } else if (usesWeb3Forms) {
   console.log(`✓ PUBLIC_WEB3FORMS_ACCESS_KEY = ${key.slice(0, 8)}…`);
-} else if (isWeb3FormsAccessKey(key)) {
-  console.log('✓ PUBLIC_WEB3FORMS_ACCESS_KEY presente (no se usa con este endpoint)');
-} else if (key) {
+}
+
+if (usesWeb3Forms && !isWeb3FormsAccessKey(contactKey)) {
+  if (!contactKey.trim()) {
+    console.error('✗ Falta PUBLIC_WEB3FORMS_CONTACT_ACCESS_KEY');
+    console.error('  Es la Access Key del formulario de contacto.');
+  } else {
+    console.error('✗ PUBLIC_WEB3FORMS_CONTACT_ACCESS_KEY no es una Access Key válida');
+    console.error('  Tiene que ser el UUID de https://web3forms.com, no un texto de ejemplo.');
+  }
+  ok = false;
+} else if (usesWeb3Forms) {
+  console.log(`✓ PUBLIC_WEB3FORMS_CONTACT_ACCESS_KEY = ${contactKey.slice(0, 8)}…`);
+}
+
+if (!usesWeb3Forms && key && !isWeb3FormsAccessKey(key)) {
   console.error('✗ PUBLIC_WEB3FORMS_ACCESS_KEY no es una Access Key válida');
+  console.error('  Tiene que ser el UUID de https://web3forms.com, no un texto de ejemplo.');
+  ok = false;
+} else if (!usesWeb3Forms && isWeb3FormsAccessKey(key)) {
+  console.log('✓ PUBLIC_WEB3FORMS_ACCESS_KEY presente (no se usa con este endpoint)');
+}
+
+if (!usesWeb3Forms && contactKey && !isWeb3FormsAccessKey(contactKey)) {
+  console.error('✗ PUBLIC_WEB3FORMS_CONTACT_ACCESS_KEY no es una Access Key válida');
   console.error('  Tiene que ser el UUID de https://web3forms.com, no un texto de ejemplo.');
   ok = false;
 }

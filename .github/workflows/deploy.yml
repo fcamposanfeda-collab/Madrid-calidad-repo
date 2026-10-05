@@ -21,6 +21,7 @@ jobs:
         env:
           PUBLIC_FORM_ENDPOINT: ${{ secrets.PUBLIC_FORM_ENDPOINT }}
           PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.PUBLIC_WEB3FORMS_ACCESS_KEY }}
+          PUBLIC_WEB3FORMS_CONTACT_ACCESS_KEY: ${{ secrets.PUBLIC_WEB3FORMS_CONTACT_ACCESS_KEY }}
 
   deploy:
     needs: build
