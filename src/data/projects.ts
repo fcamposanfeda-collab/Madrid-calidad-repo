@@ -1,4 +1,3 @@
-import { stockImages } from './placeholders';
 import { getServiceHref } from './services-seo';
 
 export type Project = {
@@ -19,7 +18,10 @@ export const projects: Project[] = [
     service: 'Rehabilitación energética',
     serviceSlug: 'rehabilitacion-energetica-madrid',
     excerpt: 'Actuación integral en comunidad de vecinos con mejora de envolvente y gestión de subvenciones.',
-    image: stockImages.proyecto1,
+    image: {
+      src: 'https://images.unsplash.com/photo-1753223386004-6485ef89db5e?w=1200&q=80',
+      alt: 'Edificio de viviendas con andamio en una rehabilitación de fachada',
+    },
   },
   {
     slug: 'sate-mostoles',
@@ -28,7 +30,10 @@ export const projects: Project[] = [
     service: 'SATE',
     serviceSlug: 'sate-madrid',
     excerpt: 'Aislamiento térmico exterior en edificio residencial de cinco plantas.',
-    image: stockImages.proyecto2,
+    image: {
+      src: 'https://images.unsplash.com/photo-1460317442991-0ec209397118?w=1200&q=80',
+      alt: 'Fachada de edificio residencial de varias plantas',
+    },
   },
   {
     slug: 'reforma-integral-arganzuela',
@@ -37,7 +42,10 @@ export const projects: Project[] = [
     service: 'Reforma integral',
     serviceSlug: 'reforma-integral-madrid',
     excerpt: 'Renovación completa de vivienda con nueva distribución y eficiencia energética.',
-    image: stockImages.proyecto3,
+    image: {
+      src: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=1200&q=80',
+      alt: 'Interior de vivienda reformada, con salón y cocina',
+    },
   },
   {
     slug: 'fachada-alcorcon',
@@ -46,7 +54,10 @@ export const projects: Project[] = [
     service: 'Fachadas',
     serviceSlug: 'rehabilitacion-fachadas-madrid',
     excerpt: 'Reparación de patologías y acabado monocapa en comunidad de propietarios.',
-    image: stockImages.fachada,
+    image: {
+      src: 'https://images.unsplash.com/photo-1448630360428-65456885c650?w=1200&q=80',
+      alt: 'Fachada de ladrillo de un edificio rehabilitado',
+    },
   },
   {
     slug: 'cubierta-pozuelo',
@@ -55,7 +66,10 @@ export const projects: Project[] = [
     service: 'Cubiertas',
     serviceSlug: 'impermeabilizacion-madrid',
     excerpt: 'Renovación de impermeabilización en cubierta plana comunitaria.',
-    image: stockImages.cubierta,
+    image: {
+      src: 'https://images.unsplash.com/photo-1632759145351-1d592919f522?w=1200&q=80',
+      alt: 'Operario reparando la cubierta de un edificio',
+    },
   },
   {
     slug: 'reforma-cocina-lista',
@@ -64,7 +78,10 @@ export const projects: Project[] = [
     service: 'Reforma de cocina',
     serviceSlug: 'reforma-cocina-madrid',
     excerpt: 'Cocina abierta al salón con mobiliario a medida e instalaciones renovadas.',
-    image: stockImages.cocina,
+    image: {
+      src: 'https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=1200&q=80',
+      alt: 'Cocina reformada con mobiliario blanco e isla',
+    },
   },
 ];
 
