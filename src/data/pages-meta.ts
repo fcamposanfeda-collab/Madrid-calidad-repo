@@ -1,8 +1,8 @@
 export const pagesMeta = {
   '/': {
-    title: 'Rehabilitación energética y reformas en Madrid | Madrid Calidad Constructiva',
+    title: 'Trabajos verticales en Madrid | Madrid Calidad Constructiva',
     description:
-      'Rehabilitación energética, SATE, fachadas, cubiertas y reformas integrales en Madrid. Gestión de subvenciones y presupuesto sin compromiso.',
+      'Trabajos verticales en Madrid: fachadas, cubiertas e impermeabilización en altura. Rehabilitación y reformas con presupuesto sin compromiso.',
   },
   '/como-lo-hacemos': {
     title: 'Servicios de construcción en Madrid con calidad | Madrid Calidad Constructiva',

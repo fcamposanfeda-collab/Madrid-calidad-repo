@@ -17,12 +17,12 @@ export type NavSimple = {
 export type NavItem = NavDropdown | NavSimple;
 
 const rehabLinks: NavLink[] = [
-  { label: 'Rehabilitación energética', href: getServiceHref('rehabilitacion-energetica-madrid') },
-  { label: 'SATE Madrid', href: getServiceHref('sate-madrid') },
+  { label: 'Trabajos verticales', href: getServiceHref('trabajos-verticales-madrid') },
   { label: 'Rehabilitación de fachadas', href: getServiceHref('rehabilitacion-fachadas-madrid') },
   { label: 'Rehabilitación de cubiertas', href: getServiceHref('rehabilitacion-cubiertas-madrid') },
   { label: 'Impermeabilización', href: getServiceHref('impermeabilizacion-madrid') },
-  { label: 'Trabajos verticales', href: getServiceHref('trabajos-verticales-madrid') },
+  { label: 'Rehabilitación energética', href: getServiceHref('rehabilitacion-energetica-madrid') },
+  { label: 'SATE Madrid', href: getServiceHref('sate-madrid') },
   { label: 'Accesibilidad en edificios', href: getServiceHref('accesibilidad-edificios-madrid') },
 ];
 
@@ -52,8 +52,8 @@ export const mainNav: NavItem[] = [
     type: 'dropdown',
     label: 'Rehabilitación',
     columns: [
-      { title: 'Energía y envolvente', links: rehabLinks.slice(0, 4) },
-      { title: 'Especialidades', links: rehabLinks.slice(4) },
+      { title: 'En altura', links: rehabLinks.slice(0, 4) },
+      { title: 'Energía y envolvente', links: rehabLinks.slice(4) },
     ],
   },
   {

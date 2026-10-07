@@ -438,7 +438,13 @@ export const serviceLandings: ServiceLanding[] = [
   },
 ];
 
-export const allServiceLandings = [...serviceLandings, ...catalogExtraLandings];
+const combinedServiceLandings = [...serviceLandings, ...catalogExtraLandings];
+const featuredServiceSlug = 'trabajos-verticales-madrid';
+
+export const allServiceLandings = [
+  ...combinedServiceLandings.filter((service) => service.slug === featuredServiceSlug),
+  ...combinedServiceLandings.filter((service) => service.slug !== featuredServiceSlug),
+];
 
 export const serviceSlugs = allServiceLandings.map((s) => s.slug);
 

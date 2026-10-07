@@ -1,4 +1,5 @@
 export const projectTypes = [
+  { value: 'trabajos-verticales', label: 'Trabajos verticales', group: 'rehabilitacion' },
   { value: 'reforma-integral', label: 'Reforma integral', group: 'reforma' },
   { value: 'reforma-cocina', label: 'Reforma de cocina', group: 'reforma' },
   { value: 'reforma-bano', label: 'Reforma de baño', group: 'reforma' },
