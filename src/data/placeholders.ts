@@ -33,24 +33,24 @@ export const stockImages = {
     alt: 'Trabajos en cubierta',
   },
   electricidad: {
-    src: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80',
-    alt: 'Instalación eléctrica',
+    src: 'https://images.unsplash.com/photo-1555963966-b7ae5404b6ed?w=800&q=80',
+    alt: 'Electricista trabajando en una instalación',
   },
   fontaneria: {
-    src: 'https://images.unsplash.com/photo-1585705274555-7415e0e3a3ae?w=800&q=80',
-    alt: 'Fontanería',
+    src: 'https://images.unsplash.com/photo-1676210134188-4c05dd172f89?w=800&q=80',
+    alt: 'Fontanero arreglando una tubería',
   },
   albanileria: {
     src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
     alt: 'Obra de albañilería',
   },
   pintura: {
-    src: 'https://images.unsplash.com/photo-1589939705383-27ae110b24e6?w=800&q=80',
-    alt: 'Pintura de interiores',
+    src: 'https://images.pexels.com/photos/6474480/pexels-photo-6474480.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Pintor pintando una pared en una vivienda',
   },
   carpinteria: {
-    src: 'https://images.unsplash.com/photo-1615529328331-f8917597711f?w=800&q=80',
-    alt: 'Carpintería',
+    src: 'https://images.unsplash.com/photo-1756736668332-e921516c1305?w=800&q=80',
+    alt: 'Carpintero trabajando la madera',
   },
   proyecto1: {
     src: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',

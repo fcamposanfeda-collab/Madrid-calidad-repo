@@ -1,0 +1,211 @@
+---
+interface Props {
+  beforeSrc: string;
+  afterSrc: string;
+  beforeAlt: string;
+  afterAlt: string;
+  /** Proporción del marco. Por defecto 16/9; se puede pasar la de las fotos. */
+  aspectRatio?: string;
+}
+
+const {
+  beforeSrc,
+  afterSrc,
+  beforeAlt,
+  afterAlt,
+  aspectRatio = '16 / 9',
+} = Astro.props;
+---
+
+<div class="before-after" style={`--aspect: ${aspectRatio}; --pos: 50%;`}>
+  <img class="before-after__img" src={afterSrc} alt={afterAlt} draggable="false" />
+  <span class="before-after__label before-after__label--after">Después</span>
+
+  <div class="before-after__before">
+    <img class="before-after__img" src={beforeSrc} alt={beforeAlt} draggable="false" />
+    <span class="before-after__label before-after__label--before">Antes</span>
+  </div>
+
+  <div class="before-after__divider" aria-hidden="true">
+    <span class="before-after__handle">◀ ▶</span>
+  </div>
+
+  <input
+    class="before-after__range"
+    type="range"
+    min="0"
+    max="100"
+    value="50"
+    step="1"
+    aria-label="Comparar antes y después. Hacia la izquierda se ve más el después; hacia la derecha, más el antes."
+    aria-valuemin="0"
+    aria-valuemax="100"
+    aria-valuenow="50"
+    aria-valuetext="50 por ciento de la imagen anterior"
+  />
+</div>
+
+<script>
+  function clamp(value: number) {
+    return Math.min(100, Math.max(0, value));
+  }
+
+  function applyPosition(root: HTMLElement, value: number) {
+    const position = clamp(value);
+    const rounded = Math.round(position);
+    root.style.setProperty('--pos', `${position}%`);
+    const range = root.querySelector<HTMLInputElement>('.before-after__range');
+    if (!range) return;
+    range.value = String(rounded);
+    range.setAttribute('aria-valuenow', String(rounded));
+    range.setAttribute('aria-valuetext', `${rounded} por ciento de la imagen anterior`);
+  }
+
+  function positionFromPointer(root: HTMLElement, event: PointerEvent) {
+    const rect = root.getBoundingClientRect();
+    if (rect.width === 0) return 50;
+    return ((event.clientX - rect.left) / rect.width) * 100;
+  }
+
+  function init(root: HTMLElement) {
+    const range = root.querySelector<HTMLInputElement>('.before-after__range');
+    if (!range || root.dataset.ready === 'true') return;
+    root.dataset.ready = 'true';
+
+    let dragging = false;
+
+    root.addEventListener('pointerdown', (event) => {
+      if (event.button !== 0) return;
+      dragging = true;
+      applyPosition(root, positionFromPointer(root, event));
+      try {
+        root.setPointerCapture(event.pointerId);
+      } catch {
+        /* El arrastre sigue por pointermove si el navegador no captura el puntero. */
+      }
+    });
+
+    root.addEventListener('pointermove', (event) => {
+      if (!dragging) return;
+      applyPosition(root, positionFromPointer(root, event));
+    });
+
+    const stop = (event: PointerEvent) => {
+      if (!dragging) return;
+      dragging = false;
+      if (root.hasPointerCapture(event.pointerId)) {
+        root.releasePointerCapture(event.pointerId);
+      }
+    };
+
+    root.addEventListener('pointerup', stop);
+    root.addEventListener('pointercancel', stop);
+
+    range.addEventListener('input', () => {
+      applyPosition(root, Number(range.value));
+    });
+  }
+
+  document.querySelectorAll<HTMLElement>('.before-after').forEach(init);
+</script>
+
+<style>
+  .before-after {
+    position: relative;
+    width: 100%;
+    aspect-ratio: var(--aspect);
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: #0d141a;
+    user-select: none;
+    touch-action: none;
+    cursor: ew-resize;
+  }
+
+  .before-after__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  .before-after__before {
+    position: absolute;
+    inset: 0;
+    clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+  }
+
+  .before-after__label {
+    position: absolute;
+    top: 0.75rem;
+    z-index: 2;
+    padding: 0.25rem 0.55rem;
+    border-radius: 0.25rem;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+
+  .before-after__label--before {
+    left: 0.75rem;
+  }
+
+  .before-after__label--after {
+    right: 0.75rem;
+  }
+
+  .before-after__divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--pos);
+    z-index: 3;
+    width: 3px;
+    transform: translateX(-50%);
+    background: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
+    pointer-events: none;
+  }
+
+  .before-after__handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+    color: #0d141a;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    line-height: 1;
+  }
+
+  .before-after__range {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .before-after:focus-within .before-after__handle {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+</style>

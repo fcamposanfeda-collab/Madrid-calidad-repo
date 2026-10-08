@@ -19,8 +19,8 @@ export const projects: Project[] = [
     serviceSlug: 'rehabilitacion-energetica-madrid',
     excerpt: 'Actuación integral en comunidad de vecinos con mejora de envolvente y gestión de subvenciones.',
     image: {
-      src: 'https://images.unsplash.com/photo-1753223386004-6485ef89db5e?w=1200&q=80',
-      alt: 'Edificio de viviendas con andamio en una rehabilitación de fachada',
+      src: 'https://images.pexels.com/photos/5511085/pexels-photo-5511085.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      alt: 'Aislamiento térmico en la fachada de un edificio de viviendas',
     },
   },
   {
@@ -67,8 +67,8 @@ export const projects: Project[] = [
     serviceSlug: 'impermeabilizacion-madrid',
     excerpt: 'Renovación de impermeabilización en cubierta plana comunitaria.',
     image: {
-      src: 'https://images.unsplash.com/photo-1632759145351-1d592919f522?w=1200&q=80',
-      alt: 'Operario reparando la cubierta de un edificio',
+      src: 'https://images.pexels.com/photos/39238328/pexels-photo-39238328.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      alt: 'Operario instalando la impermeabilización de una cubierta plana',
     },
   },
   {

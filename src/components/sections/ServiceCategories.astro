@@ -7,13 +7,8 @@ const categories = [
   {
     title: 'Rehabilitación',
     image: {
-      src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Calle_de_Sagasta_n%C2%BA_31-33_%28Madrid%29_02.jpg/1280px-Calle_de_Sagasta_n%C2%BA_31-33_%28Madrid%29_02.jpg',
-      alt: 'Edificios de viviendas en la calle de Sagasta, Madrid',
-    },
-    credit: {
-      author: 'Luis García',
-      source: 'https://commons.wikimedia.org/wiki/File:Calle_de_Sagasta_n%C2%BA_31-33_(Madrid)_02.jpg',
-      licenseHref: 'https://creativecommons.org/licenses/by-sa/3.0/es/deed.es',
+      src: 'https://images.unsplash.com/photo-1758914875537-109d846749aa?w=1200&h=525&fit=crop&crop=top&q=80',
+      alt: 'Fachada de viviendas con balcones en Madrid',
     },
     links: [
       { label: 'Trabajos verticales', slug: 'trabajos-verticales-madrid' },
@@ -69,14 +64,6 @@ const categories = [
           <article class="categories__card">
             <div class="categories__media">
               <img src={cat.image.src} alt={cat.image.alt} loading="lazy" decoding="async" />
-              {'credit' in cat && cat.credit && (
-                <p class="categories__credit">
-                  Foto:{' '}
-                  <a href={cat.credit.source}>{cat.credit.author}</a>
-                  {' · '}
-                  <a href={cat.credit.licenseHref}>CC BY-SA 3.0</a>
-                </p>
-              )}
               <h3>{cat.title}</h3>
             </div>
             <ul>
@@ -137,24 +124,6 @@ const categories = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  .categories__credit {
-    position: absolute;
-    top: 0.4rem;
-    right: 0.4rem;
-    z-index: 1;
-    margin: 0;
-    padding: 0.15rem 0.45rem;
-    font-size: 0.65rem;
-    line-height: 1.3;
-    color: #fff;
-    background: rgba(26, 42, 56, 0.92);
-    border-radius: 0.2rem;
-  }
-
-  .categories__credit a {
-    color: inherit;
   }
 
   .categories__media h3 {

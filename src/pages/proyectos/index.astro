@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/ui/Button.astro';
+import BeforeAfter from '../../components/ui/BeforeAfter.astro';
+import SectionTitle from '../../components/ui/SectionTitle.astro';
 import { projects, getProjectHref } from '../../data/projects';
 
 const title = 'Proyectos de rehabilitación y reformas en Madrid | Madrid Calidad Constructiva';
@@ -19,6 +21,22 @@ const description =
       <Button href="/presupuestos" variant="primary">Solicitar presupuesto</Button>
     </div>
   </header>
+
+  <section class="section compare">
+    <div class="container compare__inner">
+      <SectionTitle
+        title="Antes y después"
+        subtitle="Arrastra la barra para comparar el estado inicial y la reforma terminada."
+      />
+      <BeforeAfter
+        beforeSrc="/img/antes.jpg"
+        afterSrc="/img/despues.jpg"
+        beforeAlt="Patio antes de la reforma, con el suelo sin terminar"
+        afterAlt="Patio reformado, con pavimento de piedra y jardineras"
+        aspectRatio="4 / 3"
+      />
+    </div>
+  </section>
 
   <section class="section">
     <div class="container">
@@ -61,6 +79,14 @@ const description =
     margin: 0 0 1.5rem;
     line-height: 1.7;
     color: var(--color-muted);
+  }
+
+  .compare {
+    padding-bottom: 0;
+  }
+
+  .compare__inner {
+    max-width: 52rem;
   }
 
   .projects-grid {
