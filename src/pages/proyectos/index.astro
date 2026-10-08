@@ -22,22 +22,6 @@ const description =
     </div>
   </header>
 
-  <section class="section compare">
-    <div class="container compare__inner">
-      <SectionTitle
-        title="Antes y después"
-        subtitle="Arrastra la barra para comparar el estado inicial y la reforma terminada."
-      />
-      <BeforeAfter
-        beforeSrc="/img/antes.jpg"
-        afterSrc="/img/despues.jpg"
-        beforeAlt="Patio antes de la reforma, con el suelo sin terminar"
-        afterAlt="Patio reformado, con pavimento de piedra y jardineras"
-        aspectRatio="4 / 3"
-      />
-    </div>
-  </section>
-
   <section class="section">
     <div class="container">
       <div class="projects-grid">
@@ -54,6 +38,22 @@ const description =
           ))
         }
       </div>
+    </div>
+  </section>
+
+  <section class="section compare">
+    <div class="container compare__inner">
+      <SectionTitle
+        title="Antes y después"
+        subtitle="Arrastra la barra para comparar el estado inicial y la reforma terminada."
+      />
+      <BeforeAfter
+        beforeSrc="/img/antes.jpg"
+        afterSrc="/img/despues.jpg"
+        beforeAlt="Patio antes de la reforma, con el suelo sin terminar"
+        afterAlt="Patio reformado, con pavimento de piedra y jardineras"
+        aspectRatio="4 / 3"
+      />
     </div>
   </section>
 </BaseLayout>
@@ -79,10 +79,6 @@ const description =
     margin: 0 0 1.5rem;
     line-height: 1.7;
     color: var(--color-muted);
-  }
-
-  .compare {
-    padding-bottom: 0;
   }
 
   .compare__inner {
