@@ -8,7 +8,7 @@ relatedSlugs:
   - ayudas-rehabilitacion-energetica-madrid-2026
   - subvenciones-next-generation-edificios
   - rehabilitacion-energetica-integral-guia
-image: 'https://images.unsplash.com/photo-1454165804603-c3d57bc86b40?w=1200&q=80'
+image: 'https://images.pexels.com/photos/8276181/pexels-photo-8276181.jpeg?auto=compress&cs=tinysrgb&w=1200'
 ---
 
 Una de las dudas más frecuentes en comunidades de propietarios y particulares es si la **rehabilitación en Madrid** tributa al IVA general (21%) o al tipo reducido (10%). La respuesta depende del tipo de inmueble, del destino de la obra y de cumplir determinados requisitos legales.

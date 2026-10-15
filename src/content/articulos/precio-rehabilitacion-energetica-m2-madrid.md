@@ -8,7 +8,7 @@ relatedSlugs:
   - que-es-sate-precio-madrid
   - rehabilitacion-energetica-integral-guia
   - ayudas-rehabilitacion-energetica-madrid-2026
-image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80'
+image: 'https://images.pexels.com/photos/5691675/pexels-photo-5691675.jpeg?auto=compress&cs=tinysrgb&w=1200'
 ---
 
 Una de las preguntas más habituales al plantear una obra es: **¿cuánto cuesta la rehabilitación energética por metro cuadrado en Madrid?** La respuesta depende del tipo de actuación, del estado del edificio y de si la intervención es parcial o integral.

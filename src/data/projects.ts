@@ -67,8 +67,8 @@ export const projects: Project[] = [
     serviceSlug: 'impermeabilizacion-madrid',
     excerpt: 'Renovación de impermeabilización en cubierta plana comunitaria.',
     image: {
-      src: 'https://images.pexels.com/photos/39238328/pexels-photo-39238328.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      alt: 'Operario instalando la impermeabilización de una cubierta plana',
+      src: '/img/cubierta-pozuelo.jpg',
+      alt: 'Cubierta plana con la lámina de impermeabilización colocada',
     },
   },
   {

@@ -7,7 +7,7 @@ serviceSlug: certificados-energeticos-madrid
 relatedSlugs:
   - rehabilitacion-energetica-integral-guia
   - ayudas-rehabilitacion-energetica-madrid-2026
-image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80'
+image: 'https://images.pexels.com/photos/4981774/pexels-photo-4981774.jpeg?auto=compress&cs=tinysrgb&w=1200'
 ---
 
 El **certificado energético** es un documento obligatorio en compraventa y alquiler de viviendas, pero también es una herramienta clave para planificar una **rehabilitación energética** en Madrid.

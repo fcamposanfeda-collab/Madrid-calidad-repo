@@ -8,7 +8,7 @@ relatedSlugs:
   - rehabilitar-fachada-comunidad-propietarios
   - cuando-impermeabilizar-cubierta-edificio
   - mantenimiento-cubiertas-comunidades
-image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80'
+image: 'https://images.pexels.com/photos/8961700/pexels-photo-8961700.jpeg?auto=compress&cs=tinysrgb&w=1200'
 ---
 
 La **Inspección Técnica de Edificios (ITE)** es un mecanismo de control del parque edificado que afecta a miles de inmuebles en Madrid. Cuando un edificio obtiene un informe desfavorable, la rehabilitación deja de ser una opción y pasa a ser una **necesidad urgente**.

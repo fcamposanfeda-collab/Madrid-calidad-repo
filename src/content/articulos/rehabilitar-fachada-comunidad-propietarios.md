@@ -7,7 +7,7 @@ serviceSlug: rehabilitacion-fachadas-madrid
 relatedSlugs:
   - que-es-sate-precio-madrid
   - trabajos-verticales-vs-andamio
-image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80'
+image: 'https://images.pexels.com/photos/38561968/pexels-photo-38561968.jpeg?auto=compress&cs=tinysrgb&w=1200'
 ---
 
 Rehabilitar la **fachada de una comunidad de propietarios** en Madrid es una de las obras más habituales en edificios de cierta antigüedad. Mejora la estética, la seguridad y, si se combina con aislamiento, el confort y el ahorro energético de todas las viviendas.

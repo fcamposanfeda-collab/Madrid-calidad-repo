@@ -47,13 +47,48 @@ const description =
         title="Antes y después"
         subtitle="Arrastra la barra para comparar el estado inicial y la reforma terminada."
       />
-      <BeforeAfter
-        beforeSrc="/img/antes.jpg"
-        afterSrc="/img/despues.jpg"
-        beforeAlt="Patio antes de la reforma, con el suelo sin terminar"
-        afterAlt="Patio reformado, con pavimento de piedra y jardineras"
-        aspectRatio="4 / 3"
-      />
+      <figure class="compare__item">
+        <figcaption>Reforma de patio</figcaption>
+        <BeforeAfter
+          beforeSrc="/img/antes.jpg"
+          afterSrc="/img/despues.jpg"
+          beforeAlt="Patio antes de la reforma, con el suelo sin terminar"
+          afterAlt="Patio reformado, con pavimento de piedra y jardineras"
+          aspectRatio="4 / 3"
+        />
+      </figure>
+      <figure class="compare__item">
+        <figcaption>Impermeabilización de cubierta</figcaption>
+        <BeforeAfter
+          beforeSrc="/img/cubierta-antes.jpg"
+          afterSrc="/img/cubierta-despues.jpg"
+          beforeAlt="Cubierta antes de impermeabilizar, con la lámina antigua y charcos"
+          afterAlt="Cubierta impermeabilizada, con la lámina nueva colocada"
+          aspectRatio="4 / 3"
+        />
+      </figure>
+      <div class="compare__pair">
+        <figure class="compare__item">
+          <figcaption>Rehabilitación de fachada</figcaption>
+          <BeforeAfter
+            beforeSrc="/img/fachada-antes.jpg"
+            afterSrc="/img/fachada-despues.jpg"
+            beforeAlt="Fachada antes de rehabilitar, con el revestimiento manchado y deteriorado"
+            afterAlt="Fachada rehabilitada, con el paramento pintado de blanco"
+            aspectRatio="3 / 4"
+          />
+        </figure>
+        <figure class="compare__item">
+          <figcaption>Pavimentación de acceso</figcaption>
+          <BeforeAfter
+            beforeSrc="/img/paso-antes.jpg"
+            afterSrc="/img/paso-despues.jpg"
+            beforeAlt="Acceso antes de pavimentar, con el suelo de tierra"
+            afterAlt="Acceso pavimentado con baldosa"
+            aspectRatio="3 / 4"
+          />
+        </figure>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -83,6 +118,48 @@ const description =
 
   .compare__inner {
     max-width: 52rem;
+  }
+
+  .compare__item {
+    margin: 0;
+  }
+
+  .compare__item + .compare__item {
+    margin-top: 2.75rem;
+  }
+
+  .compare__pair {
+    display: grid;
+    gap: 1.5rem 1.25rem;
+    margin-top: 2.75rem;
+  }
+
+  .compare__pair .compare__item,
+  .compare__pair .compare__item + .compare__item {
+    width: 100%;
+    max-width: 29rem;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .compare__pair {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+
+    .compare__pair .compare__item {
+      max-width: none;
+    }
+  }
+
+  .compare__item figcaption {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
   }
 
   .projects-grid {

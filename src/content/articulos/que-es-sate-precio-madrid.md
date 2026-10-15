@@ -7,7 +7,7 @@ serviceSlug: sate-madrid
 relatedSlugs:
   - rehabilitacion-energetica-integral-guia
   - ayudas-rehabilitacion-energetica-madrid-2026
-image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80'
+image: 'https://images.pexels.com/photos/5511085/pexels-photo-5511085.jpeg?auto=compress&cs=tinysrgb&w=1200'
 ---
 
 El **SATE** (Sistema de Aislamiento Térmico por el Exterior) es una de las soluciones más demandadas en la rehabilitación de edificios en Madrid. Permite mejorar la eficiencia energética sin reducir la superficie interior de las viviendas, algo especialmente valioso en comunidades de propietarios.

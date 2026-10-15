@@ -8,7 +8,7 @@ relatedSlugs:
   - ayudas-rehabilitacion-energetica-madrid-2026
   - iva-reducido-rehabilitacion-viviendas-madrid
   - subvenciones-next-generation-edificios
-image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80'
+image: 'https://images.pexels.com/photos/35345771/pexels-photo-35345771.jpeg?auto=compress&cs=tinysrgb&w=1200'
 ---
 
 Además de las subvenciones directas, los propietarios en Madrid pueden beneficiarse de la **deducción en el IRPF** por obras de mejora de la eficiencia energética de la vivienda habitual. Es un incentivo fiscal que reduce la cuota anual de la renta durante varios ejercicios.

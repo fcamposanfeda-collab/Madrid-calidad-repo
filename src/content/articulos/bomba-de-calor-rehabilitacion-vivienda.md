@@ -8,7 +8,7 @@ relatedSlugs:
   - rehabilitacion-energetica-integral-guia
   - certificado-energetico-rehabilitacion
   - ayudas-rehabilitacion-energetica-madrid-2026
-image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1200&q=80'
+image: 'https://images.pexels.com/photos/5463575/pexels-photo-5463575.jpeg?auto=compress&cs=tinysrgb&w=1200'
 ---
 
 La **bomba de calor** se ha convertido en la opción preferente para climatizar viviendas rehabilitadas en Madrid. Aprovecha la energía del aire exterior para calentar o enfriar el interior con un consumo eléctrico muy inferior al de sistemas tradicionales.
