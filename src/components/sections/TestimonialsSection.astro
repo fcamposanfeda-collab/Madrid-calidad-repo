@@ -1,41 +1,19 @@
 ---
 import Button from '../ui/Button.astro';
-import { testimonials, testimonialsIntro } from '../../data/testimonials';
-
-function stars(count: number) {
-  return '★'.repeat(count) + '☆'.repeat(5 - count);
-}
+import { testimonialsIntro } from '../../data/testimonials';
+import { contact } from '../../data/contact';
 ---
 
 <section class="testimonials section" aria-labelledby="testimonials-title">
   <div class="container">
     <header class="testimonials__header">
-      <p class="testimonials__rating" aria-label={testimonialsIntro.ratingLabel}>
-        <span aria-hidden="true">{stars(4)}</span>
-        {testimonialsIntro.ratingLabel}
-      </p>
       <h2 id="testimonials-title" class="testimonials__title">{testimonialsIntro.title}</h2>
       <p class="testimonials__subtitle">{testimonialsIntro.subtitle}</p>
     </header>
 
-    <div class="testimonials__grid">
-      {
-        testimonials.map((item) => (
-          <blockquote class="testimonials__card">
-            <p class="testimonials__quote">"{item.quote}"</p>
-            <footer class="testimonials__footer">
-              <cite class="testimonials__author">{item.author}</cite>
-              <span class="testimonials__meta">
-                {item.role} · {item.location}
-              </span>
-            </footer>
-          </blockquote>
-        ))
-      }
-    </div>
-
     <div class="testimonials__cta">
-      <Button href="/presupuestos" variant="primary">Solicitar presupuesto</Button>
+      <Button href={contact.mapsUrl} variant="primary">{testimonialsIntro.readLabel}</Button>
+      <Button href="/presupuestos" variant="outline">Solicitar presupuesto</Button>
     </div>
   </div>
 </section>
@@ -116,8 +94,11 @@ function stars(count: number) {
   }
 
   .testimonials__cta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
     margin-top: 2rem;
-    text-align: center;
   }
 
   @media (min-width: 768px) {

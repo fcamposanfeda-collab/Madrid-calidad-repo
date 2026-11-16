@@ -125,12 +125,59 @@
 
   type ConsentValue = 'accepted' | 'rejected';
 
+  const GA_ID = (import.meta.env.PUBLIC_GA_ID ?? '').trim();
+
+  type GtagWindow = Window & { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void; mccGaLoaded?: boolean };
+
+  /** Google Analytics 4: solo se carga tras aceptar cookies (DEC-05) */
   function loadAnalytics() {
-    // Google Analytics solo se cargará aquí tras consentimiento (DEC-05)
-    if (import.meta.env.PUBLIC_GA_ID) {
-      console.info('[cookies] Analytics consent granted. GA ID configured.');
-    }
+    const w = window as GtagWindow;
+    if (!GA_ID || w.mccGaLoaded) return;
+    w.mccGaLoaded = true;
+    w.dataLayer = w.dataLayer || [];
+    w.gtag = function gtag() {
+      // eslint-disable-next-line prefer-rest-params
+      w.dataLayer!.push(arguments);
+    };
+    w.gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted',
+    });
+    w.gtag('js', new Date());
+    w.gtag('config', GA_ID, { anonymize_ip: true });
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_ID)}`;
+    document.head.appendChild(script);
   }
+
+  /** Conversiones: clic en teléfono, clic en WhatsApp y envío de formularios */
+  function trackEvent(name: string, params: Record<string, string>) {
+    const w = window as GtagWindow;
+    if (typeof w.gtag === 'function') w.gtag('event', name, params);
+  }
+
+  function initConversionTracking() {
+    const w = window as GtagWindow & { mccTrackingReady?: boolean };
+    if (w.mccTrackingReady) return;
+    w.mccTrackingReady = true;
+    document.addEventListener('click', (event) => {
+      const link = (event.target as Element | null)?.closest?.('a[href]');
+      if (!(link instanceof HTMLAnchorElement)) return;
+      const href = link.getAttribute('href') ?? '';
+      const page = window.location.pathname;
+      if (href.startsWith('tel:')) trackEvent('click_llamada', { page });
+      else if (href.includes('wa.me/')) trackEvent('click_whatsapp', { page });
+    });
+    document.addEventListener('mcc:lead', (event) => {
+      const form = (event as CustomEvent<{ form?: string }>).detail?.form ?? 'formulario';
+      trackEvent('generate_lead', { form, page: window.location.pathname });
+    });
+  }
+
+  initConversionTracking();
 
   function setConsent(value: ConsentValue) {
     localStorage.setItem(STORAGE_KEY, value);

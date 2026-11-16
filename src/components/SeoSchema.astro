@@ -22,11 +22,20 @@ const schema = {
       image: site.ogImage,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: contact.address,
+        streetAddress: 'Paseo de la Castellana 40, 8º',
+        postalCode: '28046',
         addressLocality: 'Madrid',
+        addressRegion: 'Comunidad de Madrid',
         addressCountry: 'ES',
       },
       sameAs: [contact.instagram],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: contact.phone,
+        contactType: 'customer service',
+        areaServed: 'ES',
+        availableLanguage: 'es',
+      },
       areaServed: {
         '@type': 'City',
         name: 'Madrid',

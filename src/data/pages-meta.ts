@@ -1,8 +1,8 @@
 export const pagesMeta = {
   '/': {
-    title: 'Trabajos verticales en Madrid | Madrid Calidad Constructiva',
+    title: 'Empresa de reformas y rehabilitación en Madrid | Madrid Calidad',
     description:
-      'Trabajos verticales en Madrid: fachadas, cubiertas e impermeabilización en altura. Rehabilitación y reformas con presupuesto sin compromiso.',
+      'Reformas, rehabilitación de fachadas y cubiertas, SATE y trabajos verticales en Madrid. Gestionamos tus subvenciones. Presupuesto sin compromiso y WhatsApp.',
   },
   '/como-lo-hacemos': {
     title: 'Servicios de construcción en Madrid con calidad | Madrid Calidad Constructiva',
@@ -15,9 +15,9 @@ export const pagesMeta = {
       'Guías prácticas sobre rehabilitación energética, SATE, subvenciones Next Generation, reformas integrales, fachadas y cubiertas en Madrid. Consejos de expertos.',
   },
   '/contacto': {
-    title: 'Contacto Madrid Calidad Constructiva | Madrid Calidad Constructiva',
+    title: 'Contacto: teléfono y WhatsApp | Madrid Calidad Constructiva',
     description:
-      'Ponte en contacto con Madrid Calidad Constructiva para asesoría personalizada y servicios de construcción premium en Madrid.',
+      'Llámanos o escríbenos por WhatsApp al 694 24 40 40. Presupuestos de reformas y rehabilitación en Madrid sin compromiso.',
   },
   '/servicios': {
     title: 'Servicios de rehabilitación en Madrid | Madrid Calidad Constructiva',

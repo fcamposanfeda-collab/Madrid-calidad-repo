@@ -1,13 +1,13 @@
 ---
-import { contact } from '../../data/contact';
+import { contact, whatsappHref } from '../../data/contact';
 import { contactPageContent } from '../../data/page-content';
 
 const { welcomeTitle, welcomeText, actions, details } = contactPageContent;
 
 const actionLinks = {
-  phone: `tel:${contact.phoneCta}`,
+  phone: `tel:${contact.phone.replace(/\s/g, '')}`,
   email: `mailto:${contact.email}`,
-  maps: contact.mapsUrl,
+  whatsapp: whatsappHref('Hola, os escribo desde la web. Quiero información sobre una obra.'),
 } as const;
 ---
 
@@ -23,12 +23,12 @@ const actionLinks = {
       <span class="contact-info__action-label">{actions.email.label}</span>
     </a>
     <a
-      href={actionLinks.maps}
+      href={actionLinks.whatsapp}
       class="contact-info__action"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <span class="contact-info__action-label">{actions.visit.label}</span>
+      <span class="contact-info__action-label">{actions.whatsapp.label}</span>
     </a>
   </div>
 
