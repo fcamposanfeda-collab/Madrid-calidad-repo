@@ -6,8 +6,9 @@ const { welcomeTitle, welcomeText, actions, details } = contactPageContent;
 
 const actionLinks = {
   phone: `tel:${contact.phone.replace(/\s/g, '')}`,
-  email: `mailto:${contact.email}`,
   whatsapp: whatsappHref('Hola, os escribo desde la web. Quiero información sobre una obra.'),
+  email: `mailto:${contact.email}`,
+  maps: contact.mapsUrl,
 } as const;
 ---
 
@@ -19,16 +20,24 @@ const actionLinks = {
     <a href={actionLinks.phone} class="contact-info__action">
       <span class="contact-info__action-label">{actions.call.label}</span>
     </a>
-    <a href={actionLinks.email} class="contact-info__action">
-      <span class="contact-info__action-label">{actions.email.label}</span>
-    </a>
     <a
       href={actionLinks.whatsapp}
       class="contact-info__action"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <span class="contact-info__action-label">{actions.whatsapp.label}</span>
+      <span class="contact-info__action-label">WhatsApp</span>
+    </a>
+    <a href={actionLinks.email} class="contact-info__action">
+      <span class="contact-info__action-label">{actions.email.label}</span>
+    </a>
+    <a
+      href={actionLinks.maps}
+      class="contact-info__action"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="contact-info__action-label">{actions.visit.label}</span>
     </a>
   </div>
 

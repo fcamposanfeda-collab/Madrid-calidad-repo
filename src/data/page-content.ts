@@ -6,7 +6,7 @@ export const contactPageContent = {
   actions: {
     call: { label: 'Llámanos', key: 'phone' as const },
     email: { label: 'Escríbenos', key: 'email' as const },
-    whatsapp: { label: 'WhatsApp', key: 'whatsapp' as const },
+    visit: { label: 'Visítanos', key: 'maps' as const },
   },
   details: {
     phoneLabel: 'Teléfono',
