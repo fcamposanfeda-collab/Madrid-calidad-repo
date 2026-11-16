@@ -337,6 +337,9 @@ const serviceOptions = [
   import { formToJsonBody } from '../../utils/form-payload';
 
   function showStatus(form: HTMLFormElement, message: string, type: 'success' | 'error') {
+    if (type === 'success') {
+      document.dispatchEvent(new CustomEvent('mcc:lead', { detail: { form: form.id || 'QuoteForm' } }));
+    }
     const status = form.querySelector('[data-form-status]');
     if (!(status instanceof HTMLElement)) return;
     status.textContent = message;

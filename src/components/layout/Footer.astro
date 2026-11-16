@@ -1,7 +1,7 @@
 ---
 import { site } from '../../data/site';
 import { legalNav, footerServiceLinks } from '../../data/navigation';
-import { contact } from '../../data/contact';
+import { contact, whatsappHref } from '../../data/contact';
 ---
 
 <footer class="footer" aria-label="Pie de página">
@@ -25,6 +25,7 @@ import { contact } from '../../data/contact';
     <div class="footer__col">
       <h2 class="footer__title">Contacto</h2>
       <p><a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a></p>
+      <p><a href={whatsappHref()} target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
       <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
       <p>{contact.address}</p>
     </div>
