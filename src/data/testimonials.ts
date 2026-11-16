@@ -6,6 +6,6 @@
 export const testimonialsIntro = {
   title: 'Opiniones de nuestros clientes',
   subtitle:
-    'Somos una empresa joven y cada opinión cuenta. Lee lo que dicen nuestros clientes en Google y, si ya hemos trabajado juntos, deja la tuya: ayuda a otros vecinos a decidir.',
+    'Lee lo que dicen de nosotros comunidades y particulares en Google. Si ya hemos trabajado juntos, tu opinión ayuda a otros vecinos a decidir.',
   readLabel: 'Ver opiniones en Google',
 } as const;

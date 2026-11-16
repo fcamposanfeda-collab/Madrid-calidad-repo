@@ -1,10 +1,7 @@
-/**
- * Compromisos de servicio (no cifras de trayectoria).
- * Empresa de reciente creación: no publicar años, obras ni clientes que no sean reales y verificables.
- */
+/** Cifras orientativas — sustituir por datos reales cuando estén disponibles */
 export const trustStats = [
-  { value: 'Gratis', label: 'Visita y presupuesto' },
-  { value: '48 h', label: 'Presupuesto por escrito' },
-  { value: '1', label: 'Único interlocutor' },
-  { value: 'Por escrito', label: 'Garantía de cada trabajo' },
+  { value: '15+', label: 'Años de experiencia' },
+  { value: '120+', label: 'Proyectos completados' },
+  { value: '200+', label: 'Clientes atendidos' },
+  { value: '100%', label: 'Cobertura en Madrid' },
 ] as const;

@@ -1,8 +1,8 @@
 export const pagesMeta = {
   '/': {
-    title: 'Reformas e impermeabilización en Madrid | Madrid Calidad',
+    title: 'Empresa de reformas y rehabilitación en Madrid | Madrid Calidad',
     description:
-      'Reformas de pisos, cocinas y baños, impermeabilización, fontanería y carpintería en Madrid. Visita y presupuesto sin compromiso. Llama o escribe por WhatsApp.',
+      'Reformas, rehabilitación de fachadas y cubiertas, SATE y trabajos verticales en Madrid. Gestionamos tus subvenciones. Presupuesto sin compromiso y WhatsApp.',
   },
   '/como-lo-hacemos': {
     title: 'Servicios de construcción en Madrid con calidad | Madrid Calidad Constructiva',
